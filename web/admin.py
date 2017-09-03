@@ -10,6 +10,8 @@ from .models import (
     Order,
     OrderDrawing,
     PaymentMethod,
+    TextAbout,
+    TextAboutPhoto,
 )
 
 
@@ -71,3 +73,13 @@ class PaymentMethodAdmin(ModelAdmin):
 @register(Location)
 class LocationAdmin(ModelAdmin):
     pass
+
+
+class TextAboutPhotoAdmin(TabularInline):
+    model = TextAboutPhoto
+    fields = ('image', 'description', 'weight')
+
+
+@register(TextAbout)
+class TextAboutAdmin(ModelAdmin):
+    inlines = [TextAboutPhotoAdmin]

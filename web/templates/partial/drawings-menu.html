@@ -1,0 +1,17 @@
+{% url 'drawings' as url_drawings %}
+{% url 'drawings-sold' as url_drawings_sold %}
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a
+      class="nav-link{% if request.get_full_path == url_drawings %} active{% endif %}"
+      href="{{ url_drawings }}"
+    >K zakoupení</a>
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link{% if request.get_full_path == url_drawings_sold %} active{% endif %}"
+      href="{{ url_drawings_sold }}"
+    >Prodané</a>
+  </li>
+</ul>

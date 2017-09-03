@@ -1,0 +1,39 @@
+{% extends 'layout/structured.html' %}
+
+{% load thumbnail %}
+
+{% block title %}{{ drawing.name }}{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center">{{ drawing.name }}</h1>
+  <hr />
+
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-6 col-lg-8 text-center drawing-detail-image">
+        <img
+          class="img-fluid rounded-circle"
+          src="{% thumbnail drawing.image 600x600 crop %}"
+          alt="Náhled obrázku {{ drawing.name }}"
+        />
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Velikost: {{ drawing.size.name }}</li>
+            <li class="list-group-item">Prodejní cena: {{ price }} Kč</li>
+            <li class="list-group-item">Stav: {{ drawing.status }}</li>
+          </ul>
+        </div>
+
+        <a href="" class="btn btn-primary">
+          <span class="fa fa-fw fa-cart-plus"></span>
+          Přidat do košíku
+        </a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+
+{% block body %}
+  {% include 'partial/main-menu.html' %}
+
+  <div class="py-3">
+    {% block content %}
+    {% endblock %}
+  </div>
+{% endblock %}

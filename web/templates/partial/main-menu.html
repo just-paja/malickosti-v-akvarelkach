@@ -1,0 +1,47 @@
+{% url 'drawings' as url_drawings %}
+{% url 'events' as url_events %}
+{% url 'about' as url_about %}
+{% url 'contact' as url_contact %}
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button
+    class="navbar-toggler navbar-toggler-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarToggler"
+    aria-controls="navbarToggler"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'home' %}">Maličkosti v akvarelkách</a>
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a
+          class="nav-link{% if request.get_full_path == url_drawings %} active{% endif %}"
+          href="{{ url_drawings }}"
+        >Obrázky</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link{% if request.get_full_path == url_events %} active{% endif %}"
+          href="{{ url_events }}"
+        >Výstavy</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link{% if request.get_full_path == url_about %} active{% endif %}"
+          href="{{ url_about }}"
+        >O mně</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link{% if request.get_full_path == url_contact %} active{% endif %}"
+          href="{{ url_contact }}"
+        >Kontakt</a>
+      </li>
+    </ul>
+  </div>
+</nav>

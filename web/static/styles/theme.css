@@ -1,0 +1,31 @@
+.drawings {
+  pointer-events: none;
+}
+
+.drawing {
+  background: #f7f7f7;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.drawing-link {
+  pointer-events: all;
+  display: block;
+  opacity: .9;
+  margin-bottom: 1rem;
+  transition: opacity .2s linear;
+}
+
+.drawing-link:hover {
+  opacity: 1;
+}
+
+.drawings:hover .drawing-link:not(:hover) {
+  opacity: 0.5;
+}
+
+.drawing-detail-image {
+  background: #f7f7f7;
+  padding: 1rem;
+}

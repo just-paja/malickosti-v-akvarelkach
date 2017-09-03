@@ -54,7 +54,10 @@ class Drawing(TimeStampedModel):
 
     def get_active_price_level(self):
         now = datetime.now()
-        self.price_levels.filter(
-            Q(Q(valid_from__isnull=True) | Q(valid_from__gte=now)),
-            Q(Q(valid_until__isnull=True) | Q(valid_until__lte=now)),
+        return self.price_levels.filter(
+            (Q(valid_from__isnull=True) | Q(valid_from__gte=now)) &
+            (Q(valid_until__isnull=True) | Q(valid_until__lte=now)),
         ).order_by('-created').first()
+
+    def get_price(self):
+        return self.get_active_price_level().price
