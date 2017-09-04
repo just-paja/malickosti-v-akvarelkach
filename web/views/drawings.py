@@ -12,7 +12,7 @@ from ..models import (
 def view_drawings(request):
     drawings = Drawing.objects.filter(
         status__in=[DRAWING_STATUS_STORED, DRAWING_STATUS_RESERVED],
-    )
+    ).order_by('name', '-created')
     return render(request, 'drawings.html', {
         'drawings': drawings,
     })
