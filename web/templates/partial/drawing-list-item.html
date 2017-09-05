@@ -1,0 +1,21 @@
+{% load thumbnail %}
+
+<div class="col-12 drawing">
+  <a href="{% url 'drawings-detail' drawing.id %}" class="drawing-link">
+    <img
+      class="img-fluid rounded-circle"
+      src="{% thumbnail drawing.image 300x300 crop %}"
+      alt="Náhled obrázku {{ drawing.name }}"
+    />
+  </a>
+  <div class="drawing-info">
+    <ul class="list-unstyled">
+      <li>
+        <a href="{% url 'drawings-detail' drawing.id %}">{{drawing.name}}</a>
+      </li>
+      <li>
+        {% include 'partial/price.html' with price=drawing.get_price %}
+      </li>
+    </ul>
+  </div>
+</div>

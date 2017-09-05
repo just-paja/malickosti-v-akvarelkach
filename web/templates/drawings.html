@@ -1,7 +1,5 @@
 {% extends 'layout/structured.html' %}
 
-{% load thumbnail %}
-
 {% block title %}Obrázky{% endblock %}
 
 {% block content %}
@@ -16,18 +14,7 @@
       <div class="row drawings">
         {% for drawing in drawings %}
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="col-12 drawing">
-              <a href="{% url 'drawings-detail' drawing.id %}" class="drawing-link">
-                <img
-                  class="img-fluid rounded-circle"
-                  src="{% thumbnail drawing.image 300x300 crop %}"
-                  alt="Náhled obrázku {{ drawing.name }}"
-                />
-              </a>
-              <div class="drawing-info">
-                <a href="{% url 'drawings-detail' drawing.id %}">{{drawing.name}}</a>
-              </div>
-            </div>
+            {% include 'partial/drawing-list-item.html' %}
           </div>
         {% endfor %}
       </div>

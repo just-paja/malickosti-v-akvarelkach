@@ -4,6 +4,13 @@
 {% url 'contact' as url_contact %}
 
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <a
+    href="{% url 'cart' %}"
+    class="navbar-toggler navbar-toggler-right navbar-cart"
+  >
+    <span class="fa fa-shopping-cart"></span>
+    {{cart.itemCount}}
+  </a>
   <button
     class="navbar-toggler navbar-toggler-right"
     type="button"

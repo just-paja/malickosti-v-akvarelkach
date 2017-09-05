@@ -1,3 +1,14 @@
+.navbar-cart {
+  right: 80px;
+}
+
+@media screen and (min-width: 992px) {
+  .navbar .navbar-cart {
+    display: block;
+    right: 1rem;
+  }
+}
+
 .drawings {
   pointer-events: none;
 }
@@ -7,6 +18,10 @@
   text-align: center;
   padding: 1rem;
   margin-bottom: 1rem;
+}
+
+.drawing-info {
+  text-align: left;
 }
 
 .drawing-link {
@@ -28,4 +43,32 @@
 .drawing-detail-image {
   background: #f7f7f7;
   padding: 1rem;
+}
+
+.cart-drawing-list > li {
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-drawing-list > li:last-child {
+  border: none;
+}
+
+.cart-drawing-list .drawing {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.cart-drawing-list .drawing-link,
+.cart-drawing-list .drawing-info {
+  stretch: 1;
+}
+
+.cart-drawing-list .drawing-link {
+  margin-bottom: 0;
+  max-width: 80px;
+}
+
+.cart-drawing-list .drawing-info {
+  padding-left: 1.5rem;
 }

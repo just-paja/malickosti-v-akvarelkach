@@ -19,6 +19,8 @@ from django.contrib import admin
 from django.views.static import serve
 from web.views import (
     view_about,
+    view_cart,
+    view_cart_add_drawing,
     view_contact,
     view_drawings,
     view_drawings_detail,
@@ -38,7 +40,13 @@ urlpatterns = [
         view_drawings_detail,
         name='drawings-detail',
     ),
+    url(
+        r'^obrazky/(?P<id>[0-9]+)/pridat-do-kosiku$',
+        view_cart_add_drawing,
+        name='drawings-cart-add',
+    ),
     url(r'^udalosti$', view_events, name='events'),
+    url(r'^kosik$', view_cart, name='cart'),
     url(r'^admin/', admin.site.urls),
 ]
 

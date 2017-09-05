@@ -22,6 +22,10 @@ DRAWING_STATUS_CHOICES = (
     (DRAWING_STATUS_SOLD, _('Prodáno')),
 )
 
+DRAWING_AVAILABLE_STATES = [
+    DRAWING_STATUS_STORED,
+]
+
 
 class Drawing(TimeStampedModel):
     name = CharField(
