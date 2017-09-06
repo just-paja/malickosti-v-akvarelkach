@@ -21,3 +21,10 @@ class PaymentMethod(TimeStampedModel):
         default=0,
         help_text=_('This price will be added to Order in default currency'),
     )
+    weight = models.PositiveIntegerField(
+        default=0,
+        help_text=_('More weight, more priority'),
+    )
+
+    def __str__(self):
+        return self.name

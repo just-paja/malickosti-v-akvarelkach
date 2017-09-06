@@ -1,5 +1,6 @@
 from ..models import Drawing
 
+
 def get_cart(request):
     cart = request.session.get('cart', [])
     price = 0

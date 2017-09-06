@@ -13,7 +13,7 @@ from ..models import (
 def view_drawings(request):
     drawings = Drawing.objects.filter(
         status__in=[DRAWING_STATUS_STORED, DRAWING_STATUS_RESERVED],
-    ).order_by('name', '-created')
+    ).order_by('status', 'name', '-created')
     return render(request, 'drawings.html', {
         'drawings': drawings,
     })
@@ -35,8 +35,9 @@ def view_drawings_detail(request, id):
         raise Http404
 
     return render(request, 'drawings-detail.html', {
-        'drawing': drawing,
-        'price': drawing.get_price(),
         'available': drawing.status in DRAWING_AVAILABLE_STATES,
+        'drawing': drawing,
+        'in_cart': drawing.id in request.session.get('cart', []),
+        'price': drawing.get_price(),
         'status_text': drawing.get_status_display,
     })

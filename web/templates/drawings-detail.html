@@ -37,12 +37,35 @@
           </ul>
         </div>
 
-        {% if available %}
-          <a href="{% url 'drawings-cart-add' id=drawing.id %}" class="btn btn-primary">
-            <span class="fa fa-fw fa-cart-plus"></span>
-            Přidat do košíku
-          </a>
-        {% endif %}
+        <div class="py-3">
+          {% if available %}
+            {% if in_cart %}
+              <a
+                href="{% url 'cart-remove-drawing' id=drawing.id %}"
+                class="btn btn-danger"
+              >
+                <span class="fa fa-fw fa-times"></span>
+                Odebrat z košíku
+              </a>
+            {% else %}
+              <a
+                href="{% url 'drawings-cart-add' id=drawing.id %}"
+                class="btn btn-primary"
+              >
+                <span class="fa fa-fw fa-cart-plus"></span>
+                Přidat do košíku
+              </a>
+            {% endif %}
+          {% else %}
+            <a
+              href=""
+              class="btn btn-secondary"
+            >
+              <span class="fa fa-fw fa-repeat"></span>
+              Chci ho nakreslit znova
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>

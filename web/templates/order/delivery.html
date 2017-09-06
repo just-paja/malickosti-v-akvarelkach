@@ -1,0 +1,53 @@
+{% extends 'layout/structured.html' %}
+
+{% block title %}Košík{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center">Objednávka</h1>
+  <hr />
+
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-6">
+        <form action="{% url 'order-delivery' %}" method="post" class="mb-3">
+          {% csrf_token %}
+          <h2 class="mb-3">Způsob dopravy</h2>
+          <div class="card mb-4">
+            <ul class="list-group list-group-flush">
+              {% for delivery_method in delivery_methods %}
+                {% include 'order/method-radio.html' with input_name='delivery_method' item=delivery_method %}
+              {% endfor %}
+            </ul>
+          </div>
+
+          <h2 class="mb-3">Způsob platby</h2>
+          <div class="card mb-3">
+            <ul class="list-group list-group-flush">
+              {% for payment_method in payment_methods %}
+                {% include 'order/method-radio.html' with input_name='payment_method' item=payment_method %}
+              {% endfor %}
+            </ul>
+          </div>
+
+          <a href="{% url 'cart' %}" class="btn btn-warning">
+            <span class="fa fa-fw fa-chevron-left"></span>
+            Zpět
+          </a>
+          <button class="btn btn-primary float-right">
+            <span class="fa fa-fw fa-check"></span>
+            Pokračovat
+          </button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <h2 class="mb-3">V košíku</h2>
+        <div class="card cart-container">
+          {% include 'partial/cart-items.html' with price=price drawings=drawings %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

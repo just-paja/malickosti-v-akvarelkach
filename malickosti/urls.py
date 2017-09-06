@@ -21,6 +21,9 @@ from web.views import (
     view_about,
     view_cart,
     view_cart_add_drawing,
+    view_cart_purge,
+    view_cart_remove_drawing,
+    view_order_delivery,
     view_contact,
     view_drawings,
     view_drawings_detail,
@@ -45,7 +48,18 @@ urlpatterns = [
         view_cart_add_drawing,
         name='drawings-cart-add',
     ),
+    url(
+        r'^kosik/odebrat-obrazek/(?P<id>[0-9]+)$',
+        view_cart_remove_drawing,
+        name='cart-remove-drawing',
+    ),
+    url(
+        r'^kosik/objednavka/doruceni',
+        view_order_delivery,
+        name='order-delivery',
+    ),
     url(r'^udalosti$', view_events, name='events'),
+    url(r'^kosik/vyprazdnit$', view_cart_purge, name='cart-purge'),
     url(r'^kosik$', view_cart, name='cart'),
     url(r'^admin/', admin.site.urls),
 ]

@@ -1,0 +1,14 @@
+<li class="list-group-item form-check">
+  <label class="form-check-label">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="{{ input_name }}"
+      value="{{ item.id }}"
+    />
+    {{ item.name }}
+  </label>
+  <span class="form-check-price ml-auto">
+    {% include 'partial/price.html' with price=item.price %}
+  </span>
+</li>

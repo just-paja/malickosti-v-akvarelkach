@@ -1,0 +1,16 @@
+<ul class="list-group list-group-flush">
+  {% for drawing in drawings %}
+    <li class="list-group-item">
+      {% include 'partial/drawing-list-item.html' %}
+      <a
+        class="text-warning cart-remove"
+        href="{% url 'cart-remove-drawing' id=drawing.id %}"
+      >
+        <span class="fa fa-fw fa-times"></span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+<div class="card-block">
+  Celková cena: {% include 'partial/price.html' %}
+</div>
