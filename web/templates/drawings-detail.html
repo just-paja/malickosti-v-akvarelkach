@@ -22,16 +22,27 @@
       <div class="col-md-6 col-lg-4">
         <div class="card">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Velikost: {{ drawing.size.name }}</li>
-            <li class="list-group-item">Prodejní cena: {% include 'partial/price.html' with price=price %}</li>
-            <li class="list-group-item">Stav: {{ drawing.status }}</li>
+            <li class="list-group-item">
+              <span class="value-label">Velikost:&nbsp;</span>
+              {{ drawing.size.name }}
+            </li>
+            <li class="list-group-item">
+              <span class="value-label">Prodejní cena:&nbsp;</span>
+              {% include 'partial/price.html' with price=price %}
+            </li>
+            <li class="list-group-item{% if drawing.status == 2 %} text-warning{% endif %}{% if drawing.status == 3 %} text-danger{% endif %}">
+              <span class="value-label">Stav:&nbsp;</span>
+              {% include 'partial/status.html' with status=drawing.status status_text=status_text %}
+            </li>
           </ul>
         </div>
 
-        <a href="{% url 'drawings-cart-add' id=drawing.id %}" class="btn btn-primary">
-          <span class="fa fa-fw fa-cart-plus"></span>
-          Přidat do košíku
-        </a>
+        {% if available %}
+          <a href="{% url 'drawings-cart-add' id=drawing.id %}" class="btn btn-primary">
+            <span class="fa fa-fw fa-cart-plus"></span>
+            Přidat do košíku
+          </a>
+        {% endif %}
       </div>
     </div>
   </div>
