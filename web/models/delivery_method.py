@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
+from .visibility import VisibilityField
 
 class DeliveryMethod(TimeStampedModel):
     name = models.CharField(
@@ -26,6 +27,7 @@ class DeliveryMethod(TimeStampedModel):
         help_text=_('More weight, more priority'),
     )
     payment_methods = models.ManyToManyField('PaymentMethod')
+    visibility = VisibilityField()
 
     class Meta:
         verbose_name = _('Delivery Method')

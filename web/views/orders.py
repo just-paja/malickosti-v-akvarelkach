@@ -1,12 +1,11 @@
-from django.shortcuts import render, redirect
-from django.http import Http404
-from django.urls import reverse
+from django.shortcuts import render
 
 from ..forms import OrderDelivery
 from ..models import (
     Drawing,
     DeliveryMethod,
     PaymentMethod,
+    VISIBILITY_PUBLIC,
 )
 
 
@@ -31,12 +30,12 @@ def view_order_delivery(request):
 
     return render(request, 'order/delivery.html', {
         'added': 'pridano' in request.GET,
+        'delivery_methods': DeliveryMethod.objects.filter(visibility=VISIBILITY_PUBLIC),
         'drawings': drawings,
         'empty': len(drawings) == 0,
         'formset': formset,
+        'payment_methods': PaymentMethod.objects.filter(visibility=VISIBILITY_PUBLIC),
         'price': price,
         'purged': 'vyprazdneno' in request.GET,
         'removed': 'odebrano' in request.GET,
-        'payment_methods': PaymentMethod.objects.all(),
-        'delivery_methods': DeliveryMethod.objects.all(),
     })

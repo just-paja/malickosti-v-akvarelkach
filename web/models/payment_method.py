@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
+from .visibility import VisibilityField
 
 class PaymentMethod(TimeStampedModel):
     name = models.CharField(
@@ -25,6 +26,7 @@ class PaymentMethod(TimeStampedModel):
         default=0,
         help_text=_('More weight, more priority'),
     )
+    visibility = VisibilityField()
 
     def __str__(self):
         return self.name
