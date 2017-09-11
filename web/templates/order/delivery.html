@@ -8,6 +8,12 @@
   <hr />
 
   <div class="container py-3">
+    {% if formset.non_field_errors %}
+      <div class="alert alert-danger">
+        {{ formset.non_field_errors }}
+      </div>
+    {% endif %}
+
     <div class="row">
       <div class="col-md-6">
         <form action="{% url 'order-delivery' %}" method="post" class="mb-3">
@@ -16,7 +22,7 @@
           <div class="card mb-4">
             <ul class="list-group list-group-flush">
               {% for delivery_method in delivery_methods %}
-                {% include 'order/method-radio.html' with input_name='delivery_method' item=delivery_method %}
+                {% include 'order/method-radio.html' with input_name='delivery_method' item=delivery_method value=value_delivery_method %}
               {% endfor %}
             </ul>
           </div>
@@ -25,7 +31,7 @@
           <div class="card mb-3">
             <ul class="list-group list-group-flush">
               {% for payment_method in payment_methods %}
-                {% include 'order/method-radio.html' with input_name='payment_method' item=payment_method %}
+                {% include 'order/method-radio.html' with input_name='payment_method' item=payment_method value=value_payment_method %}
               {% endfor %}
             </ul>
           </div>

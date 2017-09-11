@@ -5,6 +5,7 @@
       type="radio"
       name="{{ input_name }}"
       value="{{ item.id }}"
+      {% if value == item.id %}checked{% endif %}
     />
     {{ item.name }}
   </label>
