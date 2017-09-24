@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'markdownify',
     'easy_thumbnails',
     'web',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,6 @@ ROOT_URLCONF = 'malickosti.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +71,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'malickosti.wsgi.application'
 
@@ -144,3 +145,7 @@ MARKDOWNIFY_WHITELIST_TAGS = [
     'h4',
     'h5',
 ]
+
+RECAPTCHA_PUBLIC_KEY = 'MyRecaptchaKey123'
+RECAPTCHA_PRIVATE_KEY = 'MyRecaptchaPrivateKey456'
+NOCAPTCHA = True

@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
-from ..forms import OrderDelivery
+from ..forms import OrderConfirm, OrderDelivery
 from ..models import (
     Drawing,
     DeliveryMethod,
+    Order,
     PaymentMethod,
-    VISIBILITY_PUBLIC,
+    DRAWING_STATUS_RESERVED,
 )
 
 
@@ -13,47 +15,94 @@ def get_cart(request):
     return request.session.get('cart', [])
 
 
+def get_order(request):
+    return request.session.get('order', {})
+
+
+def save_order(request, order, form_data):
+    order['delivery_method'] = form_data.get('delivery_method')
+    order['payment_method'] = form_data.get('payment_method')
+    order['customer_address'] = form_data.get('customer_address')
+    order['customer_name'] = form_data.get('customer_name')
+    order['customer_email'] = form_data.get('customer_email')
+    order['customer_phone'] = form_data.get('customer_phone')
+    request.session['order'] = order
+
+
 def view_order_delivery(request):
-    if request.method == 'POST':
-        formset = OrderDelivery(request.POST)
-        if formset.is_valid():
-            order = request.session.get('order', {})
-            order['delivery_method'] = formset.cleaned_data.get('delivery_method')
-            order['payment_method'] = formset.cleaned_data.get('payment_method')
-    else:
-        formset = OrderDelivery()
-
     cart = get_cart(request)
+    order = get_order(request)
+
+    if len(cart) == 0:
+        return redirect(reverse('cart'))
+
+    if request.method == 'POST':
+        form = OrderDelivery(request.POST)
+        if form.is_valid():
+            save_order(request, order, form.cleaned_data)
+            return redirect(reverse('order-confirm'))
+    else:
+        form = OrderDelivery(order)
+
     drawings = Drawing.objects.filter(id__in=cart).all()
-    price = 0
-
-    for drawing in drawings:
-        price += drawing.get_price()
-
-    delivery_method_default = DeliveryMethod.objects.filter(
-        visibility=VISIBILITY_PUBLIC,
-    ).order_by('weight').first()
-
-    payment_method_default = delivery_method_default.payment_methods.filter(
-        visibility=VISIBILITY_PUBLIC,
-    ).order_by('weight').first()
+    price = Drawing.objects.get_price(cart)
 
     return render(request, 'order/delivery.html', {
-        'added': 'pridano' in request.GET,
-        'delivery_methods': DeliveryMethod.objects.filter(visibility=VISIBILITY_PUBLIC),
-        'value_delivery_method': int(formset.data.get(
-            'delivery_method',
-            delivery_method_default.id
-        )),
-        'value_payment_method': int(formset.data.get(
-            'payment_method',
-            payment_method_default.id
-        )),
+        'delivery_methods': DeliveryMethod.objects.get_visible(),
         'drawings': drawings,
-        'empty': len(drawings) == 0,
-        'formset': formset,
-        'payment_methods': PaymentMethod.objects.filter(visibility=VISIBILITY_PUBLIC),
+        'form': form,
+        'form_data': form.get_values(order),
+        'payment_methods': PaymentMethod.objects.get_visible(),
         'price': price,
-        'purged': 'vyprazdneno' in request.GET,
-        'removed': 'odebrano' in request.GET,
+    })
+
+
+def view_order_confirm(request):
+    cart = get_cart(request)
+    order = get_order(request)
+
+    if len(cart) == 0:
+        return redirect(reverse('cart'))
+
+    drawings = Drawing.objects.filter(id__in=cart).all()
+    delivery_method = DeliveryMethod.objects.get(
+        id=order.get('delivery_method'),
+    )
+    payment_method = delivery_method.payment_methods.get(
+        id=order.get('payment_method')
+    )
+    price = (
+        Drawing.objects.get_price(cart) +
+        delivery_method.price +
+        payment_method.price
+    )
+
+    if request.method == 'POST':
+        form = OrderConfirm(request.POST)
+        if form.is_valid():
+            order_saved = Order.objects.create(
+                address=order['customer_address'],
+                buyer=order['customer_name'],
+                delivery=delivery_method,
+                email=order['customer_email'],
+                payment=payment_method,
+                phone=order['customer_phone'],
+                price=price,
+            )
+
+            for drawing in drawings:
+                order_saved.items.create(drawing=drawing)
+                drawing.status = DRAWING_STATUS_RESERVED
+                drawing.save()
+            request.session['cart'] = []
+    else:
+        form = OrderConfirm()
+
+    return render(request, 'order/confirm.html', {
+        'delivery_method': delivery_method,
+        'drawings': drawings,
+        'form': form,
+        'order': order,
+        'payment_method': payment_method,
+        'price': price,
     })

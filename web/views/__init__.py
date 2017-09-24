@@ -13,7 +13,10 @@ from .drawings import (
 )
 from .events import view_events
 from .home import view_home
-from .orders import view_order_delivery
+from .orders import (
+    view_order_confirm,
+    view_order_delivery,
+)
 
 __all__ = (
     view_about,
@@ -27,5 +30,6 @@ __all__ = (
     view_drawings_sold,
     view_events,
     view_home,
+    view_order_confirm,
     view_order_delivery,
 )

@@ -22,8 +22,10 @@ class Order(TimeStampedModel):
     buyer = models.CharField(max_length=255)
     email = models.EmailField()
     phone = models.CharField(max_length=63)
+    address = models.CharField(max_length=63)
     delivery = models.ForeignKey('DeliveryMethod')
     payment = models.ForeignKey('PaymentMethod')
+    price = models.PositiveIntegerField()
     status = models.PositiveIntegerField(
         choices=ORDER_STATUS_CHOICES,
         default=ORDER_STATUS_NEW,

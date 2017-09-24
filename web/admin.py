@@ -22,6 +22,9 @@ class DrawingRelationshipAdmin(TabularInline):
 
 class OrderDrawingAdmin(TabularInline):
     model = OrderDrawing
+    readonly_fields = (
+        'drawing',
+    )
 
 
 @register(Drawing)
@@ -33,6 +36,11 @@ class DrawingAdmin(ModelAdmin):
         'status',
         'image',
         'price_levels',
+    )
+    list_display = (
+        'name',
+        'size',
+        'status',
     )
     readonly_fields = (
         'image_height',
@@ -48,27 +56,58 @@ class EventAdmin(ModelAdmin):
 @register(Order)
 class OrderAdmin(ModelAdmin):
     inlines = [OrderDrawingAdmin]
+    list_display = (
+        'buyer',
+        'status',
+        'price',
+        'delivery',
+        'modified',
+    )
+    readonly_fields = (
+        'buyer',
+        'price',
+        'email',
+        'phone',
+    )
 
 
 @register(DrawingPriceLevel)
 class DrawingPriceLevelAdmin(ModelAdmin):
-    pass
+    list_display = (
+        'name',
+        'price',
+        'valid_from',
+        'valid_until',
+    )
 
 
 @register(DrawingSize)
 class DrawingSizeAdmin(ModelAdmin):
-    pass
+    list_display = (
+        'name',
+        'size_horizontal',
+        'size_vertical',
+    )
 
 
 @register(DeliveryMethod)
 class DeliveryMethodAdmin(ModelAdmin):
-    pass
+    list_display = (
+        'name',
+        'price',
+        'weight',
+        'visibility',
+    )
 
 
 @register(PaymentMethod)
 class PaymentMethodAdmin(ModelAdmin):
-    pass
-
+    list_display = (
+        'name',
+        'price',
+        'weight',
+        'visibility',
+    )
 
 @register(Location)
 class LocationAdmin(ModelAdmin):

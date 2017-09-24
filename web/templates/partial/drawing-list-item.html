@@ -13,9 +13,16 @@
       <li>
         <a href="{% url 'drawings-detail' drawing.id %}">{{drawing.name}}</a>
       </li>
-      <li>
-        {% include 'partial/price.html' with price=drawing.get_price %}
-      </li>
+      {% if display_price or drawing.is_price_visible %}
+        <li>
+          {% include 'partial/price.html' with price=drawing.get_price %}
+        </li>
+      {% endif %}
+      {% if drawing.is_status_visible %}
+        <li>
+          {% include 'partial/status.html' with status=drawing.status status_text=drawing.get_status_display %}
+        </li>
+      {% endif %}
     </ul>
   </div>
 </div>

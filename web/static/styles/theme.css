@@ -1,17 +1,18 @@
 body {
-  min-width: 375px;
+  min-width: 360px;
 }
 
-.navbar-cart {
-  display: block;
-  padding: 0.45em;
-  right: 80px;
+address:last-child {
+  margin-bottom: 0;
 }
 
-@media screen and (min-width: 992px) {
-  .navbar .navbar-cart {
-    display: block;
-    right: 1rem;
+@media screen and (min-width: 768px) {
+  .navbar-nav {
+    flex-grow: 1;
+  }
+
+  .nav-cart {
+    margin-left: auto;
   }
 }
 
@@ -27,6 +28,7 @@ body {
 }
 
 .drawing-info {
+  pointer-events: all;
   text-align: left;
 }
 
@@ -77,9 +79,21 @@ body {
   padding-left: 1.5rem;
 }
 
+.cart-container .drawing-info-no-image {
+  padding-left: 0;
+}
+
 .cart-container .cart-remove {
   position: absolute;
   right: 1rem;
   top: 30px;
   font-size: 200%;
+}
+
+.form-check {
+  display: flex;
+}
+
+.form-group.is-invalid .invalid-feedback {
+  display: block;
 }

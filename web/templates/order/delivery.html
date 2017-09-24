@@ -8,21 +8,24 @@
   <hr />
 
   <div class="container py-3">
-    {% if formset.non_field_errors %}
-      <div class="alert alert-danger">
-        {{ formset.non_field_errors }}
-      </div>
-    {% endif %}
+    {% include 'partial/form-errors.html' with form=form %}
 
     <div class="row">
       <div class="col-md-6">
         <form action="{% url 'order-delivery' %}" method="post" class="mb-3">
           {% csrf_token %}
+          <h2 class="mb-3">Doručovací údaje</h2>
+
+          {% include 'partial/form-field.html' with field=form.customer_name %}
+          {% include 'partial/form-field.html' with field=form.customer_email %}
+          {% include 'partial/form-field.html' with field=form.customer_phone %}
+          {% include 'partial/form-field.html' with field=form.customer_address %}
+
           <h2 class="mb-3">Způsob dopravy</h2>
           <div class="card mb-4">
             <ul class="list-group list-group-flush">
               {% for delivery_method in delivery_methods %}
-                {% include 'order/method-radio.html' with input_name='delivery_method' item=delivery_method value=value_delivery_method %}
+                {% include 'order/method-radio.html' with input_name='delivery_method' item=delivery_method value=form_data.delivery_method %}
               {% endfor %}
             </ul>
           </div>
@@ -31,7 +34,7 @@
           <div class="card mb-3">
             <ul class="list-group list-group-flush">
               {% for payment_method in payment_methods %}
-                {% include 'order/method-radio.html' with input_name='payment_method' item=payment_method value=value_payment_method %}
+                {% include 'order/method-radio.html' with input_name='payment_method' item=payment_method value=form_data.payment_method %}
               {% endfor %}
             </ul>
           </div>
@@ -46,11 +49,10 @@
           </button>
         </form>
       </div>
-
       <div class="col-md-6">
         <h2 class="mb-3">V košíku</h2>
         <div class="card cart-container">
-          {% include 'partial/cart-items.html' with price=price drawings=drawings %}
+          {% include 'partial/cart-items.html' with display_price=True price=price drawings=drawings %}
         </div>
       </div>
     </div>

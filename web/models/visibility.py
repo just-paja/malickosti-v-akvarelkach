@@ -24,3 +24,8 @@ class VisibilityField(models.PositiveIntegerField):
             choices=VISIBILITY_CHOICES,
             default=VISIBILITY_PUBLIC,
         )
+
+
+class VisibilityManager(models.Manager):
+    def get_visible(self):
+        return self.filter(visibility=VISIBILITY_PUBLIC)

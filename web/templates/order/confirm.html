@@ -1,0 +1,53 @@
+{% extends 'layout/structured.html' %}
+
+{% block title %}Košík{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center">Dokončení objednávky</h1>
+  <hr />
+
+  <div class="container py-3">
+    {% include 'partial/form-errors.html' with form=form %}
+
+    <h2 class="mb-3">Objednávka</h2>
+    <div class="card cart-container">
+      {% include 'partial/cart-items.html' with display_price=True price=price drawings=drawings delivery_method=delivery_method payment_method=payment_method %}
+
+      <div class="card-body">
+        <h3>Doručovací údaje</h3>
+        <address>
+          <strong>{{order.customer_name}}</strong><br />
+          {{order.customer_address}}<br /><br />
+
+          E-mail: {{order.customer_email}}<br />
+          Telefon: {{order.customer_phone}}
+        </address>
+      </div>
+
+      <form action="{% url 'order-confirm' %}" method="post">
+        {% csrf_token %}
+
+        <div class="card-body">
+          {% include 'partial/form-checkbox.html' with field=form.confirm_personal %}
+          {% include 'partial/form-checkbox.html' with field=form.confirm_rules %}
+          {% if form.captcha.required %}
+            {{form.captcha}}
+          {% endif %}
+        </div>
+
+        <div class="card-footer">
+          <a href="{% url 'order-delivery' %}" class="btn btn-warning">
+            <span class="fa fa-fw fa-chevron-left"></span>
+            Zpět
+          </a>
+          <button type="submit" class="btn btn-primary float-right">
+            <span class="fa fa-fw fa-check"></span>
+            Závazně potvrdit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

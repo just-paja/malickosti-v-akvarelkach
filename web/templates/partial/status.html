@@ -1,1 +1,1 @@
-<span class="status">{{status_text}}</span>
+<span class="status{% if status == 2 %} text-warning{% endif %}{% if status == 3 %} text-danger{% endif %}">{{status_text}}</span>

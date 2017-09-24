@@ -2,15 +2,45 @@
   {% for drawing in drawings %}
     <li class="list-group-item">
       {% include 'partial/drawing-list-item.html' %}
-      <a
-        class="text-warning cart-remove"
-        href="{% url 'cart-remove-drawing' id=drawing.id %}"
-      >
-        <span class="fa fa-fw fa-times"></span>
-      </a>
+      {% if show_controls %}
+        <a
+          class="text-warning cart-remove"
+          href="{% url 'cart-remove-drawing' id=drawing.id %}"
+        >
+          <span class="fa fa-fw fa-times"></span>
+        </a>
+      {% endif %}
     </li>
   {% endfor %}
+  {% if delivery_method %}
+    <li class="list-group-item">
+      <div class="drawing-info drawing-info-no-image">
+        <ul class="list-unstyled">
+          <li>
+            Způsob dopravy: {{delivery_method.name}}</a>
+          </li>
+          <li>
+            {% include 'partial/price.html' with price=delivery_method.price %}
+          </li>
+        </ul>
+      </div>
+    </li>
+  {% endif %}
+  {% if payment_method %}
+    <li class="list-group-item">
+      <div class="drawing-info drawing-info-no-image">
+        <ul class="list-unstyled">
+          <li>
+            Způsob platby: {{payment_method.name}}</a>
+          </li>
+          <li>
+            {% include 'partial/price.html' with price=payment_method.price %}
+          </li>
+        </ul>
+      </div>
+    </li>
+  {% endif %}
 </ul>
-<div class="card-block">
+<div class="card-body">
   Celková cena: {% include 'partial/price.html' %}
 </div>

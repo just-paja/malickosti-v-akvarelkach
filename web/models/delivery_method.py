@@ -3,9 +3,16 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
-from .visibility import VisibilityField
+from .visibility import VisibilityField, VisibilityManager
+
+
+class DeliveryMethodManager(VisibilityManager):
+    def get_default(self):
+        return self.get_visible().order_by('weight').first()
+
 
 class DeliveryMethod(TimeStampedModel):
+    objects = DeliveryMethodManager()
     name = models.CharField(
         max_length=255,
         help_text=_(
@@ -35,3 +42,6 @@ class DeliveryMethod(TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    def get_default_payment(self):
+        return self.payment_methods.get_visible().order_by('weight').first()

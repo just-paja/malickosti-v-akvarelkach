@@ -3,9 +3,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
-from .visibility import VisibilityField
+from .visibility import VisibilityField, VisibilityManager
+
 
 class PaymentMethod(TimeStampedModel):
+    objects = VisibilityManager()
     name = models.CharField(
         max_length=255,
         help_text=_(

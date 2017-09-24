@@ -1,13 +1,16 @@
 <li class="list-group-item form-check">
-  <label class="form-check-label">
+  <label class="form-check-label custom-control custom-radio">
     <input
-      class="form-check-input"
+      class="form-check-input custom-control-input"
       type="radio"
       name="{{ input_name }}"
       value="{{ item.id }}"
       {% if value == item.id %}checked{% endif %}
     />
-    {{ item.name }}
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description">
+      {{ item.name }}
+    </span>
   </label>
   <span class="form-check-price ml-auto">
     {% include 'partial/price.html' with price=item.price %}

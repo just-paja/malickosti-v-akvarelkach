@@ -39,5 +39,4 @@ def view_drawings_detail(request, id):
         'drawing': drawing,
         'in_cart': drawing.id in request.session.get('cart', []),
         'price': drawing.get_price(),
-        'status_text': drawing.get_status_display,
     })

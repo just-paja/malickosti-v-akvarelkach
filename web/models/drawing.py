@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db.models import (
     CharField,
     ForeignKey,
+    Manager,
     PositiveIntegerField,
     ImageField,
     ManyToManyField,
@@ -27,7 +28,21 @@ DRAWING_AVAILABLE_STATES = [
 ]
 
 
+class DrawingManager(Manager):
+    def get_available(self):
+        return self.filter(status__in=DRAWING_AVAILABLE_STATES)
+
+    def get_price(self, ids):
+        drawings = self.filter(id__in=ids).all()
+        price = 0
+        for drawing in drawings:
+            price += drawing.get_price()
+
+        return price
+
+
 class Drawing(TimeStampedModel):
+    objects = DrawingManager()
     name = CharField(
         max_length=255,
         help_text=_(
@@ -65,3 +80,9 @@ class Drawing(TimeStampedModel):
 
     def get_price(self):
         return self.get_active_price_level().price
+
+    def is_price_visible(self):
+        return self.status in DRAWING_AVAILABLE_STATES
+
+    def is_status_visible(self):
+        return self.status not in DRAWING_AVAILABLE_STATES

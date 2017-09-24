@@ -15,10 +15,7 @@ def get_cart(request):
 def view_cart(request):
     cart = get_cart(request)
     drawings = Drawing.objects.filter(id__in=cart).all()
-    price = 0
-
-    for drawing in drawings:
-        price += drawing.get_price()
+    price = Drawing.objects.get_price(cart)
 
     return render(request, 'cart.html', {
         'added': 'pridano' in request.GET,

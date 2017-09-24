@@ -26,13 +26,15 @@
               <span class="value-label">Velikost:&nbsp;</span>
               {{ drawing.size.name }}
             </li>
+            {% if drawing.is_price_visible %}
+              <li class="list-group-item">
+                <span class="value-label">Prodejní cena:&nbsp;</span>
+                {% include 'partial/price.html' with price=price %}
+              </li>
+            {% endif %}
             <li class="list-group-item">
-              <span class="value-label">Prodejní cena:&nbsp;</span>
-              {% include 'partial/price.html' with price=price %}
-            </li>
-            <li class="list-group-item{% if drawing.status == 2 %} text-warning{% endif %}{% if drawing.status == 3 %} text-danger{% endif %}">
               <span class="value-label">Stav:&nbsp;</span>
-              {% include 'partial/status.html' with status=drawing.status status_text=status_text %}
+              {% include 'partial/status.html' with status=drawing.status status_text=drawing.get_status_display %}
             </li>
           </ul>
         </div>
@@ -40,12 +42,22 @@
         <div class="py-3">
           {% if available %}
             {% if in_cart %}
+              <p class="text-muted">
+                Tento obrázek máte v tuto chvíli v nákupním košíku.
+              </p>
               <a
                 href="{% url 'cart-remove-drawing' id=drawing.id %}"
                 class="btn btn-danger"
               >
                 <span class="fa fa-fw fa-times"></span>
                 Odebrat z košíku
+              </a>
+              <a
+                href="{% url 'cart' %}"
+                class="btn btn-secondary"
+              >
+                <span class="fa fa-fw fa-shopping-cart"></span>
+                Přejít do košíku
               </a>
             {% else %}
               <a
