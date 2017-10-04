@@ -1,0 +1,31 @@
+{% extends 'layout/structured.html' %}
+
+{% load event_dates %}
+{% load thumbnail %}
+{% load markdownify %}
+
+{% block title %}{{event.name}}{% endblock %}
+
+{% block content %}
+  <h1 class="text-center">{{event.name}}</h1>
+  <hr />
+
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ event | event_date}}</li>
+            <li class="list-group-item">{% include 'partial/location.html' with location=event.location %}</li>
+          </ul>
+        </div>
+        {{event.description | markdownify}}
+      </div>
+      <div class="col-md-6">
+        {% for photo in photos %}
+          <img class="img-thumbnail img-fluid mb-2" src="{% thumbnail photo.image 400x400 %}" alt="" />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

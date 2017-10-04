@@ -3,6 +3,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
+from .text_photo import TextPhoto
+from .visibility import VisibilityField, VisibilityManager
+
 EVENT_TYPE_EXPOSITION = 1
 EVENT_TYPE_VERNISSAGE = 2
 
@@ -13,6 +16,7 @@ EVENT_TYPE_CHOICES = (
 
 
 class Event(TimeStampedModel):
+    objects = VisibilityManager()
     name = models.CharField(
         max_length=255,
         help_text=_(
@@ -24,10 +28,9 @@ class Event(TimeStampedModel):
         default=EVENT_TYPE_EXPOSITION,
         verbose_name=_('Type'),
     )
-    start_date = models.DateField()
-    start_time = models.TimeField(null=True, blank=True)
-    end_date = models.DateField()
-    end_time = models.TimeField(null=True, blank=True)
+    start = models.DateTimeField()
+    end = models.DateTimeField(null=True, blank=True)
+    all_day = models.BooleanField(default=False)
     location = models.ForeignKey('Location')
     description = models.TextField(
         help_text=_(
@@ -35,6 +38,7 @@ class Event(TimeStampedModel):
             You can format the text in Markdown'
         ),
     )
+    visibility = VisibilityField()
 
     class Meta:
         verbose_name = _('Event')
@@ -48,3 +52,7 @@ class Event(TimeStampedModel):
             if choice[0] == self.event_type:
                 return choice[1]
         return ''
+
+
+class EventPhoto(TextPhoto):
+    event = models.ForeignKey(Event, related_name='photos')

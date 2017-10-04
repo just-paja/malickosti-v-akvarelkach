@@ -1,0 +1,36 @@
+{% extends 'layout/structured.html' %}
+
+{% block title %}Výstavy{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center">Výstavy</h1>
+  <hr />
+
+  {% include 'events/menu.html' %}
+
+  <div class="container py-3">
+    {% if vernissages or expositions %}
+      {% if vernissages %}
+        <div class="mb-3">
+          <h2 class="mb-3">Vernisáže</h2>
+          {% for event in vernissages %}
+            {% include 'events/list-item.html' with event=event %}
+          {% endfor %}
+        </div>
+
+        <h2 class="mb-3">Expozice</h2>
+      {% endif %}
+
+      {% for event in expositions %}
+        {% include 'events/list-item.html' with event=event %}
+      {% endfor %}
+    {% else %}
+      <div class="alert alert-info">
+        <span class="fa fa-info-circle"></span>
+        V tuto chvíli nejsou vyhlášené žádné výstavy. Můžete se podívat do <a href="{% url 'events-archive' %}">archívu výstav</a>.
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

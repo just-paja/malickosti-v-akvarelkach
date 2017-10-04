@@ -1,0 +1,17 @@
+{% url 'events' as url_events %}
+{% url 'events-archive' as url_events_archive %}
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a
+      class="nav-link{% if request.get_full_path == url_events %} active{% endif %}"
+      href="{{ url_events }}"
+    >Aktuálně</a>
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link{% if request.get_full_path == url_events_archive %} active{% endif %}"
+      href="{{ url_events_archive }}"
+    >Archív</a>
+  </li>
+</ul>

@@ -97,3 +97,7 @@ address:last-child {
 .form-group.is-invalid .invalid-feedback {
   display: block;
 }
+
+.location-detail {
+  font-size: 75%;
+}

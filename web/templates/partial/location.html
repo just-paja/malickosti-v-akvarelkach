@@ -1,0 +1,11 @@
+{% if location %}
+  {{location.name}}<br />
+  <div class="location-detail">
+    {{location.address}}
+    {% if location.website %}
+      <br />
+      <a href="{{location.website}}">{{location.website}}</a>
+    {% endif %}
+  </div>
+
+{% endif %}

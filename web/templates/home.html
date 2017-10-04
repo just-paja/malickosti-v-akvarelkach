@@ -1,20 +1,42 @@
 {% extends 'layout/structured.html' %}
 
+{% load event_dates %}
+
 {% block content %}
 
 <div class="container">
-  <div class="cart-container">
-    <h2 class="mb-3">Nejnovější obrázky</h2>
-    {% if latest_drawings %}
-      {% for drawing in latest_drawings %}
-        {% include 'partial/drawing-list-item.html' with drawing=drawing %}
-      {% endfor %}
-    {% else %}
-      <div class="alert alert-info">
-        V tuhle chvíli nejsou dostupné žádné nové obrázky k prodeji. Mrkněte se do
-        <a href="{% url 'drawings' %}">Galerie</a>
-      </div>
-    {% endif %}
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="mb-3">Nejnovější události</h2>
+      {% if latest_events %}
+        <ul class="list-unstyled">
+          {% for event in latest_events %}
+            <li class="list-item">
+              <a href="{% url 'events-detail' event.id %}">{{event.get_type_name}}: {{event.name}}</a> |
+              {{ event | event_date}}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="alert alert-info">
+          <span class="fa fa-info-circle"></span>
+          V tuto chvíli nejsou vyhlášené žádné výstavy. Můžete se podívat do <a href="{% url 'events-archive' %}">archívu výstav</a>.
+        </div>
+      {% endif %}
+    </div>
+    <div class="col-md-6 cart-container">
+      <h2 class="mb-3">Nejnovější obrázky</h2>
+      {% if latest_drawings %}
+        {% for drawing in latest_drawings %}
+          {% include 'partial/drawing-list-item.html' with drawing=drawing %}
+        {% endfor %}
+      {% else %}
+        <div class="alert alert-info">
+          V tuhle chvíli nejsou dostupné žádné nové obrázky k prodeji. Mrkněte se do
+          <a href="{% url 'drawings' %}">Galerie</a>
+        </div>
+      {% endif %}
+    </div>
   </div>
 </div>
 

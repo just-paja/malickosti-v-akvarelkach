@@ -6,6 +6,7 @@ from .models import (
     DrawingRelationship,
     DrawingSize,
     Event,
+    EventPhoto,
     Location,
     Order,
     OrderDrawing,
@@ -13,6 +14,10 @@ from .models import (
     TextAbout,
     TextAboutPhoto,
 )
+
+
+class PhotoAdmin(TabularInline):
+    fields = ('image', 'description', 'weight')
 
 
 class DrawingRelationshipAdmin(TabularInline):
@@ -48,9 +53,13 @@ class DrawingAdmin(ModelAdmin):
     )
 
 
+class EventPhotoAdmin(PhotoAdmin):
+    model = EventPhoto
+
+
 @register(Event)
 class EventAdmin(ModelAdmin):
-    pass
+    inlines = [EventPhotoAdmin]
 
 
 @register(Order)
@@ -114,9 +123,8 @@ class LocationAdmin(ModelAdmin):
     pass
 
 
-class TextAboutPhotoAdmin(TabularInline):
+class TextAboutPhotoAdmin(PhotoAdmin):
     model = TextAboutPhoto
-    fields = ('image', 'description', 'weight')
 
 
 @register(TextAbout)

@@ -1,0 +1,25 @@
+{% extends 'layout/structured.html' %}
+
+{% block title %}Archív výstav{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center">Archív výstav</h1>
+  <hr />
+
+  {% include 'events/menu.html' %}
+
+  <div class="container py-3">
+    {% if events %}
+      {% for event in events %}
+        {% include 'events/list-item.html' with event=event %}
+      {% endfor %}
+    {% else %}
+      <div class="alert alert-info">
+        <span class="fa fa-info-circle"></span>
+        Archív je bohužel prázdný.
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

@@ -9,7 +9,12 @@ from .drawing import (
 from .drawing_price_level import DrawingPriceLevel
 from .drawing_relationship import DrawingRelationship
 from .drawing_size import DrawingSize
-from .event import Event
+from .event import (
+    Event,
+    EventPhoto,
+    EVENT_TYPE_EXPOSITION,
+    EVENT_TYPE_VERNISSAGE,
+)
 from .location import Location
 from .order import Order
 from .order_drawing import OrderDrawing
@@ -25,6 +30,7 @@ __all__ = (
     DrawingRelationship,
     DrawingSize,
     Event,
+    EventPhoto,
     Location,
     Order,
     OrderDrawing,
@@ -35,6 +41,8 @@ __all__ = (
     DRAWING_STATUS_STORED,
     DRAWING_STATUS_RESERVED,
     DRAWING_STATUS_SOLD,
+    EVENT_TYPE_EXPOSITION,
+    EVENT_TYPE_VERNISSAGE,
     VISIBILITY_PUBLIC,
     VISIBILITY_PRIVATE,
 )

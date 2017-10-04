@@ -30,6 +30,8 @@ from web.views import (
     view_drawings_detail,
     view_drawings_sold,
     view_events,
+    view_events_archive,
+    view_events_detail,
     view_home,
 )
 
@@ -64,7 +66,9 @@ urlpatterns = [
         view_order_confirm,
         name='order-confirm',
     ),
-    url(r'^udalosti$', view_events, name='events'),
+    url(r'^vystavy$', view_events, name='events'),
+    url(r'^vystavy/archiv$', view_events_archive, name='events-archive'),
+    url(r'^vystavy/(?P<id>[0-9]+)$', view_events_detail, name='events-detail'),
     url(r'^kosik/vyprazdnit$', view_cart_purge, name='cart-purge'),
     url(r'^kosik$', view_cart, name='cart'),
     url(r'^admin/', admin.site.urls),

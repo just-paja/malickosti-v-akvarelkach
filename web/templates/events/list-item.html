@@ -1,0 +1,9 @@
+{% load event_dates %}
+<div class="card">
+  <div class="card-body">
+    <a href="{% url 'events-detail' event.id %}"><strong>{{event.name}}</strong></a><br />
+    {{ event.get_type_name }}<br />
+    {{ event | event_date}}<br />
+    {{ event.location.name }}
+  </div>
+</div>
