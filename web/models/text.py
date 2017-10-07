@@ -3,18 +3,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 
-from .visibility import VisibilityField
-
-TEXT_VISIBILITY_PUBLIC = 1
-TEXT_VISIBILITY_PRIVATE = 2
-
-TEXT_VISIBILITY_CHOICES = (
-    (TEXT_VISIBILITY_PUBLIC, _('Veřejné')),
-    (TEXT_VISIBILITY_PRIVATE, _('Skryté')),
-)
+from .visibility import VisibilityField, VisibilityManager
 
 
 class Text(TimeStampedModel):
+    objects = VisibilityManager()
     name = models.CharField(
         max_length=255,
         help_text=_(

@@ -19,6 +19,8 @@ from .models import (
     PaymentMethod,
     TextAbout,
     TextAboutPhoto,
+    TextConditions,
+    TextConditionsPhoto,
 )
 
 
@@ -204,10 +206,27 @@ class LocationAdmin(ModelAdmin):
     pass
 
 
+class TextAdmin(ModelAdmin):
+    list_display = (
+        'name',
+        'created',
+        'modified',
+    )
+
+
 class TextAboutPhotoAdmin(PhotoAdmin):
     model = TextAboutPhoto
 
 
 @register(TextAbout)
-class TextAboutAdmin(ModelAdmin):
+class TextAboutAdmin(TextAdmin):
     inlines = [TextAboutPhotoAdmin]
+
+
+class TextConditionsPhotoAdmin(PhotoAdmin):
+    model = TextConditionsPhoto
+
+
+@register(TextConditions)
+class TextConditionsAdmin(TextAdmin):
+    inlines = [TextConditionsPhotoAdmin]

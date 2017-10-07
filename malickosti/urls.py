@@ -26,7 +26,9 @@ from web.views import (
     view_order_confirm,
     view_order_confirmed,
     view_order_delivery,
+    view_conditions,
     view_contact,
+    view_conditions,
     view_drawings,
     view_drawings_detail,
     view_drawings_sold,
@@ -77,6 +79,7 @@ urlpatterns = [
     url(r'^vystavy/(?P<id>[0-9]+)$', view_events_detail, name='events-detail'),
     url(r'^kosik/vyprazdnit$', view_cart_purge, name='cart-purge'),
     url(r'^kosik$', view_cart, name='cart'),
+    url(r'^obchodni-podminky$', view_conditions, name='conditions'),
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -1,0 +1,22 @@
+{% extends 'layout/structured.html' %}
+
+{% load markdownify %}
+
+{% block title %}Obchodní podmínky{% endblock %}
+
+{% block content %}
+
+  <h1 class="text-center">Obchodní podmínky</h1>
+  <hr />
+
+  <div class="container py-3">
+    {% if conditions %}
+      {{conditions.text | markdownify}}
+    {% else %}
+      <div class="alert alert-danger">
+        Obchodní podmínky nebyly nalezeny. Kontaktujte prosím co nejdříve správce.
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}
