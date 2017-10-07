@@ -1,0 +1,5 @@
+Zdravíčko,
+
+milý zákazníku, Tvoje objednávka byla zrušena.
+
+{% include 'mail/footer.txt' %}

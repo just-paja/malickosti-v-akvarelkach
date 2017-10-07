@@ -19,6 +19,7 @@ from .events import (
 from .home import view_home
 from .orders import (
     view_order_confirm,
+    view_order_confirmed,
     view_order_delivery,
 )
 
@@ -37,5 +38,6 @@ __all__ = (
     view_events_detail,
     view_home,
     view_order_confirm,
+    view_order_confirmed,
     view_order_delivery,
 )

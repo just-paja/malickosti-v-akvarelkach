@@ -1,0 +1,9 @@
+Zdravíčko milý zákazníku,
+
+bohužel jsem nucena Tě informovat o nezaplacení celé částky, která je účtována při objednávce. Tímto Tě žádám o doplacení do finální částky. Předem Ti děkuji za urychlené vyřízení této nesrovnalosti.
+
+{% include 'mail/payment-list.txt' with payments=payments amount_total=order.price amount_received=order.get_total_amount_received %}
+Aby došlo ke zpracování objednávky, pošli prosím co nejdříve následující platbu:
+
+{% include 'mail/payment.txt' with amount_to_pay=amount_to_pay symvar=order.symvar %}
+{% include 'mail/footer.txt' %}

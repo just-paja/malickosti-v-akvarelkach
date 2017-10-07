@@ -1,0 +1,8 @@
+Zdravíčko,
+
+tak jak jsem slíbila, potvrzuji Tvoji objednávku. Platba již dorazila. Dalším emailem budeš informován o putování objednávky až k Tobě.
+{% if order.over_paid %}
+Při připsání Tvojí platby na můj účet nastala menší chyba - došlo k přeplacení požadované částky za objednávku. Přeplatek co nejrychleji přepošlu zpět na Tvůj účet. Ještě jednou děkuji za objednání Maličkosti v akvarelkách.
+
+{% include 'mail/payment-list.txt' with payments=payments amount_total=order.price amount_received=order.get_total_amount_received amount_to_return=amount_to_pay %}{% endif %}
+{% include 'mail/footer.txt' %}

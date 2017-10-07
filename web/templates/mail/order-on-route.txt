@@ -1,0 +1,7 @@
+Zdravíčko,
+
+tak už je to tady. Tvoje objednávka je na cestě. Dnes byla předána přepravci a už se  těší ke svému novému majiteli.
+
+Děkuji za přízeň akvarelkových maličkostí.
+
+{% include 'mail/footer.txt' %}

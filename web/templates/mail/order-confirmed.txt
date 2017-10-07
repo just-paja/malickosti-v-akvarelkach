@@ -1,0 +1,5 @@
+Zdravíčko,
+
+tak jak jsem slíbila, potvrzuji Tvoji objednávku. Platba již dorazila. Dalším emailem budeš informován o putování objednávky až k Tobě.
+
+{% include 'mail/footer.txt' %}

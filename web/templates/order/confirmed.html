@@ -1,0 +1,23 @@
+{% extends 'layout/structured.html' %}
+
+{% block title %}Potvrzení objednávky{% endblock %}
+
+{% block content %}
+  <h1 class="text-center">Potvrzení objednávky</h1>
+  <hr />
+
+  <div class="container py-3">
+    <div class="alert alert-success">
+      Vaše objednávka byla potvrzena, o potvrzení vám přijde potvrzení e-mailem.
+    </div>
+
+    {% if order.payment.needs_account_info %}
+      <h2>Informace o platbě</h2>
+      <p>Pošlete prosím co nejdříve následující platbu. Obrázek bude odeslán po přijetí platby. O přijetí platby vám pošle systém automaticky potvrzení.</p>
+
+      <address>
+        {% include 'order/payment.html' with order=order %}
+      </address>
+    {% endif %}
+  </div>
+{% endblock %}

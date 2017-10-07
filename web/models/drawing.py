@@ -69,7 +69,7 @@ class Drawing(TimeStampedModel):
         verbose_name_plural = _('Drawings')
 
     def __str__(self):
-        return self.name
+        return '%s (%s)' % (self.name, self.size)
 
     def get_active_price_level(self):
         now = datetime.now()

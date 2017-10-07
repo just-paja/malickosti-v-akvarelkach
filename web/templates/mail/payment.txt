@@ -1,0 +1,3 @@
+Číslo účtu: 2268061073/0800
+Částka: {{amount_to_pay}} Kč
+Variabilní symbol: {{symvar}}

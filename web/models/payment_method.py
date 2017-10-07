@@ -20,6 +20,12 @@ class PaymentMethod(TimeStampedModel):
             You can format the text in Markdown'
         ),
     )
+    needs_account_info = models.BooleanField(
+        default=False,
+        help_text=_(
+            'Does user need to see information about receiving account?'
+        ),
+    )
     price = models.PositiveIntegerField(
         default=0,
         help_text=_('This price will be added to Order in default currency'),

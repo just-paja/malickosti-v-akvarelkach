@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.http import Http404
 
 from ..forms import OrderConfirm, OrderDelivery
 from ..models import (
@@ -94,7 +95,10 @@ def view_order_confirm(request):
                 order_saved.items.create(drawing=drawing)
                 drawing.status = DRAWING_STATUS_RESERVED
                 drawing.save()
+
             request.session['cart'] = []
+            request.session['order_confirmed'] = order_saved.id
+            return redirect(reverse('order-confirmed'))
     else:
         form = OrderConfirm()
 
@@ -105,4 +109,17 @@ def view_order_confirm(request):
         'order': order,
         'payment_method': payment_method,
         'price': price,
+    })
+
+
+def view_order_confirmed(request):
+    order_id = request.session['order_confirmed']
+
+    try:
+        order = Order.objects.get(id=order_id)
+    except:
+        raise Http404
+
+    return render(request, 'order/confirmed.html', {
+        'order': order,
     })

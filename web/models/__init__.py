@@ -18,6 +18,7 @@ from .event import (
 from .location import Location
 from .order import Order
 from .order_drawing import OrderDrawing
+from .order_payment import OrderPayment
 from .payment_method import PaymentMethod
 from .text_about import TextAbout, TextAboutPhoto
 
@@ -34,6 +35,7 @@ __all__ = (
     Location,
     Order,
     OrderDrawing,
+    OrderPayment,
     PaymentMethod,
     TextAbout,
     TextAboutPhoto,

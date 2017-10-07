@@ -155,3 +155,7 @@ MARKDOWNIFY_WHITELIST_TAGS = [
 RECAPTCHA_PUBLIC_KEY = 'MyRecaptchaKey123'
 RECAPTCHA_PRIVATE_KEY = 'MyRecaptchaPrivateKey456'
 NOCAPTCHA = True
+EMAIL_ORDER_SENDER = 'objednavky@terkymalickosti.cz'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

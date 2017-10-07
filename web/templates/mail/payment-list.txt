@@ -1,0 +1,5 @@
+Původně k zaplacení: {{amount_total}} Kč
+Celkem přijato: {{amount_received}} Kč
+{% if amount_to_return %}Nazpět se vrátí: {{amount_to_return}} Kč
+{% endif %}{% for payment in payments %}
+* Přijato {{payment.amount}} Kč ({{payment.created | date:'c'}}){% endfor %}

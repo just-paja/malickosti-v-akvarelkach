@@ -1,4 +1,9 @@
-from django.contrib.admin import TabularInline, ModelAdmin, register
+from django.contrib.admin import (
+    ModelAdmin,
+    register,
+    StackedInline,
+    TabularInline,
+)
 from .models import (
     DeliveryMethod,
     Drawing,
@@ -10,6 +15,7 @@ from .models import (
     Location,
     Order,
     OrderDrawing,
+    OrderPayment,
     PaymentMethod,
     TextAbout,
     TextAboutPhoto,
@@ -23,13 +29,6 @@ class PhotoAdmin(TabularInline):
 class DrawingRelationshipAdmin(TabularInline):
     model = DrawingRelationship
     fk_name = 'parent'
-
-
-class OrderDrawingAdmin(TabularInline):
-    model = OrderDrawing
-    readonly_fields = (
-        'drawing',
-    )
 
 
 @register(Drawing)
@@ -51,6 +50,12 @@ class DrawingAdmin(ModelAdmin):
         'image_height',
         'image_width',
     )
+    list_filter = (
+        'size',
+        'status',
+        'price_levels',
+    )
+    search_fields = ['name', 'size__name', 'price_levels__price']
 
 
 class EventPhotoAdmin(PhotoAdmin):
@@ -60,24 +65,98 @@ class EventPhotoAdmin(PhotoAdmin):
 @register(Event)
 class EventAdmin(ModelAdmin):
     inlines = [EventPhotoAdmin]
+    list_display = (
+        'name',
+        'event_type',
+        'start',
+        'end',
+        'all_day',
+    )
+    list_filter = (
+        'event_type',
+        'all_day',
+    )
+    search_fields = ['name']
+
+
+class OrderDrawingAdmin(StackedInline):
+    model = OrderDrawing
+    readonly_fields = (
+        'drawing',
+    )
+    extra = 0
+
+
+payment_readonly_fields = (
+        'ident',
+        'symvar',
+        'symcon',
+        'symspc',
+        'amount',
+        'sender',
+        'bank',
+        'currency',
+        'received_at',
+        'user_identification',
+    )
+
+
+@register(OrderPayment)
+class OrderPaymentAdmin(ModelAdmin):
+    model = OrderPayment
+    list_display = (
+        'id',
+        'amount',
+        'order',
+        'sender',
+        'bank',
+        'symvar',
+        'symcon',
+        'created',
+    )
+    readonly_fields = payment_readonly_fields
+
+
+class OrderPaymentInlineAdmin(StackedInline):
+    model = OrderPayment
+    readonly_fields = payment_readonly_fields
+    extra = 0
+
+    def has_delete_permission(self, request, id):
+        return False
 
 
 @register(Order)
 class OrderAdmin(ModelAdmin):
-    inlines = [OrderDrawingAdmin]
+    inlines = [
+        OrderDrawingAdmin,
+        OrderPaymentInlineAdmin,
+    ]
     list_display = (
+        'symvar',
         'buyer',
         'status',
         'price',
+        'paid',
+        'over_paid',
         'delivery',
         'modified',
+    )
+    list_filter = (
+        'status',
+        'paid',
+        'over_paid',
+        'delivery',
     )
     readonly_fields = (
         'buyer',
         'price',
         'email',
         'phone',
+        'paid',
+        'over_paid',
     )
+    search_fields = ['buyer', 'email', 'phone', 'items__drawing__name']
 
 
 @register(DrawingPriceLevel)
@@ -115,8 +194,10 @@ class PaymentMethodAdmin(ModelAdmin):
         'name',
         'price',
         'weight',
+        'needs_account_info',
         'visibility',
     )
+
 
 @register(Location)
 class LocationAdmin(ModelAdmin):
