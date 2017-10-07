@@ -1,6 +1,7 @@
 {% extends 'layout/structured.html' %}
 
 {% load markdownify %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -9,7 +10,12 @@
 
   <div class="container py-3">
     {% for text in texts %}
-      <div>{{text.text | markdownify}}</div>
+      <div class="mb-3">
+        <div>{{text.text | markdownify}}</div>
+        {% for photo in text.photos.all %}
+          <img class="img-responsive img-thumbnail" src="{% thumbnail photo.image '500x500' %}" />
+        {% endfor %}
+      </div>
     {% endfor %}
   </div>
 

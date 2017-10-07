@@ -20,4 +20,4 @@ class TextConditions(Text):
 
 
 class TextConditionsPhoto(TextPhoto):
-    text = models.ForeignKey('TextConditions')
+    text = models.ForeignKey('TextConditions', related_name='photos')

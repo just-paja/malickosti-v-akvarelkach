@@ -13,4 +13,4 @@ class TextAbout(Text):
 
 
 class TextAboutPhoto(TextPhoto):
-    text = models.ForeignKey('TextAbout')
+    text = models.ForeignKey('TextAbout', related_name='photos')
