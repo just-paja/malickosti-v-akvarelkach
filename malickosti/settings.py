@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'web',
     'captcha',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
