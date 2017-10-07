@@ -48,7 +48,7 @@ def view_order_delivery(request):
     drawings = Drawing.objects.filter(id__in=cart).all()
     price = Drawing.objects.get_price(cart)
 
-    return render(request, 'order/delivery.html', {
+    return render(request, 'orders/delivery.html', {
         'delivery_methods': DeliveryMethod.objects.get_visible(),
         'drawings': drawings,
         'form': form,
@@ -102,7 +102,7 @@ def view_order_confirm(request):
     else:
         form = OrderConfirm()
 
-    return render(request, 'order/confirm.html', {
+    return render(request, 'orders/confirm.html', {
         'delivery_method': delivery_method,
         'drawings': drawings,
         'form': form,
@@ -120,6 +120,6 @@ def view_order_confirmed(request):
     except:
         raise Http404
 
-    return render(request, 'order/confirmed.html', {
+    return render(request, 'orders/confirmed.html', {
         'order': order,
     })

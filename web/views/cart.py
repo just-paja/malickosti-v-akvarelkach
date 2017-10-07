@@ -17,7 +17,7 @@ def view_cart(request):
     drawings = Drawing.objects.filter(id__in=cart).all()
     price = Drawing.objects.get_price(cart)
 
-    return render(request, 'cart.html', {
+    return render(request, 'orders/cart.html', {
         'added': 'pridano' in request.GET,
         'drawings': drawings,
         'empty': len(drawings) == 0,

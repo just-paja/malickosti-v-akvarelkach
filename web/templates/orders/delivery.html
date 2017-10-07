@@ -25,7 +25,7 @@
           <div class="card mb-4">
             <ul class="list-group list-group-flush">
               {% for delivery_method in delivery_methods %}
-                {% include 'order/method-radio.html' with input_name='delivery_method' item=delivery_method value=form_data.delivery_method %}
+                {% include 'orders/method-radio.html' with input_name='delivery_method' item=delivery_method value=form_data.delivery_method %}
               {% endfor %}
             </ul>
           </div>
@@ -34,7 +34,7 @@
           <div class="card mb-3">
             <ul class="list-group list-group-flush">
               {% for payment_method in payment_methods %}
-                {% include 'order/method-radio.html' with input_name='payment_method' item=payment_method value=form_data.payment_method %}
+                {% include 'orders/method-radio.html' with input_name='payment_method' item=payment_method value=form_data.payment_method %}
               {% endfor %}
             </ul>
           </div>
