@@ -19,5 +19,7 @@
         {% include 'orders/payment.html' with order=order %}
       </address>
     {% endif %}
+
+    <a href="{% url 'drawings' %}" class="btn btn-secondary">Zpět do galerie</a>
   </div>
 {% endblock %}

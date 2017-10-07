@@ -47,14 +47,14 @@
               </p>
               <a
                 href="{% url 'cart-remove-drawing' id=drawing.id %}"
-                class="btn btn-danger"
+                class="btn btn-danger mb-1"
               >
                 <span class="fa fa-fw fa-times"></span>
                 Odebrat z košíku
               </a>
               <a
                 href="{% url 'cart' %}"
-                class="btn btn-secondary"
+                class="btn btn-secondary mb-1"
               >
                 <span class="fa fa-fw fa-shopping-cart"></span>
                 Přejít do košíku
@@ -62,7 +62,7 @@
             {% else %}
               <a
                 href="{% url 'drawings-cart-add' id=drawing.id %}"
-                class="btn btn-primary"
+                class="btn btn-primary mb-1"
               >
                 <span class="fa fa-fw fa-cart-plus"></span>
                 Přidat do košíku
@@ -71,7 +71,7 @@
           {% else %}
             <a
               href=""
-              class="btn btn-secondary"
+              class="btn btn-secondary mb-1"
             >
               <span class="fa fa-fw fa-repeat"></span>
               Chci ho nakreslit znova

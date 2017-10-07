@@ -39,14 +39,14 @@
             </ul>
           </div>
 
-          <a href="{% url 'cart' %}" class="btn btn-warning">
-            <span class="fa fa-fw fa-chevron-left"></span>
-            Zpět
-          </a>
-          <button class="btn btn-primary float-right">
+          <button type="submit" class="d-block d-sm-inline-block mb-1 btn btn-primary btn-xs-stretch float-sm-right">
             <span class="fa fa-fw fa-check"></span>
             Pokračovat
           </button>
+          <a href="{% url 'cart' %}" class="d-block d-sm-inline-block mb-1 btn btn-warning">
+            <span class="fa fa-fw fa-chevron-left"></span>
+            Zpět
+          </a>
         </form>
       </div>
       <div class="col-md-6">

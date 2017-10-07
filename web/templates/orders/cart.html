@@ -50,14 +50,14 @@
       <div class="card">
         {% include 'partial/cart-items.html' with price=price drawings=drawings show_controls=True %}
         <div class="card-footer">
-          <a href="{% url 'cart-purge' %}" class="btn btn-warning">
-            <span class="fa fa-fw fa-times"></span>
-            Úplně to zahoď
-          </a>
-
-          <a href="{% url 'order-delivery' %}" class="btn btn-primary pull-right">
+          <a href="{% url 'order-delivery' %}" class="d-block d-sm-inline-block mb-1 btn btn-primary float-sm-right">
             <span class="fa fa-fw fa-check"></span>
             Pokračovat v objednávce
+          </a>
+
+          <a href="{% url 'cart-purge' %}" class="d-block d-sm-inline-block mb-1 btn btn-warning">
+            <span class="fa fa-fw fa-times"></span>
+            Úplně to zahoď
           </a>
         </div>
       </div>

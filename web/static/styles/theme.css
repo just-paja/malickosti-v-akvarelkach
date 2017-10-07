@@ -101,3 +101,13 @@ address:last-child {
 .location-detail {
   font-size: 75%;
 }
+
+.btn-xs-stretch {
+  width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  .btn-xs-stretch {
+    width: auto;
+  }
+}
