@@ -10,15 +10,18 @@ class Text(TimeStampedModel):
     objects = VisibilityManager()
     name = models.CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
     text = models.TextField(
-        help_text=_('You can format the text in Markdown'),
+        help_text=_('field-text-help-text'),
     )
     visibility = VisibilityField()
-    weight = models.PositiveIntegerField(default=0)
+    weight = models.PositiveIntegerField(
+        default=0,
+        verbose_name=_('field-weight'),
+        help_text=_('field-weight-help-text'),
+    )
 
     class Meta:
         abstract = True

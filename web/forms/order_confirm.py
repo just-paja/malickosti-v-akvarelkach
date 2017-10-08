@@ -7,8 +7,8 @@ from captcha.fields import ReCaptchaField
 class OrderConfirm(Form):
     captcha = ReCaptchaField(required=not settings.DEBUG)
     confirm_personal = BooleanField(
-        label=_('Souhlasím se zpracováním osobních informací'),
+        label=_('field-confirm-personal-records'),
     )
     confirm_rules = BooleanField(
-        label=_('Souhlasím s podmínkami prodeje'),
+        label=_('field-confirm-trade-conditions'),
     )

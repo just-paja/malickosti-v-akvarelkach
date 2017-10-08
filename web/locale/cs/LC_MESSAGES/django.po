@@ -1,0 +1,480 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-08 13:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: web/forms/order_confirm.py:10
+msgid "field-confirm-personal-records"
+msgstr "Souhlasím se zpracováním osobních informací"
+
+#: web/forms/order_confirm.py:13
+msgid "field-confirm-trade-conditions"
+msgstr "Souhlasím s podmínkami prodeje"
+
+#: web/forms/order_delivery.py:18
+msgid "invalid-method-choice"
+msgstr "Neplatný výběr metody"
+
+#: web/forms/order_delivery.py:41
+msgid "field-customer-name"
+msgstr "Celé jméno"
+
+#: web/forms/order_delivery.py:42
+msgid "field-customer-name-help-text"
+msgstr "Vyplňte prosím vaše celé jméno"
+
+#: web/forms/order_delivery.py:45
+msgid "field-customer-email"
+msgstr "E-mail"
+
+#: web/forms/order_delivery.py:46
+msgid "field-customer-email-help-text"
+msgstr "E-mail bude použit k zaslání potvrzení objednávky"
+
+#: web/forms/order_delivery.py:49
+msgid "field-customer-phone"
+msgstr "Telefon"
+
+#: web/forms/order_delivery.py:50
+msgid "field-customer-phone-help-text"
+msgstr "Telefonní číslo v mezinárodním tvaru, např: +420 123 456 789"
+
+#: web/forms/order_delivery.py:53
+msgid "field-customer-address"
+msgstr "Celá adresa"
+
+#: web/forms/order_delivery.py:54
+msgid "field-customer-address-help-text"
+msgstr "Vyplňte prosím celou doručovací adresu"
+
+#: web/forms/order_delivery.py:70
+msgid "invalid-combination-delivery-payment"
+msgstr "Neplatná kombinace metody doručení a platby"
+
+#: web/models/delivery_method.py:18 web/models/drawing.py:53
+#: web/models/drawing_price_level.py:10 web/models/drawing_size.py:10
+#: web/models/event.py:22 web/models/location.py:10
+#: web/models/payment_method.py:13 web/models/text.py:13
+msgid "field-name"
+msgstr "Název"
+
+#: web/models/delivery_method.py:19 web/models/drawing.py:54
+#: web/models/drawing_price_level.py:11 web/models/drawing_size.py:11
+#: web/models/event.py:23 web/models/location.py:11
+#: web/models/payment_method.py:14 web/models/text.py:14
+msgid "field-name-help-text"
+msgstr "Velmi krátký popis, který napomůže k rozpoznání objektu"
+
+#: web/models/delivery_method.py:22 web/models/event.py:45
+#: web/models/payment_method.py:17
+msgid "field-description-help-text"
+msgstr ""
+"Popište co nejlépe všechny informace a okolnosti, které se týkají tohoto "
+"objektu. Text je monžé naformátovat v Markdownu."
+
+#: web/models/delivery_method.py:26 web/models/drawing_price_level.py:14
+#: web/models/order.py:55 web/models/payment_method.py:25
+msgid "field-price"
+msgstr "Cena"
+
+#: web/models/delivery_method.py:27 web/models/drawing_price_level.py:15
+#: web/models/payment_method.py:26
+msgid "field-method-price-help-text"
+msgstr "Cena, která bude ve výchozí měně připočtena k objednávce"
+
+#: web/models/delivery_method.py:31 web/models/payment_method.py:30
+#: web/models/text.py:22
+msgid "field-weight"
+msgstr "Váha"
+
+#: web/models/delivery_method.py:32 web/models/payment_method.py:31
+#: web/models/text.py:23
+msgid "field-weight-help-text"
+msgstr "Čím těžší objekt, tím víc je vidět"
+
+#: web/models/delivery_method.py:38
+msgid "Delivery Method"
+msgstr "Metoda doručení"
+
+#: web/models/delivery_method.py:39
+msgid "Delivery Methods"
+msgstr "Metody doručení"
+
+#: web/models/drawing.py:26
+msgid "status-for-sale"
+msgstr "Aktuálně k prodeji"
+
+#: web/models/drawing.py:27
+msgid "status-reserved"
+msgstr "Zarezervováno"
+
+#: web/models/drawing.py:28
+msgid "status-sold"
+msgstr "Prodáno"
+
+#: web/models/drawing.py:59
+msgid "field-size"
+msgstr "Velikost"
+
+#: web/models/drawing.py:64
+msgid "field-drawing-status"
+msgstr "Stav obrázku"
+
+#: web/models/drawing.py:69
+msgid "field-drawing-image"
+msgstr "Obrázek nebo fotka"
+
+#: web/models/drawing.py:100
+msgid "field-price-levels"
+msgstr "Cenové hladiny"
+
+#: web/models/drawing.py:104
+msgid "Drawing"
+msgstr "Obrázek"
+
+#: web/models/drawing.py:105
+msgid "Drawings"
+msgstr "Obrázky"
+
+#: web/models/drawing_price_level.py:20
+msgid "field-valid-from"
+msgstr "Platné od"
+
+#: web/models/drawing_price_level.py:25
+msgid "field-valid-until"
+msgstr "Platné do"
+
+#: web/models/drawing_price_level.py:29
+msgid "Drawing Price Level"
+msgstr "Cenová hladina obrázků"
+
+#: web/models/drawing_price_level.py:30
+msgid "Drawing Price Levels"
+msgstr "Cenové hladiny obrázků"
+
+#: web/models/drawing_relationship.py:10
+msgid "relationship-different-size"
+msgstr "Jiná velikost"
+
+#: web/models/drawing_relationship.py:11
+msgid "relationship-duplicate"
+msgstr "Duplikát"
+
+#: web/models/drawing_relationship.py:19
+msgid "field-drawing-child"
+msgstr "Potomek"
+
+#: web/models/drawing_relationship.py:20
+msgid "field-drawing-child-help-text"
+msgstr ""
+"Potomek tohoto vztahu mezi obrázky. Pokud si nejste jistí, použijte obrázek, "
+"který je mladší."
+
+#: web/models/drawing_relationship.py:25
+msgid "field-drawing-parent"
+msgstr "Rodič"
+
+#: web/models/drawing_relationship.py:26
+msgid "field-drawing-parent-help-text"
+msgstr ""
+"Rodič tohoto vztahu mezi obrázky. Pokud si nejste jistí, použijte obrázek, "
+"který je starší."
+
+#: web/models/drawing_relationship.py:33
+msgid "Drawing Relationship"
+msgstr "Obrázkový vztah"
+
+#: web/models/drawing_relationship.py:34
+msgid "Drawing Relationships"
+msgstr "Vztahy mezi obrázky"
+
+#: web/models/drawing_size.py:14
+msgid "field-size-horizontal"
+msgstr "Velikost na šířku"
+
+#: web/models/drawing_size.py:15
+msgid "field-size-horizontal-help-text"
+msgstr "Velikost na šířku v milimetrech"
+
+#: web/models/drawing_size.py:18
+msgid "field-size-vertical"
+msgstr "Velikost na výšku"
+
+#: web/models/drawing_size.py:19
+msgid "field-size-vertical-help-text"
+msgstr "Velikost na výšku v milimetrech"
+
+#: web/models/drawing_size.py:23
+msgid "Drawing Size"
+msgstr "Velikost obrázku"
+
+#: web/models/drawing_size.py:24
+msgid "Drawing Sizes"
+msgstr "Velikosti obrázků"
+
+#: web/models/event.py:13
+msgid "type-exposition"
+msgstr "Výstava"
+
+#: web/models/event.py:14
+msgid "type-vernissage"
+msgstr "Vernisáž"
+
+#: web/models/event.py:28
+msgid "Type"
+msgstr "Typ"
+
+#: web/models/event.py:31
+msgid "field-start"
+msgstr "Začátek"
+
+#: web/models/event.py:36
+msgid "field-end"
+msgstr "Konec"
+
+#: web/models/event.py:40
+msgid "field-all-day"
+msgstr "Celodenní"
+
+#: web/models/event.py:41
+msgid "field-all-day-help-text"
+msgstr "U celodenních událostí se nezobrazuje čas, pouze datum"
+
+#: web/models/event.py:50
+msgid "Event"
+msgstr "Událost"
+
+#: web/models/event.py:51
+msgid "Events"
+msgstr "Události"
+
+#: web/models/location.py:15 web/models/order.py:44
+msgid "field-address-help-text"
+msgstr "Adresa v lidsky čitelném formátu"
+
+#: web/models/location.py:18
+msgid "field-website-help-text"
+msgstr "Adresa webu včetně protokolu (https://)"
+
+#: web/models/location.py:22
+msgid "Location"
+msgstr "Místo"
+
+#: web/models/location.py:23
+msgid "Locations"
+msgstr "Místa"
+
+#: web/models/order.py:20
+msgid "status-new"
+msgstr "Nová"
+
+#: web/models/order.py:21
+msgid "status-confirmed"
+msgstr "Potvrzeno"
+
+#: web/models/order.py:22
+msgid "status-on-route"
+msgstr "Na cestě"
+
+#: web/models/order.py:23
+msgid "status-delivered"
+msgstr "Doručeno"
+
+#: web/models/order.py:24 web/models/order_payment.py:14
+msgid "status-canceled"
+msgstr "Zrušeno"
+
+#: web/models/order.py:31
+msgid "field-buyer"
+msgstr "Kupující"
+
+#: web/models/order.py:32
+msgid "field-buyer-help-text"
+msgstr "Celé jméno kupujícího"
+
+#: web/models/order.py:35
+msgid "field-email"
+msgstr "E-mail"
+
+#: web/models/order.py:39
+msgid "field-phone"
+msgstr "Telefonní číslo"
+
+#: web/models/order.py:43
+msgid "field-address"
+msgstr "Adresa"
+
+#: web/models/order.py:48
+msgid "field-delivery-method"
+msgstr "Metoda doručení"
+
+#: web/models/order.py:52
+msgid "field-payment-method"
+msgstr "Metoda platby"
+
+#: web/models/order.py:59
+msgid "field-paid"
+msgstr "Zaplaceno"
+
+#: web/models/order.py:63
+msgid "field-over-paid"
+msgstr "Přeplatek"
+
+#: web/models/order.py:66 web/models/order_payment.py:40
+msgid "field-symvar"
+msgstr "Číslo objednávky"
+
+#: web/models/order.py:74 web/models/order_payment.py:92
+msgid "field-status"
+msgstr "Stav"
+
+#: web/models/order.py:81 web/models/order.py:91 web/models/order_payment.py:25
+msgid "Order"
+msgstr "Objednávka"
+
+#: web/models/order.py:82
+msgid "Orders"
+msgstr "Objednávky"
+
+#: web/models/order_payment.py:12
+msgid "status-in-progress"
+msgstr "V procesu"
+
+#: web/models/order_payment.py:13
+msgid "status-paid"
+msgstr "Zaplaceno"
+
+#: web/models/order_payment.py:26
+msgid "Which order is this payment related to?"
+msgstr ""
+
+#: web/models/order_payment.py:33
+msgid "field-payment-ident"
+msgstr "Identifikátor platby"
+
+#: web/models/order_payment.py:34
+msgid "field-payment-ident-help-text"
+msgstr "Bankou vygenerovaný jedinečný identifikátor platby"
+
+#: web/models/order_payment.py:46
+msgid "field-symcon"
+msgstr "Konstantní symbol"
+
+#: web/models/order_payment.py:52
+msgid "field-symspc"
+msgstr "Specifický symbol"
+
+#: web/models/order_payment.py:56
+msgid "field-amount"
+msgstr "Částka"
+
+#: web/models/order_payment.py:62
+msgid "field-payment-sender"
+msgstr "Odesílatel platby"
+
+#: web/models/order_payment.py:63
+msgid "field-payment-sender-help-text"
+msgstr "Číslo účtu odesílatele"
+
+#: web/models/order_payment.py:69
+msgid "Bank"
+msgstr "Banka"
+
+#: web/models/order_payment.py:75
+msgid "field-currency"
+msgstr "Měna"
+
+#: web/models/order_payment.py:80
+msgid "field-received-at"
+msgstr "Čas přijetí"
+
+#: web/models/order_payment.py:81
+msgid "field-received-at-help-text"
+msgstr "Čas, kdy banka přijala platbu"
+
+#: web/models/order_payment.py:87
+msgid "field-message"
+msgstr "Zpráva"
+
+#: web/models/order_payment.py:97
+msgid "field-user-identification"
+msgstr "Identifikátor uživatele"
+
+#: web/models/order_payment.py:98
+msgid "field-user-identification-help-text"
+msgstr "Bankou vygenerovaný jedinečný identifikátor uživatele"
+
+#: web/models/order_payment.py:103
+msgid "Order Payment"
+msgstr "Platba"
+
+#: web/models/order_payment.py:104
+msgid "Order Payments"
+msgstr "Platby"
+
+#: web/models/payment_method.py:21
+msgid "field-payment-method-need-account-info-help-text"
+msgstr "Zobrazí uživateli informace o platbě na účet při objednávce"
+
+#: web/models/payment_method.py:36
+msgid "Payment Method"
+msgstr "Metoda platby"
+
+#: web/models/payment_method.py:37
+msgid "Payment Methods"
+msgstr "Metody platby"
+
+#: web/models/text.py:17 web/models/text_photo.py:27
+msgid "field-text-help-text"
+msgstr "Text můžete formátovat v Markdownu"
+
+#: web/models/text_about.py:11
+msgid "Text about"
+msgstr "O mně"
+
+#: web/models/text_about.py:12
+msgid "Texts about"
+msgstr "O mně"
+
+#: web/models/text_conditions.py:11 web/models/text_conditions.py:12
+msgid "Trade Conditions"
+msgstr "Obchodní podmínky"
+
+#: web/models/text_photo.py:11
+msgid "field-image"
+msgstr "Obrázek"
+
+#: web/models/text_photo.py:34
+msgid "Photo"
+msgstr "Fotka"
+
+#: web/models/text_photo.py:35
+msgid "Photos"
+msgstr "Fotky"
+
+#: web/models/visibility.py:8
+msgid "visibility-public"
+msgstr "Veřejné"
+
+#: web/models/visibility.py:9
+msgid "visibility-private"
+msgstr "Skryté"
+
+#: web/models/visibility.py:29
+msgid "field-visibility"
+msgstr "Viditelnost"

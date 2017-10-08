@@ -17,26 +17,53 @@ ORDER_STATUS_DELIVERED = 4
 ORDER_STATUS_CANCELED = 5
 
 ORDER_STATUS_CHOICES = (
-    (ORDER_STATUS_NEW, _('Nová')),
-    (ORDER_STATUS_CONFIRMED, _('Potvrzená')),
-    (ORDER_STATUS_ON_ROUTE, _('Na cestě')),
-    (ORDER_STATUS_DELIVERED, _('Doručená')),
-    (ORDER_STATUS_CANCELED, _('Zrušená')),
+    (ORDER_STATUS_NEW, _('status-new')),
+    (ORDER_STATUS_CONFIRMED, _('status-confirmed')),
+    (ORDER_STATUS_ON_ROUTE, _('status-on-route')),
+    (ORDER_STATUS_DELIVERED, _('status-delivered')),
+    (ORDER_STATUS_CANCELED, _('status-canceled')),
 )
 
 
 class Order(TimeStampedModel):
-    buyer = models.CharField(max_length=255)
-    email = models.EmailField()
-    phone = models.CharField(max_length=63)
-    address = models.CharField(max_length=63)
-    delivery = models.ForeignKey('DeliveryMethod')
-    payment = models.ForeignKey('PaymentMethod')
-    price = models.PositiveIntegerField()
-    paid = models.BooleanField(default=False)
-    over_paid = models.BooleanField(default=False)
+    buyer = models.CharField(
+        max_length=255,
+        verbose_name=_('field-buyer'),
+        help_text=_('field-buyer-help-text'),
+    )
+    email = models.EmailField(
+        verbose_name=_('field-email'),
+    )
+    phone = models.CharField(
+        max_length=63,
+        verbose_name=_('field-phone'),
+    )
+    address = models.CharField(
+        max_length=63,
+        verbose_name=_('field-address'),
+        help_text=_('field-address-help-text'),
+    )
+    delivery = models.ForeignKey(
+        'DeliveryMethod',
+        verbose_name=_('field-delivery-method'),
+    )
+    payment = models.ForeignKey(
+        'PaymentMethod',
+        verbose_name=_('field-payment-method'),
+    )
+    price = models.PositiveIntegerField(
+        verbose_name=_('field-price'),
+    )
+    paid = models.BooleanField(
+        default=False,
+        verbose_name=_('field-paid'),
+    )
+    over_paid = models.BooleanField(
+        default=False,
+        verbose_name=_('field-over-paid'),
+    )
     symvar = models.CharField(
-        verbose_name=_("Variable symbol"),
+        verbose_name=_("field-symvar"),
         max_length=63,
         blank=True,
         unique=True,
@@ -44,10 +71,15 @@ class Order(TimeStampedModel):
     status = models.PositiveIntegerField(
         choices=ORDER_STATUS_CHOICES,
         default=ORDER_STATUS_NEW,
+        verbose_name=_('field-status'),
     )
 
     initial_paid = False
     initial_status = None
+
+    class Meta:
+        verbose_name = _('Order')
+        verbose_name_plural = _('Orders')
 
     def __init(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

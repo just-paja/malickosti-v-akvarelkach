@@ -2,5 +2,6 @@ CACHE
 db.sqlite3
 dist
 *.egg-info
+*.mo
 var
 __pycache__

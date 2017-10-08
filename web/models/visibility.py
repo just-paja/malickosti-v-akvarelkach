@@ -5,8 +5,8 @@ VISIBILITY_PUBLIC = 1
 VISIBILITY_PRIVATE = 2
 
 VISIBILITY_CHOICES = (
-    (VISIBILITY_PUBLIC, _('Public')),
-    (VISIBILITY_PRIVATE, _('Hidden')),
+    (VISIBILITY_PUBLIC, _('visibility-public')),
+    (VISIBILITY_PRIVATE, _('visibility-private')),
 )
 
 
@@ -18,11 +18,15 @@ class VisibilityField(models.PositiveIntegerField):
         if 'choices' in kwargs:
             del kwargs['choices']
 
+        if 'verbose_name' in kwargs:
+            del kwargs['verbose_name']
+
         super(VisibilityField, self).__init__(
             *args,
             **kwargs,
             choices=VISIBILITY_CHOICES,
             default=VISIBILITY_PUBLIC,
+            verbose_name=_('field-visibility'),
         )
 
 

@@ -112,10 +112,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGES = [
     ('cs', _('Česky')),
-    ('en', _('English')),
 ]
 
 LANGUAGE_CODE = 'cs-cz'
+LOCALE_PATHS = [
+    BASE_DIR + '/web/locale',
+]
 
 TIME_ZONE = 'UTC'
 

@@ -15,23 +15,21 @@ class DeliveryMethod(TimeStampedModel):
     objects = DeliveryMethodManager()
     name = models.CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
     description = models.TextField(
-        help_text=_(
-            'Describe everything that user needs to know about this object.\
-            You can format the text in Markdown'
-        ),
+        help_text=_('field-description-help-text'),
     )
     price = models.PositiveIntegerField(
         default=0,
-        help_text=_('This price will be added to Order in default currency'),
+        verbose_name=_('field-price'),
+        help_text=_('field-method-price-help-text'),
     )
     weight = models.PositiveIntegerField(
         default=0,
-        help_text=_('More weight, more priority'),
+        verbose_name=_('field-weight'),
+        help_text=_('field-weight-help-text'),
     )
     payment_methods = models.ManyToManyField('PaymentMethod')
     visibility = VisibilityField()

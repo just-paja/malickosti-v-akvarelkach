@@ -7,16 +7,15 @@ from model_utils.models import TimeStampedModel
 class Location(TimeStampedModel):
     name = models.CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
     address = models.CharField(
         max_length=255,
-        help_text=_('Address in human readable format'),
+        help_text=_('field-address-help-text'),
     )
     website = models.URLField(
-        help_text=('Website URL'),
+        help_text=_('field-website-help-text'),
     )
 
     class Meta:

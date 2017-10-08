@@ -8,7 +8,7 @@ from imagekit.processors import ResizeToFill
 
 class TextPhoto(TimeStampedModel):
     image = models.ImageField(
-        verbose_name=_("Image file"),
+        verbose_name=_("field-image"),
         height_field="height",
         width_field="width",
         upload_to='var/texts',
@@ -24,12 +24,12 @@ class TextPhoto(TimeStampedModel):
     height = models.PositiveIntegerField(null=True)
     width = models.PositiveIntegerField(null=True)
     description = models.TextField(
-        help_text=_('You can format the text in Markdown'),
+        help_text=_('field-text-help-text'),
         null=True,
         blank=True,
     )
     weight = models.PositiveIntegerField(default=0)
 
     class Meta:
-        verbose_name = _('Text Photo')
-        verbose_name_plural = _('Text Photos')
+        verbose_name = _('Photo')
+        verbose_name_plural = _('Photos')

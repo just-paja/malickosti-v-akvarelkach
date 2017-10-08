@@ -7,15 +7,16 @@ from model_utils.models import TimeStampedModel
 class DrawingSize(TimeStampedModel):
     name = models.CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
     size_horizontal = models.PositiveIntegerField(
-        help_text=_('How wide is the medium in milimeters'),
+        verbose_name=_('field-size-horizontal'),
+        help_text=_('field-size-horizontal-help-text'),
     )
     size_vertical = models.PositiveIntegerField(
-        help_text=_('How tall is the medium in milimeters'),
+        verbose_name=_('field-size-vertical'),
+        help_text=_('field-size-vertical-help-text'),
     )
 
     class Meta:

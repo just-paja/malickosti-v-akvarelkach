@@ -7,15 +7,23 @@ from model_utils.models import TimeStampedModel
 class DrawingPriceLevel(TimeStampedModel):
     name = models.CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
     price = models.PositiveIntegerField(
-        help_text=_('This price will be added to Order in default currency'),
+        verbose_name=_('field-price'),
+        help_text=_('field-method-price-help-text'),
     )
-    valid_from = models.DateField(null=True, blank=True)
-    valid_until = models.DateField(null=True, blank=True)
+    valid_from = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name=_('field-valid-from'),
+    )
+    valid_until = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name=_('field-valid-until'),
+    )
 
     class Meta:
         verbose_name = _('Drawing Price Level')

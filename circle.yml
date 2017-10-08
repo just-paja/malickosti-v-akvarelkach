@@ -11,7 +11,7 @@ dependencies:
 
 compile:
   override:
-    - (cd web; django-admin compilemessages)
+    - ./manage.py compilemessages
   post:
     - python setup.py sdist
     - mv dist/* $CIRCLE_ARTIFACTS/

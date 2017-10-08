@@ -15,7 +15,7 @@ def validate_id(value, model):
     try:
         model.objects.get(id=value)
     except ObjectDoesNotExist:
-        raise ValidationError(_('Invalid Method'), params={
+        raise ValidationError(_('invalid-method-choice'), params={
             'value': value,
         })
 
@@ -38,22 +38,20 @@ class PaymentMethodField(IntegerField):
 
 class OrderDelivery(Form):
     customer_name = CharField(
-        label=_('Celé jméno'),
-        help_text=_('Vyplňte prosím vaše celé jméno'),
+        label=_('field-customer-name'),
+        help_text=_('field-customer-name-help-text'),
     )
     customer_email = EmailField(
-        label=_('E-mail'),
-        help_text=_('E-mail bude použit k zaslání potvrzení objednávky'),
+        label=_('field-customer-email'),
+        help_text=_('field-customer-email-help-text'),
     )
     customer_phone = CharField(
-        label=_('Telefon'),
-        help_text=_(
-            'Telefonní číslo v mezinárodním tvaru, např: +420 123 456 789'
-        ),
+        label=_('field-customer-phone'),
+        help_text=_('field-customer-phone-help-text'),
     )
     customer_address = CharField(
-        label=_('Adresa'),
-        help_text=_('Vyplňte prosím celou doručovací adresu'),
+        label=_('field-customer-address'),
+        help_text=_('field-customer-address-help-text'),
     )
     delivery_method = DeliveryMethodField()
     payment_method = PaymentMethodField()
@@ -69,9 +67,7 @@ class OrderDelivery(Form):
         ).count()
 
         if not exists:
-            raise ValidationError(
-                _('Neplatná kombinace metody doručení a platby.'),
-            )
+            raise ValidationError(_('invalid-combination-delivery-payment'))
 
         return cleaned_data
 

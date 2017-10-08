@@ -10,8 +10,8 @@ EVENT_TYPE_EXPOSITION = 1
 EVENT_TYPE_VERNISSAGE = 2
 
 EVENT_TYPE_CHOICES = (
-    (EVENT_TYPE_EXPOSITION, _('Výstava')),
-    (EVENT_TYPE_VERNISSAGE, _('Vernisáž')),
+    (EVENT_TYPE_EXPOSITION, _('type-exposition')),
+    (EVENT_TYPE_VERNISSAGE, _('type-vernissage')),
 )
 
 
@@ -19,24 +19,30 @@ class Event(TimeStampedModel):
     objects = VisibilityManager()
     name = models.CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
     event_type = models.PositiveIntegerField(
         choices=EVENT_TYPE_CHOICES,
         default=EVENT_TYPE_EXPOSITION,
         verbose_name=_('Type'),
     )
-    start = models.DateTimeField()
-    end = models.DateTimeField(null=True, blank=True)
-    all_day = models.BooleanField(default=False)
+    start = models.DateTimeField(
+        verbose_name=_('field-start'),
+    )
+    end = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=_('field-end'),
+    )
+    all_day = models.BooleanField(
+        default=False,
+        verbose_name=_('field-all-day'),
+        help_text=_('field-all-day-help-text'),
+    )
     location = models.ForeignKey('Location')
     description = models.TextField(
-        help_text=_(
-            'Describe everything that user needs to know about this object.\
-            You can format the text in Markdown'
-        ),
+        help_text=_('field-description-help-text'),
     )
     visibility = VisibilityField()
 

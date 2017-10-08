@@ -7,14 +7,8 @@ DRAWING_RELATIONSHIP_TYPE_SIZE = 1
 DRAWING_RELATIONSHIP_TYPE_DUPLICATE = 2
 
 DRAWING_RELATIONSHIP_TYPE_CHOICES = (
-    (
-        DRAWING_RELATIONSHIP_TYPE_SIZE,
-        _('Jiná velikost'),
-    ),
-    (
-        DRAWING_RELATIONSHIP_TYPE_DUPLICATE,
-        _('Duplikát'),
-    ),
+    (DRAWING_RELATIONSHIP_TYPE_SIZE, _('relationship-different-size')),
+    (DRAWING_RELATIONSHIP_TYPE_DUPLICATE, _('relationship-duplicate')),
 )
 
 
@@ -22,14 +16,14 @@ class DrawingRelationship(TimeStampedModel):
     parent = models.ForeignKey(
         'Drawing',
         related_name='drawings_child',
-        help_text=_('Parent for this relationship. If you are not sure, \
-            use object that is older.')
+        verbose_name=_('field-drawing-child'),
+        help_text=_('field-drawing-child-help-text'),
     )
     child = models.ForeignKey(
         'Drawing',
         related_name='drawings_parent',
-        help_text=_('Child for this relationship. If you are not sure, \
-            use object that is younger.')
+        verbose_name=_('field-drawing-parent'),
+        help_text=_('field-drawing-parent-help-text'),
     )
     kind = models.PositiveIntegerField(
         choices=DRAWING_RELATIONSHIP_TYPE_CHOICES,

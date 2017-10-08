@@ -23,9 +23,9 @@ DRAWING_STATUS_RESERVED = 2
 DRAWING_STATUS_SOLD = 3
 
 DRAWING_STATUS_CHOICES = (
-    (DRAWING_STATUS_STORED, _('Aktuálně k prodeji')),
-    (DRAWING_STATUS_RESERVED, _('Zarezervováno')),
-    (DRAWING_STATUS_SOLD, _('Prodáno')),
+    (DRAWING_STATUS_STORED, _('status-for-sale')),
+    (DRAWING_STATUS_RESERVED, _('status-reserved')),
+    (DRAWING_STATUS_SOLD, _('status-sold')),
 )
 
 DRAWING_AVAILABLE_STATES = [
@@ -50,19 +50,23 @@ class Drawing(TimeStampedModel):
     objects = DrawingManager()
     name = CharField(
         max_length=255,
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
+        verbose_name=_('field-name'),
+        help_text=_('field-name-help-text'),
     )
-    size = ForeignKey('DrawingSize')
+    size = ForeignKey(
+        'DrawingSize',
+        related_name='drawings',
+        verbose_name=_('field-size'),
+    )
     status = PositiveIntegerField(
         choices=DRAWING_STATUS_CHOICES,
         default=DRAWING_STATUS_STORED,
+        verbose_name=_('field-drawing-status'),
     )
     image = ImageField(
         height_field="image_height",
         upload_to='var/drawings',
-        verbose_name=_("Image of drawing"),
+        verbose_name=_("field-drawing-image"),
         width_field="image_width",
     )
     image_thumb_detail = ImageSpecField(
@@ -91,7 +95,10 @@ class Drawing(TimeStampedModel):
     )
     image_height = PositiveIntegerField(null=True)
     image_width = PositiveIntegerField(null=True)
-    price_levels = ManyToManyField('DrawingPriceLevel')
+    price_levels = ManyToManyField(
+        'DrawingPriceLevel',
+        verbose_name=_('field-price-levels'),
+    )
 
     class Meta:
         verbose_name = _('Drawing')
