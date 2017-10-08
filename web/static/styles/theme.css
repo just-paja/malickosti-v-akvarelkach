@@ -16,6 +16,20 @@ address:last-child {
   background-color: #009B95;
 }
 
+.navbar-brand {
+  background: #fff;
+  border-radius: 40px;
+  padding: 5px;
+}
+
+.navbar-logo {
+  background: url(/static/images/logo.png);
+  display: block;
+  height: 30px;
+  flex-shrink: 1;
+  width: 30px;
+}
+
 .nav-cart {
   border-top: 1px solid rgba(255,255,255,.5);
 }
