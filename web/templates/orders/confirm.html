@@ -32,11 +32,12 @@
           <div class="card-body">
             {% include 'partial/form-checkbox.html' with field=form.confirm_personal %}
             {% include 'partial/form-checkbox.html' with field=form.confirm_rules %}
-            {% if form.captcha.required %}
-              {{form.captcha}}
+            <p>
+              <a href="{% url 'conditions' %}">Obchodní podmínky</a>
+            </p>
+            {% if form.captcha.field.required %}
+              {% include 'partial/form-captcha.html' with field=form.captcha %}
             {% endif %}
-
-            <a href="{% url 'conditions' %}">Obchodní podmínky</a>
           </div>
 
           <div class="card-footer">

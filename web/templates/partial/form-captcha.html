@@ -1,0 +1,6 @@
+<div class="form-group form-captcha {% if field.errors %} is-invalid{% endif %}">
+  <div class="form-control-inner">
+    {{form.captcha}}
+  </div>
+  {% include 'partial/form-field-errors.html' with field=field %}
+</div>

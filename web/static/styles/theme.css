@@ -141,6 +141,10 @@ address:last-child {
   flex: 1 1 200px;
 }
 
+.form-captcha {
+  display: block;
+}
+
 @media screen and (min-width: 576px) {
   .btn-xs-stretch {
     width: auto;

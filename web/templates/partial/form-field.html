@@ -20,12 +20,6 @@
         class="form-text text-muted"
       >{{field.help_text}}</small>
     {% endif %}
-    {% if field.errors %}
-      <ul class="invalid-feedback list-unstyled">
-        {% for error in field.errors %}
-          <li>{{error}}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+    {% include 'partial/form-field-errors.html' with field=field %}
   </div>
 </div>
