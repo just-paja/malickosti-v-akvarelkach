@@ -5,7 +5,7 @@
 
 {% block title %}Terky Akvarelky{% endblock %}
 {% block body %}
-{% include 'partial/main-menu.html' %}
+{% include 'layout/main-menu.html' %}
 
 <div id="homePageCarousel" class="carousel slide home-carousel mb-5" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -62,7 +62,7 @@
       <h2 class="mb-3">Nejnovější obrázky</h2>
       {% if latest_drawings %}
         {% for drawing in latest_drawings %}
-          {% include 'partial/drawing-list-item.html' with drawing=drawing %}
+          {% include 'drawings/list-item.html' with drawing=drawing %}
         {% endfor %}
       {% else %}
         <div class="alert alert-info">
@@ -74,5 +74,5 @@
   </div>
 </div>
 
-{% include 'partial/footer.html' %}
+{% include 'layout/footer.html' %}
 {% endblock %}

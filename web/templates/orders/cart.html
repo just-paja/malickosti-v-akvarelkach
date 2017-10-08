@@ -48,7 +48,7 @@
       </div>
     {% else %}
       <div class="card">
-        {% include 'partial/cart-items.html' with price=price drawings=drawings show_controls=True %}
+        {% include 'orders/cart-items.html' with price=price drawings=drawings show_controls=True %}
         <div class="card-footer">
           <a href="{% url 'order-delivery' %}" class="d-block d-sm-inline-block mb-1 btn btn-primary float-sm-right">
             <span class="fa fa-fw fa-check"></span>

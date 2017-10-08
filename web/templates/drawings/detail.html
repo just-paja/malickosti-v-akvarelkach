@@ -32,7 +32,7 @@
             {% endif %}
             <li class="list-group-item">
               <span class="value-label">Stav:&nbsp;</span>
-              {% include 'partial/status.html' with status=drawing.status status_text=drawing.get_status_display %}
+              {% include 'drawings/status.html' with status=drawing.status status_text=drawing.get_status_display %}
             </li>
           </ul>
         </div>

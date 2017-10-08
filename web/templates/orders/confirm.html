@@ -13,7 +13,7 @@
     <div class="cart-container mx-auto">
       <h2 class="mb-3">Objednávka</h2>
       <div class="card">
-        {% include 'partial/cart-items.html' with display_price=True price=price drawings=drawings delivery_method=delivery_method payment_method=payment_method %}
+        {% include 'orders/cart-items.html' with display_price=True price=price drawings=drawings delivery_method=delivery_method payment_method=payment_method %}
 
         <div class="card-body">
           <h3>Doručovací údaje</h3>

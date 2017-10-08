@@ -1,7 +1,7 @@
 <ul class="list-group list-group-flush">
   {% for drawing in drawings %}
     <li class="list-group-item">
-      {% include 'partial/drawing-list-item.html' %}
+      {% include 'drawings/list-item.html' %}
       {% if show_controls %}
         <a
           class="text-warning cart-remove"

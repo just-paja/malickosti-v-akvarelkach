@@ -7,14 +7,14 @@
   <h1 class="text-center">Obrázky</h1>
   <hr />
 
-  {% include 'partial/drawings-menu.html' %}
+  {% include 'drawings/menu.html' %}
 
   <div class="container py-3">
     {% if drawings %}
       <div class="row drawings">
         {% for drawing in drawings %}
           <div class="col-sm-6 col-md-4 col-lg-3">
-            {% include 'partial/drawing-list-item.html' %}
+            {% include 'drawings/list-item.html' %}
           </div>
         {% endfor %}
       </div>
