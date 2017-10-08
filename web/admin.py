@@ -231,12 +231,3 @@ class TextConditionsPhotoAdmin(PhotoAdmin):
 @register(TextConditions)
 class TextConditionsAdmin(TextAdmin):
     inlines = [TextConditionsPhotoAdmin]
-    readonly_fields = ('name', 'weight', 'visibility')
-
-    def get_readonly_fields(self, request, obj=None):
-        if obj:
-            return self.readonly_fields + ('text',)
-        return self.readonly_fields
-
-    def has_delete_permission(self, request, obj=None):
-        return False

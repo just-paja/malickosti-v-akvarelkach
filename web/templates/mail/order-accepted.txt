@@ -3,4 +3,5 @@ Zdravíčko,
 moc Ti děkuji za objednání Maličkosti v akvarelkách. Potvrzuji Tvoji objednávku a brzy Ti pošlu další email, kde Tě budu informovat o potvrzení objednávky (jen co dojde platba).
 {% if order.payment.needs_account_info %}
 Aby došlo ke zpracování objednávky, pošli prosím co nejdříve následující platbu:
-{% include 'mail/payment.txt' with order=order %}{% endif %}{% include 'mail/footer.txt' %}
+{% include 'mail/payment.txt' with amount_to_pay=order.price symvar=order.symvar %}{% endif %}
+{% include 'mail/footer.txt' %}

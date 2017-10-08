@@ -6,13 +6,6 @@ from .text_photo import TextPhoto
 
 
 class TextConditions(Text):
-    name = models.CharField(
-        max_length=255,
-        default='Obchodní podmínky',
-        help_text=_(
-            'Very short description that helps to recognize the object'
-        ),
-    )
 
     class Meta:
         verbose_name = _('Trade Conditions')
