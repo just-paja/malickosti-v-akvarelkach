@@ -26,6 +26,7 @@ from .models import (
 
 class PhotoAdmin(TabularInline):
     fields = ('image', 'description', 'weight')
+    extra = 0
 
 
 class DrawingRelationshipAdmin(TabularInline):
