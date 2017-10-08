@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.static import serve
 from web.views import (
     view_about,
     view_cart,
@@ -28,7 +28,6 @@ from web.views import (
     view_order_delivery,
     view_conditions,
     view_contact,
-    view_conditions,
     view_drawings,
     view_drawings_detail,
     view_drawings_sold,
@@ -84,10 +83,11 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += [
-        url(
-            r'^media/(?P<path>.*)$',
-            serve,
-            {'document_root': settings.MEDIA_ROOT},
-        ),
-    ]
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
+    urlpatterns += static(
+        settings.STATIC_URL,
+        document_root=settings.STATIC_ROOT,
+    )

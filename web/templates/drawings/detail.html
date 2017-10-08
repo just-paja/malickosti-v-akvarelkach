@@ -1,7 +1,5 @@
 {% extends 'layout/structured.html' %}
 
-{% load thumbnail %}
-
 {% block title %}{{ drawing.name }}{% endblock %}
 
 {% block content %}
@@ -13,8 +11,8 @@
     <div class="row">
       <div class="col-md-6 col-lg-8 mb-3 text-center drawing-detail-image">
         <img
-          class="img-fluid rounded-circle"
-          src="{% thumbnail drawing.image 600x600 crop %}"
+          class="img-fluid"
+          src="{{drawing.image_thumb_detail.url}}"
           alt="Náhled obrázku {{ drawing.name }}"
         />
       </div>

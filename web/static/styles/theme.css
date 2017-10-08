@@ -132,6 +132,15 @@ address:last-child {
   max-height: 400px;
 }
 
+.photo-list {
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+}
+
+.photo-list .photo {
+  flex: 1 1 200px;
+}
+
 @media screen and (min-width: 576px) {
   .btn-xs-stretch {
     width: auto;

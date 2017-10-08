@@ -1,7 +1,6 @@
 {% extends 'layout/structured.html' %}
 
 {% load event_dates %}
-{% load thumbnail %}
 {% load markdownify %}
 
 {% block title %}{{event.name}}{% endblock %}
@@ -22,9 +21,7 @@
         {{event.description | markdownify}}
       </div>
       <div class="col-md-6">
-        {% for photo in photos %}
-          <img class="img-thumbnail img-fluid mb-2" src="{% thumbnail photo.image 400x400 %}" alt="" />
-        {% endfor %}
+        {% include 'text/photos.html' with photos=photos %}
       </div>
     </div>
   </div>

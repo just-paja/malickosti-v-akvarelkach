@@ -1,0 +1,9 @@
+{% if photos %}
+  <div class="d-flex flex-wrap justify-content-center photo-list">
+    {% for photo in photos %}
+      <div class="m-1 align-self-center photo">
+        <img class="img-responsive img-thumbnail" src="{{photo.image_thumb_detail.url}}" alt="{{photo.description}}" />
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

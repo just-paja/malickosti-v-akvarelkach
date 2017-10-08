@@ -1,20 +1,22 @@
 from datetime import datetime
 
-from PIL import Image, ImageEnhance
-
 from django.conf import settings
 from django.db.models import (
-    CharField,
     ForeignKey,
+    CharField,
+    ImageField,
     Manager,
-    PositiveIntegerField,
     ManyToManyField,
+    PositiveIntegerField,
     Q,
 )
 from django.utils.translation import ugettext_lazy as _
 
-from imagekit.models import ProcessedImageField
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 from model_utils.models import TimeStampedModel
+
+from .watermark import Watermark
 
 DRAWING_STATUS_STORED = 1
 DRAWING_STATUS_RESERVED = 2
@@ -29,37 +31,6 @@ DRAWING_STATUS_CHOICES = (
 DRAWING_AVAILABLE_STATES = [
     DRAWING_STATUS_STORED,
 ]
-
-
-class DrawingWaterMark:
-    def reduce_opacity(self, im, opacity):
-        """Returns an image with reduced opacity."""
-        assert opacity >= 0 and opacity <= 1
-        if im.mode != 'RGBA':
-            im = im.convert('RGBA')
-        else:
-            im = im.copy()
-        alpha = im.split()[3]
-        alpha = ImageEnhance.Brightness(alpha).enhance(opacity)
-        im.putalpha(alpha)
-        return im
-
-    def process(self, image):
-        overlay = self.reduce_opacity(Image.open(
-            '%s/web/static/images/watermark.png' % settings.BASE_DIR
-        ), 0.25)
-        ratio = min(
-            float(image.size[0]) / overlay.size[0],
-            float(image.size[1]) / overlay.size[1],
-        )
-        w = int(overlay.size[0] * ratio)
-        h = int(overlay.size[1] * ratio)
-        overlay = overlay.resize((w, h))
-        image.paste(overlay, (
-            int((image.size[0] - w) / 2),
-            int((image.size[1] - h) / 2),
-        ), overlay)
-        return image
 
 
 class DrawingManager(Manager):
@@ -88,14 +59,35 @@ class Drawing(TimeStampedModel):
         choices=DRAWING_STATUS_CHOICES,
         default=DRAWING_STATUS_STORED,
     )
-    image = ProcessedImageField(
-        format='JPEG',
+    image = ImageField(
         height_field="image_height",
-        options={'quality': 95},
-        processors=[DrawingWaterMark()],
         upload_to='var/drawings',
         verbose_name=_("Image of drawing"),
         width_field="image_width",
+    )
+    image_thumb_detail = ImageSpecField(
+        source='image',
+        format='JPEG',
+        options={'quality': 95},
+        processors=[
+            ResizeToFill(600, 600),
+            Watermark(
+                '%s/web/static/images/watermark-black.png' % settings.BASE_DIR,
+                0.09,
+            )
+        ],
+    )
+    image_thumb_list = ImageSpecField(
+        source='image',
+        format='JPEG',
+        options={'quality': 95},
+        processors=[
+            ResizeToFill(300, 300),
+            Watermark(
+                '%s/web/static/images/watermark-white.png' % settings.BASE_DIR,
+                0.1,
+            ),
+        ],
     )
     image_height = PositiveIntegerField(null=True)
     image_width = PositiveIntegerField(null=True)

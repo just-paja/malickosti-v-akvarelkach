@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 
 class TextPhoto(TimeStampedModel):
@@ -10,6 +12,14 @@ class TextPhoto(TimeStampedModel):
         height_field="height",
         width_field="width",
         upload_to='var/texts',
+    )
+    image_thumb_detail = ImageSpecField(
+        source='image',
+        format='JPEG',
+        options={'quality': 95},
+        processors=[
+            ResizeToFill(600, 600),
+        ],
     )
     height = models.PositiveIntegerField(null=True)
     width = models.PositiveIntegerField(null=True)

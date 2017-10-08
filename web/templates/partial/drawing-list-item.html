@@ -1,10 +1,8 @@
-{% load thumbnail %}
-
 <div class="col-12 drawing">
   <a href="{% url 'drawings-detail' drawing.id %}" class="drawing-link">
     <img
-      class="img-fluid rounded-circle"
-      src="{% thumbnail drawing.image 300x300 crop %}"
+      class="img-fluid"
+      src="{{drawing.image_thumb_list.url}}"
       alt="Náhled obrázku {{ drawing.name }}"
     />
   </a>
