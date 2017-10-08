@@ -1,3 +1,6 @@
+CACHE
 db.sqlite3
+dist
+*.egg-info
 var
 __pycache__

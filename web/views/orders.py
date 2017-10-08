@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import Http404
@@ -117,7 +118,7 @@ def view_order_confirmed(request):
 
     try:
         order = Order.objects.get(id=order_id)
-    except:
+    except ObjectDoesNotExist:
         raise Http404
 
     return render(request, 'orders/confirmed.html', {

@@ -23,14 +23,14 @@ class DrawingRelationship(TimeStampedModel):
         'Drawing',
         related_name='drawings_child',
         help_text=_('Parent for this relationship. If you are not sure, \
-         use object that is older.')
+            use object that is older.')
     )
     child = models.ForeignKey(
         'Drawing',
         related_name='drawings_parent',
         help_text=_('Child for this relationship. If you are not sure, \
-         use object that is younger.')
-        )
+            use object that is younger.')
+    )
     kind = models.PositiveIntegerField(
         choices=DRAWING_RELATIONSHIP_TYPE_CHOICES,
     )

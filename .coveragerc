@@ -1,0 +1,16 @@
+[run]
+branch = True
+source =
+  web
+omit =
+  */migrations/*.py
+  */tests/*.py
+
+[paths]
+source =
+  web
+
+[report]
+omit =
+  */migrations/*.py
+  */tests/*.py

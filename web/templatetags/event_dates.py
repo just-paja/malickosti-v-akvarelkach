@@ -10,6 +10,7 @@ FORMAT_DATE_SHORT = 'd. E'
 FORMAT_DATETIME = 'd. E Y %s' % FORMAT_TIME
 FORMAT_DATETIME_SHORT = 'd. E %s' % FORMAT_TIME
 
+
 @register.filter(name='event_date')
 def event_date(event):
     value = []

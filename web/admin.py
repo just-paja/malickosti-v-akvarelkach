@@ -91,17 +91,17 @@ class OrderDrawingAdmin(StackedInline):
 
 
 payment_readonly_fields = (
-        'ident',
-        'symvar',
-        'symcon',
-        'symspc',
-        'amount',
-        'sender',
-        'bank',
-        'currency',
-        'received_at',
-        'user_identification',
-    )
+    'ident',
+    'symvar',
+    'symcon',
+    'symspc',
+    'amount',
+    'sender',
+    'bank',
+    'currency',
+    'received_at',
+    'user_identification',
+)
 
 
 @register(OrderPayment)

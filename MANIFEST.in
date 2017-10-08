@@ -1,0 +1,5 @@
+recursive-include malickosti *.py *.mo
+recursive-include web *.py *.mo
+include requirements.txt
+include README.md
+include manage.py
