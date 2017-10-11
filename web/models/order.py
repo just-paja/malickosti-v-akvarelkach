@@ -3,7 +3,7 @@ from datetime import datetime
 from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.core.mail import send_mail
+from django.core import mail
 from django.template.loader import render_to_string
 
 from model_utils.models import TimeStampedModel
@@ -81,7 +81,7 @@ class Order(TimeStampedModel):
         verbose_name = _('Order')
         verbose_name_plural = _('Orders')
 
-    def __init(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.initial_paid = self.paid
         self.initial_over_paid = self.over_paid
@@ -149,8 +149,16 @@ class Order(TimeStampedModel):
             }),
         )
 
+    def notify_current_status(self):
+        if self.status == ORDER_STATUS_NEW:
+            self.notify_accepted()
+        elif self.status == ORDER_STATUS_ON_ROUTE:
+            self.notify_on_route()
+        elif self.status == ORDER_STATUS_CANCELED:
+            self.notify_canceled()
+
     def notify(self, subject, body):
-        send_mail(
+        mail.send_mail(
             subject,
             body,
             settings.EMAIL_ORDER_SENDER,
@@ -163,13 +171,11 @@ class Order(TimeStampedModel):
 
         super().save(*args, **kwargs)
 
+        if self.initial_paid != self.paid and self.paid:
+            self.mark_drawings_as_sold()
+
         if self.initial_status != self.status:
-            if self.status == ORDER_STATUS_NEW:
-                self.notify_accepted()
-            elif self.status == ORDER_STATUS_ON_ROUTE:
-                self.notify_on_route()
-            elif self.status == ORDER_STATUS_CANCELED:
-                self.notify_canceled()
+            self.notify_current_status()
 
     def get_total_amount_received(self):
         paid = (
@@ -190,3 +196,7 @@ class Order(TimeStampedModel):
                 self.notify_paid()
         else:
             self.notify_underpaid()
+
+    def mark_drawings_as_sold(self):
+        for item in self.items.all():
+            item.mark_as_sold()

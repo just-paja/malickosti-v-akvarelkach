@@ -3,7 +3,9 @@ db.sqlite3
 dist
 *.egg-info
 *.mo
+htmlcov
 var
 .cache
 .coverage
+.coverage.*
 __pycache__

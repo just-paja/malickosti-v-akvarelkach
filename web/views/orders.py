@@ -9,7 +9,6 @@ from ..models import (
     DeliveryMethod,
     Order,
     PaymentMethod,
-    DRAWING_STATUS_RESERVED,
 )
 
 
@@ -94,7 +93,7 @@ def view_order_confirm(request):
 
             for drawing in drawings:
                 order_saved.items.create(drawing=drawing)
-                drawing.status = DRAWING_STATUS_RESERVED
+                drawing.mark_as_reserved()
                 drawing.save()
 
             request.session['cart'] = []

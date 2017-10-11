@@ -122,3 +122,9 @@ class Drawing(TimeStampedModel):
 
     def is_status_visible(self):
         return self.status not in DRAWING_AVAILABLE_STATES
+
+    def mark_as_reserved(self):
+        self.status = DRAWING_STATUS_RESERVED
+
+    def mark_as_sold(self):
+        self.status = DRAWING_STATUS_SOLD
