@@ -393,6 +393,6 @@ class OrderTest(TestCase):
         mock_send_mail.assert_called_with(
             'test-subject',
             'test-body',
-            'objednavky@terkyakvarelky.cz',
+            'objednavky@localhost',
             ['foo@example.com'],
         ),

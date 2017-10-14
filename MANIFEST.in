@@ -1,5 +1,9 @@
-recursive-include malickosti *.py *.mo
-recursive-include web *.py *.mo
+recursive-include malickosti *
+recursive-include web *
 include requirements.txt
 include README.md
 include manage.py
+include wsgi.py
+prune web/tests
+global-exclude *.po
+global-exclude *.pyc

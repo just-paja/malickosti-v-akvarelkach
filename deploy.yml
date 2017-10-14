@@ -1,0 +1,5 @@
+---
+- name: Setup all my servers on AWS
+  hosts: web
+  roles:
+    - just-paja.practical-ansible-web-django
