@@ -5,13 +5,15 @@ machine:
 dependencies:
   post:
     - pip install -r requirements-dev.txt
+    - pip install -r requirements-deploy.txt
+    - ansible-galaxy install -r requirements-ansible.yml
 
 compile:
   override:
     - ./manage.py compilemessages
   post:
     - python setup.py sdist
-    - mv dist/* $CIRCLE_ARTIFACTS/
+    - cp dist/* $CIRCLE_ARTIFACTS/
 
 test:
   pre:
@@ -20,3 +22,24 @@ test:
     - pytest
   post:
     - codeclimate-test-reporter
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - echo -e "[web]\n${STAGING_DEPLOY_HOST}" > inventory.yml
+      - >
+        env
+        ALLOWED_HOSTS="$STAGING_ALLOWED_HOSTS"
+        AWS_ACCESS_KEY_ID="$STAGING_AWS_ACCESS_KEY_ID"
+        AWS_SECRET_ACCESS_KEY="$STAGING_AWS_SECRET_ACCESS_KEY"
+        AWS_STORAGE_BUCKET_NAME="$STAGING_AWS_STORAGE_BUCKET_NAME"
+        DB_HOST="$STAGING_DB_HOST"
+        DB_NAME="$STAGING_DB_NAME"
+        DB_PASSWORD="$STAGING_DB_PASSWORD"
+        DB_USER="$STAGING_DB_USER"
+        DJANGO_SERVER_NAME="$STAGING_ALLOWED_HOSTS"
+        RECAPTCHA_PRIVATE_KEY="$STAGING_RECAPTCHA_PRIVATE_KEY"
+        RECAPTCHA_PUBLIC_KEY="$STAGING_RECAPTCHA_PUBLIC_KEY"
+        SECRET_KEY="$STAGING_SECRET_KEY"
+        ansible-playbook deploy.yml -i inventory.yml

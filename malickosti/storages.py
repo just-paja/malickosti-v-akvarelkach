@@ -1,0 +1,15 @@
+# custom_storages.py
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+
+class DatabaseBackupStorage(S3Boto3Storage):
+    location = settings.DATABASE_BACKUP_FILES_LOCATION
+
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIA_FILES_LOCATION
+
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATIC_FILES_LOCATION

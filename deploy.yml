@@ -1,0 +1,10 @@
+---
+- name: Setup all my servers on AWS
+  hosts: web
+  roles:
+    - role: just-paja.practical-ansible-web-django
+      django_archive: dist/malickosti-v-akvarelkach-0.0.1.tar.gz
+      django_config_file: local_settings.j2
+      django_config: malickosti.settings
+      django_project_name: 'cz-terkyakvarelky'
+      django_wsgi_file: malickosti/wsgi.py
