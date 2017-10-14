@@ -17,6 +17,6 @@ test:
   pre:
     - flake8
   override:
-    - DJANGO_SETTINGS_MODULE="malickosti.settings" pytest
+    - pytest
   post:
     - codeclimate-test-reporter
