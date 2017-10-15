@@ -13,7 +13,7 @@ compile:
     - ./manage.py compilemessages
   post:
     - python setup.py sdist
-    - mv dist/* $CIRCLE_ARTIFACTS/
+    - cp dist/* $CIRCLE_ARTIFACTS/
 
 test:
   pre:
@@ -38,11 +38,7 @@ deployment:
         DB_NAME="$STAGING_DB_NAME"
         DB_PASSWORD="$STAGING_DB_PASSWORD"
         DB_USER="$STAGING_DB_USER"
-        DJANGO_ARCHIVE=$CIRCLE_ARTIFACTS/malickosti-v-akvarelkach-0.0.1.tar.gz
-        DJANGO_CONFIG="malickosti.settings"
-        DJANGO_CONFIG_FILE="local_settings.j2"
         DJANGO_SERVER_NAME="$STAGING_ALLOWED_HOSTS"
-        DJANGO_WSGI_FILE="malickosti/wsgi.py"
         RECAPTCHA_PRIVATE_KEY="$STAGING_RECAPTCHA_PRIVATE_KEY"
         RECAPTCHA_PUBLIC_KEY="$STAGING_RECAPTCHA_PUBLIC_KEY"
         SECRET_KEY="$STAGING_SECRET_KEY"
