@@ -27,6 +27,7 @@ from .models import (
 class PhotoAdmin(TabularInline):
     fields = ('image', 'description', 'weight')
     extra = 0
+    ordering = ('-weight',)
 
 
 class DrawingRelationshipAdmin(TabularInline):
@@ -210,9 +211,11 @@ class LocationAdmin(ModelAdmin):
 class TextAdmin(ModelAdmin):
     list_display = (
         'name',
+        'weight',
         'created',
         'modified',
     )
+    ordering = ('-weight',)
 
 
 class TextAboutPhotoAdmin(PhotoAdmin):
