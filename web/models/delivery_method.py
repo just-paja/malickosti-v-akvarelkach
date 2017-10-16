@@ -43,3 +43,6 @@ class DeliveryMethod(TimeStampedModel):
 
     def get_default_payment(self):
         return self.payment_methods.get_visible().order_by('weight').first()
+
+    def get_payment_methods_ids(self):
+        return [method.id for method in self.payment_methods.all()]

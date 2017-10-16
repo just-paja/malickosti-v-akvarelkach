@@ -23,16 +23,16 @@
 
           <h2 class="mb-3">Způsob dopravy</h2>
           <div class="card mb-4">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" id="orderDeliveryMethods">
               {% for delivery_method in delivery_methods %}
-                {% include 'orders/method-radio.html' with input_name='delivery_method' item=delivery_method value=form_data.delivery_method %}
+                {% include 'orders/method-radio.html' with input_name='delivery_method' item=delivery_method value=form_data.delivery_method payment_methods=delivery_method.get_payment_methods_ids %}
               {% endfor %}
             </ul>
           </div>
 
           <h2 class="mb-3">Způsob platby</h2>
           <div class="card mb-3">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" id="orderPaymentMethods">
               {% for payment_method in payment_methods %}
                 {% include 'orders/method-radio.html' with input_name='payment_method' item=payment_method value=form_data.payment_method %}
               {% endfor %}
