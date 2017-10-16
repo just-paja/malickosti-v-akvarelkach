@@ -43,7 +43,7 @@ def view_order_delivery(request):
             save_order(request, order, form.cleaned_data)
             return redirect(reverse('order-confirm'))
     else:
-        form = OrderDelivery(order)
+        form = OrderDelivery(initial=order)
 
     drawings = Drawing.objects.filter(id__in=cart).all()
     price = Drawing.objects.get_price(cart)
