@@ -11,7 +11,7 @@
     {% for text in texts %}
       <div class="mb-3">
         <div>{{text.text | markdownify}}</div>
-        {% include 'text/photos.html' with photos=text.photos.all %}
+        {% include 'text/photos.html' with photos=text.get_photos %}
       </div>
     {% endfor %}
   </div>

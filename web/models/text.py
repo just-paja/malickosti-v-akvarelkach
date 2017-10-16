@@ -33,3 +33,6 @@ class Text(TimeStampedModel):
 
     def __str__(self):
         return "%s" % self.name
+
+    def get_photos(self):
+        return self.photos.order_by('-weight')

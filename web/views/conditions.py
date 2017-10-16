@@ -1,8 +1,6 @@
 from django.shortcuts import render
 
-from ..models import (
-    TextConditions,
-)
+from ..models import TextConditions
 
 
 def view_conditions(request):
