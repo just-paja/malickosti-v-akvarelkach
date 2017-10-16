@@ -6,8 +6,13 @@ from model_utils.models import TimeStampedModel
 from .visibility import VisibilityField, VisibilityManager
 
 
+class TextManager(VisibilityManager):
+    def get_visible(self):
+        return super().get_visible().order_by('-weight')
+
+
 class Text(TimeStampedModel):
-    objects = VisibilityManager()
+    objects = TextManager()
     name = models.CharField(
         max_length=255,
         verbose_name=_('field-name'),
