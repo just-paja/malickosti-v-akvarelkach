@@ -127,6 +127,8 @@ except ImportError:
 
 CORS_ORIGIN_WHITELIST = ALLOWED_HOSTS
 EMAIL_ORDER_SENDER = 'objednavky@%s' % ALLOWED_HOSTS[0]
+EMAIL_CONTACT_FALLBACK_SENDER = 'kontakt@%s' % ALLOWED_HOSTS[0]
+EMAIL_MANAGER = 'test@example.com'
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

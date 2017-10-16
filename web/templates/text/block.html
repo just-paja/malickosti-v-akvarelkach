@@ -1,0 +1,7 @@
+{% load markdownify %}
+
+<div class="mb-3">
+  <h2>{{text.name}}</h2>
+  <div>{{text.text | markdownify}}</div>
+  {% include 'text/photos.html' with photos=text.get_photos %}
+</div>

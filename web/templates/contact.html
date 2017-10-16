@@ -3,14 +3,16 @@
 {% block title %}Kontakt{% endblock %}
 
 {% block content %}
-
   <h1 class="text-center">Kontakt</h1>
   <hr />
 
   <div class="container py-3">
     <div class="row">
-      <main class="col-md-6">
-        <h2 class="mb-3">Ozvi se</h2>
+      <main class="col-lg-5 mb-3">
+        {% for text in texts %}
+          {% include 'text/block.html' with text=text %}
+        {% endfor %}
+
         <address class="mb-3">
           <a href="mailto:teryfly@gmail.com">
             <span class="fa fa-fw fa-envelope"></span>
@@ -24,11 +26,30 @@
         </address>
       </main>
 
-      <aside class="col-md-6">
-        <h2 class="mb-3">Chceš něco nakreslit?</h2>
-        <p>Tak rovnou vyplň tenhle formulář</p>
+      <aside class="col-lg-7">
+        <div class="card contact-form">
+          <div class="card-body">
+            {% if sent %}
+              <div class="alert alert-success">
+                {{_('contact-message-sent')}}
+              </div>
+              <a href="{% url 'contact' %}" class="btn btn-secondary">
+                <span class="fa fa-refresh"></span> {{_('contact-message-send-another')}}
+              </a>
+            {% else %}
+              <form method="post" action="{% url 'contact' %}">
+                {% csrf_token %}
+                {% include 'partial/form-field.html' with field=form.contact_name %}
+                {% include 'partial/form-field.html' with field=form.contact_email field_type='email' %}
+                {% include 'partial/form-textarea.html' with field=form.contact_message %}
+                <button type="submit" class="btn btn-primary">
+                  <span class="fa fa-paper-plane"></span> Odeslat
+                </button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
       </aside>
     </div>
   </div>
-
 {% endblock %}

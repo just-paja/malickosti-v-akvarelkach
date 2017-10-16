@@ -21,6 +21,7 @@ from .order_drawing import OrderDrawing
 from .order_payment import OrderPayment
 from .payment_method import PaymentMethod
 from .text_about import TextAbout, TextAboutPhoto
+from .text_contact import TextContact, TextContactPhoto
 from .text_conditions import TextConditions, TextConditionsPhoto
 
 from .visibility import VISIBILITY_PUBLIC, VISIBILITY_PRIVATE
@@ -40,6 +41,8 @@ __all__ = (
     PaymentMethod,
     TextAbout,
     TextAboutPhoto,
+    TextContact,
+    TextContactPhoto,
     TextConditions,
     TextConditionsPhoto,
     DRAWING_AVAILABLE_STATES,

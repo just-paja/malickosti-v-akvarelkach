@@ -6,14 +6,13 @@
     >{{field.label}}</label>
   {% endif %}
   <div class="col-sm-8 col-md-12 col-lg-9">
-    <input
+    <textarea
       aria-describedby="{{field.id_for_label}}_help"
       class="form-control{% if field.errors %} is-invalid{% endif %}"
       id="{{field.id_for_label}}"
       name="{{field.html_name}}"
-      type="{{field_type | default:'text'}}"
-      value="{{field.value | default_if_none:''}}"
-    />
+      type="text"
+    >{{field.value | default_if_none:''}}</textarea>
     {% if field.help_text and not field.errors %}
       <small
         id="{{field.id_for_label}}_help"

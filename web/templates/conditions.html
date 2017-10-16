@@ -1,7 +1,5 @@
 {% extends 'layout/structured.html' %}
 
-{% load markdownify %}
-
 {% block title %}Obchodní podmínky{% endblock %}
 
 {% block content %}
@@ -12,8 +10,7 @@
   <div class="container py-3">
     {% if conditions %}
       {% for text in conditions %}
-        <h2 class="mb-3">{{text.name}}</h2>
-        {{text.text | markdownify}}
+        {% include 'text/block.html' with text=text %}
       {% endfor %}
     {% else %}
       <div class="alert alert-danger">

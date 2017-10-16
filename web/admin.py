@@ -19,6 +19,8 @@ from .models import (
     PaymentMethod,
     TextAbout,
     TextAboutPhoto,
+    TextContact,
+    TextContactPhoto,
     TextConditions,
     TextConditionsPhoto,
 )
@@ -234,3 +236,12 @@ class TextConditionsPhotoAdmin(PhotoAdmin):
 @register(TextConditions)
 class TextConditionsAdmin(TextAdmin):
     inlines = [TextConditionsPhotoAdmin]
+
+
+class TextContactPhotoAdmin(PhotoAdmin):
+    model = TextContactPhoto
+
+
+@register(TextContact)
+class TextContactAdmin(TextAdmin):
+    inlines = [TextContactPhotoAdmin]

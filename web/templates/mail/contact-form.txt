@@ -1,0 +1,8 @@
+{{contact_message}}
+
+Odesílatel: {{contact_name}}
+E-mail: {{contact_email}}
+
+---
+
+Odesláno z kontaktního formuláře na https://terkyakvarelky.cz

@@ -12,6 +12,10 @@ address:last-child {
   margin-bottom: 0;
 }
 
+ul:last-child {
+  margin-bottom: 0;
+}
+
 .navbar {
   background-color: #008b9b;
 }
@@ -157,6 +161,10 @@ address:last-child {
 
 .form-captcha {
   display: block;
+}
+
+.contact-form textarea {
+  min-height: 200px;
 }
 
 @media screen and (min-width: 576px) {

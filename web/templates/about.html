@@ -1,7 +1,5 @@
 {% extends 'layout/structured.html' %}
 
-{% load markdownify %}
-
 {% block content %}
 
   <h1 class="text-center">O mně</h1>
@@ -9,10 +7,7 @@
 
   <div class="container py-3">
     {% for text in texts %}
-      <div class="mb-3">
-        <div>{{text.text | markdownify}}</div>
-        {% include 'text/photos.html' with photos=text.get_photos %}
-      </div>
+      {% include 'text/block.html' with text=text %}
     {% endfor %}
   </div>
 
