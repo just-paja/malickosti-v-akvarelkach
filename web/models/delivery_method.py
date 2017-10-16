@@ -8,7 +8,7 @@ from .visibility import VisibilityField, VisibilityManager
 
 class DeliveryMethodManager(VisibilityManager):
     def get_default(self):
-        return self.get_visible().order_by('weight').first()
+        return self.get_visible().order_by('-weight').first()
 
 
 class DeliveryMethod(TimeStampedModel):
@@ -42,7 +42,7 @@ class DeliveryMethod(TimeStampedModel):
         return self.name
 
     def get_default_payment(self):
-        return self.payment_methods.get_visible().order_by('weight').first()
+        return self.payment_methods.get_visible().order_by('-weight').first()
 
     def get_payment_methods_ids(self):
         return [method.id for method in self.payment_methods.all()]
