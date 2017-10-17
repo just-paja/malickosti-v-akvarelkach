@@ -1,32 +1,46 @@
 {% extends 'layout/structured.html' %}
 
-{% block title %}Kontakt{% endblock %}
+{% block title %}
+  {% if redraw %}
+    Replikace obrázku
+  {% else %}
+    Kontakt
+  {% endif %}
+{% endblock %}
 
 {% block content %}
-  <h1 class="text-center">Kontakt</h1>
+  <h1 class="text-center">
+    {% if redraw %}
+      Replikace obrázku
+    {% else %}
+      Kontakt
+    {% endif %}
+  </h1>
   <hr />
 
   <div class="container py-3">
     <div class="row">
-      <main class="col-lg-5 mb-3">
-        {% for text in texts %}
-          {% include 'text/block.html' with text=text %}
-        {% endfor %}
+      {% if not redraw %}
+        <main class="col-lg-5 mb-3">
+          {% for text in texts %}
+            {% include 'text/block.html' with text=text %}
+          {% endfor %}
 
-        <address class="mb-3">
-          <a href="mailto:teryfly@gmail.com">
-            <span class="fa fa-fw fa-envelope"></span>
-            teryfly@gmail.com
-          </a>
-          <br />
-          <a href="tel:+420 606 041 132">
-            <span class="fa fa-fw fa-phone"></span>
-            +420 606 041 132
-          </a>
-        </address>
-      </main>
+          <address class="mb-3">
+            <a href="mailto:teryfly@gmail.com">
+              <span class="fa fa-fw fa-envelope"></span>
+              teryfly@gmail.com
+            </a>
+            <br />
+            <a href="tel:+420 606 041 132">
+              <span class="fa fa-fw fa-phone"></span>
+              +420 606 041 132
+            </a>
+          </address>
+        </main>
+      {% endif %}
 
-      <aside class="col-lg-7">
+      <aside class="col-lg-7 mx-auto">
         <div class="card contact-form">
           <div class="card-body">
             {% if sent %}
@@ -37,7 +51,7 @@
                 <span class="fa fa-refresh"></span> {{_('contact-message-send-another')}}
               </a>
             {% else %}
-              <form method="post" action="{% url 'contact' %}">
+              <form method="post" action="{{request.url}}">
                 {% csrf_token %}
                 {% include 'partial/form-field.html' with field=form.contact_name %}
                 {% include 'partial/form-field.html' with field=form.contact_email field_type='email' %}

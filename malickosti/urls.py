@@ -49,6 +49,11 @@ urlpatterns = [
         name='drawings-detail',
     ),
     url(
+        r'^obrazky/(?P<id>[0-9]+)/replika$',
+        view_contact,
+        name='drawings-redraw',
+    ),
+    url(
         r'^obrazky/(?P<id>[0-9]+)/pridat-do-kosiku$',
         view_cart_add_drawing,
         name='drawings-cart-add',
