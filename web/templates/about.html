@@ -1,5 +1,12 @@
 {% extends 'layout/structured.html' %}
 
+{% block title %}O mně{% endblock %}
+
+{% block head %}
+  <meta property="og:title" content="O mně" />
+  {% include 'og/description.html' with description=texts|first %}
+{% endblock %}
+
 {% block content %}
 
   <h1 class="text-center">O mně</h1>

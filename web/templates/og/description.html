@@ -1,0 +1,6 @@
+{% if description %}
+  <meta property="og:description" content="{{ description.text | slice:':110' }}" />
+{% endif %}
+{% if text %}
+  <meta property="og:description" content="{{ text }}" />
+{% endif %}

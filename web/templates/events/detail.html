@@ -5,6 +5,10 @@
 
 {% block title %}{{event.name}}{% endblock %}
 
+{% block head %}
+<meta property="og:title" content="{{event.name}}" />
+{% endblock %}
+
 {% block content %}
   <h1 class="text-center">{{event.name}}</h1>
   <hr />
