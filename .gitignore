@@ -5,6 +5,7 @@ dist
 *.egg-info
 *.mo
 htmlcov
+local_settings.py
 var
 .cache
 .coverage

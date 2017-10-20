@@ -1,3 +1,6 @@
+{% if lookup('env', 'DEBUG') %}
+DEBUG = True
+{% endif %}
 {% if lookup('env', 'ALLOWED_HOSTS') %}
 ALLOWED_HOSTS = '{{lookup('env', 'ALLOWED_HOSTS')}}'.split(' ')
 {% endif %}

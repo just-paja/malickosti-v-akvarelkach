@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vsxmbp&_ch-gv=42=oz*8sqghmqif$)n###*1@+1p6h#t^sep9'
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['localhost']
 
 INSTALLED_APPS = [
