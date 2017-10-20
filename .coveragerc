@@ -8,6 +8,13 @@ omit =
 
 [paths]
 source =
+  drawings
+  eshop
+  events
+  illustrations
+  photos
+  texts
+  visibility
   web
 
 [report]

@@ -2,6 +2,11 @@
 
 {% block title %}Obchodní podmínky{% endblock %}
 
+{% block head %}
+  <meta property="og:title" content="Obchodní podmínky" />
+  {% include 'og/description.html' with text='Na této stránce vždy naleznete aktuální obchodní podmínky. Obchodní podmínky se mohou v průběhu času bez varování změnit.' %}
+{% endblock %}
+
 {% block content %}
 
   <h1 class="text-center">Obchodní podmínky</h1>
@@ -9,6 +14,14 @@
 
   <div class="container py-3">
     {% if conditions %}
+      <p class="lead">
+        Na této stránce vždy naleznete aktuální obchodní podmínky. Obchodní podmínky se mohou v průběhu času bez varování změnit.
+      </p>
+
+      <div class="alert alert-info">
+        Poslední změna obchodních podmínek: {{last_changed.modified | date:'SHORT_DATE_FORMAT'}}
+      </div>
+
       {% for text in conditions %}
         {% include 'text/block.html' with text=text %}
       {% endfor %}

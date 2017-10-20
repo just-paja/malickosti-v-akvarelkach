@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="author" content="Pavel Žák <pavel@zak.global>">
 
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{request.host}}{{request.url}}" />
+  {% block head %}
+  {% endblock %}
+
   <title>
     {% block title %}{% endblock %}
   </title>

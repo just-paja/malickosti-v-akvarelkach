@@ -2,6 +2,11 @@
 
 {% block title %}{{ drawing.name }}{% endblock %}
 
+{% block head %}
+<meta property="og:title" content="{{drawing.name}}" />
+<meta property="og:image" content="{{drawing.image_thumb_detail.url}}" />
+{% endblock %}
+
 {% block content %}
 
   <h1 class="text-center">{{ drawing.name }}</h1>
