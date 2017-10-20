@@ -19,11 +19,14 @@ ILLUSTRATION_POSITION_CHOICES = [
 
 
 class IllustrationManager(Manager):
+    def get_sorted(self):
+        return self.order_by('-weight')
+
     def get_tuple(self):
         drawings = []
-        drawings.append(self.filter(position=ILLUSTRATION_POSITION_LEFT).first())
-        drawings.append(self.filter(position=ILLUSTRATION_POSITION_CENTER).first())
-        drawings.append(self.filter(position=ILLUSTRATION_POSITION_RIGHT).first())
+        drawings.append(self.get_sorted().filter(position=ILLUSTRATION_POSITION_LEFT).first())
+        drawings.append(self.get_sorted().filter(position=ILLUSTRATION_POSITION_CENTER).first())
+        drawings.append(self.get_sorted().filter(position=ILLUSTRATION_POSITION_RIGHT).first())
         return [drawing for drawing in drawings if drawing]
 
 
