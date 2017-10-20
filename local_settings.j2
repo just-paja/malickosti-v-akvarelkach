@@ -19,6 +19,9 @@ RECAPTCHA_PUBLIC_KEY = '{{lookup('env', 'RECAPTCHA_PUBLIC_KEY')}}'
 {% if lookup('env', 'RECAPTCHA_PRIVATE_KEY') %}
 RECAPTCHA_PRIVATE_KEY = '{{lookup('env', 'RECAPTCHA_PRIVATE_KEY')}}'
 {% endif %}
+{% if lookup('env', 'EMAIL_MANAGER') %}
+EMAIL_MANAGER = '{{lookup('env', 'EMAIL_MANAGER')}}'
+{% endif %}
 {% if lookup('env', 'DB_NAME') %}
 DATABASES = {
     'default': {
