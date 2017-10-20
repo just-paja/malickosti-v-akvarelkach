@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 
-from ..models import (
+from drawings.models import (
     Drawing,
     DRAWING_AVAILABLE_STATES,
     DRAWING_STATUS_STORED,

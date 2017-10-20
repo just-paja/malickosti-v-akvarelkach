@@ -1,0 +1,298 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-20 12:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: eshop/config.py:7
+msgid "Eshop"
+msgstr "E-shop"
+
+#: eshop/forms/order_confirm.py:10
+msgid "field-confirm-personal-records"
+msgstr "Souhlasím se zpracováním osobních informací"
+
+#: eshop/forms/order_confirm.py:13
+msgid "field-confirm-trade-conditions"
+msgstr "Souhlasím s podmínkami prodeje"
+
+#: eshop/forms/order_delivery.py:18
+msgid "invalid-method-choice"
+msgstr "Neplatný výběr metody"
+
+#: eshop/forms/order_delivery.py:41
+msgid "field-customer-name"
+msgstr "Celé jméno"
+
+#: eshop/forms/order_delivery.py:42
+msgid "field-customer-name-help-text"
+msgstr "Vyplňte prosím vaše celé jméno"
+
+#: eshop/forms/order_delivery.py:45
+msgid "field-customer-email"
+msgstr "E-mail"
+
+#: eshop/forms/order_delivery.py:46
+msgid "field-customer-email-help-text"
+msgstr "E-mail bude použit k zaslání potvrzení objednávky"
+
+#: eshop/forms/order_delivery.py:49
+msgid "field-customer-phone"
+msgstr "Telefon"
+
+#: eshop/forms/order_delivery.py:50
+msgid "field-customer-phone-help-text"
+msgstr "Telefonní číslo v mezinárodním tvaru, např: +420 123 456 789"
+
+#: eshop/forms/order_delivery.py:53
+msgid "field-customer-address"
+msgstr "Celá adresa"
+
+#: eshop/forms/order_delivery.py:54
+msgid "field-customer-address-help-text"
+msgstr "Vyplňte prosím celou doručovací adresu"
+
+#: eshop/forms/order_delivery.py:70
+msgid "invalid-combination-delivery-payment"
+msgstr "Neplatná kombinace metody doručení a platby"
+
+#: eshop/models/delivery_method.py:18 eshop/models/payment_method.py:13
+#: eshop/models/price_level.py:10
+msgid "field-name"
+msgstr "Název"
+
+#: eshop/models/delivery_method.py:19 eshop/models/payment_method.py:14
+#: eshop/models/price_level.py:11
+msgid "field-name-help-text"
+msgstr "Velmi krátký popis, který napomůže k rozpoznání objektu"
+
+#: eshop/models/delivery_method.py:22 eshop/models/payment_method.py:17
+msgid "field-description-help-text"
+msgstr ""
+"Popište co nejlépe všechny informace a okolnosti, které se týkají tohoto "
+"objektu. Text je monžé naformátovat v Markdownu."
+
+#: eshop/models/delivery_method.py:26 eshop/models/order.py:55
+#: eshop/models/payment_method.py:25 eshop/models/price_level.py:14
+msgid "field-price"
+msgstr "Cena"
+
+#: eshop/models/delivery_method.py:27 eshop/models/payment_method.py:26
+#: eshop/models/price_level.py:15
+msgid "field-method-price-help-text"
+msgstr "Cena, která bude ve výchozí měně připočtena k objednávce"
+
+#: eshop/models/delivery_method.py:31 eshop/models/payment_method.py:30
+msgid "field-weight"
+msgstr "Váha"
+
+#: eshop/models/delivery_method.py:32 eshop/models/payment_method.py:31
+msgid "field-weight-help-text"
+msgstr "Čím těžší objekt, tím víc je vidět"
+
+#: eshop/models/delivery_method.py:38
+msgid "Delivery Method"
+msgstr "Metoda doručení"
+
+#: eshop/models/delivery_method.py:39
+msgid "Delivery Methods"
+msgstr "Metody doručení"
+
+#: eshop/models/order.py:20
+msgid "status-new"
+msgstr "Nová"
+
+#: eshop/models/order.py:21
+msgid "status-confirmed"
+msgstr "Potvrzeno"
+
+#: eshop/models/order.py:22
+msgid "status-on-route"
+msgstr "Na cestě"
+
+#: eshop/models/order.py:23
+msgid "status-delivered"
+msgstr "Doručeno"
+
+#: eshop/models/order.py:24 eshop/models/order_payment.py:14
+msgid "status-canceled"
+msgstr "Zrušeno"
+
+#: eshop/models/order.py:31
+msgid "field-buyer"
+msgstr "Kupující"
+
+#: eshop/models/order.py:32
+msgid "field-buyer-help-text"
+msgstr "Celé jméno kupujícího"
+
+#: eshop/models/order.py:35
+msgid "field-email"
+msgstr "E-mail"
+
+#: eshop/models/order.py:39
+msgid "field-phone"
+msgstr "Telefonní číslo"
+
+#: eshop/models/order.py:43
+msgid "field-address"
+msgstr "Adresa"
+
+#: eshop/models/order.py:44
+msgid "field-address-help-text"
+msgstr "Adresa v lidsky čitelném formátu"
+
+#: eshop/models/order.py:48
+msgid "field-delivery-method"
+msgstr "Metoda doručení"
+
+#: eshop/models/order.py:52
+msgid "field-payment-method"
+msgstr "Metoda platby"
+
+#: eshop/models/order.py:59
+msgid "field-paid"
+msgstr "Zaplaceno"
+
+#: eshop/models/order.py:63
+msgid "field-over-paid"
+msgstr "Přeplatek"
+
+#: eshop/models/order.py:66 eshop/models/order_payment.py:40
+msgid "field-symvar"
+msgstr "Číslo objednávky"
+
+#: eshop/models/order.py:74 eshop/models/order_payment.py:92
+msgid "field-status"
+msgstr "Stav"
+
+#: eshop/models/order.py:81 eshop/models/order.py:91
+#: eshop/models/order_payment.py:25
+msgid "Order"
+msgstr "Objednávka"
+
+#: eshop/models/order.py:82
+msgid "Orders"
+msgstr "Objednávky"
+
+#: eshop/models/order_payment.py:12
+msgid "status-in-progress"
+msgstr "V procesu"
+
+#: eshop/models/order_payment.py:13
+msgid "status-paid"
+msgstr "Zaplaceno"
+
+#: eshop/models/order_payment.py:26
+msgid "Which order is this payment related to?"
+msgstr ""
+
+#: eshop/models/order_payment.py:33
+msgid "field-payment-ident"
+msgstr "Identifikátor platby"
+
+#: eshop/models/order_payment.py:34
+msgid "field-payment-ident-help-text"
+msgstr "Bankou vygenerovaný jedinečný identifikátor platby"
+
+#: eshop/models/order_payment.py:46
+msgid "field-symcon"
+msgstr "Konstantní symbol"
+
+#: eshop/models/order_payment.py:52
+msgid "field-symspc"
+msgstr "Specifický symbol"
+
+#: eshop/models/order_payment.py:56
+msgid "field-amount"
+msgstr "Částka"
+
+#: eshop/models/order_payment.py:62
+msgid "field-payment-sender"
+msgstr "Odesílatel platby"
+
+#: eshop/models/order_payment.py:63
+msgid "field-payment-sender-help-text"
+msgstr "Číslo účtu odesílatele"
+
+#: eshop/models/order_payment.py:69
+msgid "Bank"
+msgstr "Banka"
+
+#: eshop/models/order_payment.py:75
+msgid "field-currency"
+msgstr "Měna"
+
+#: eshop/models/order_payment.py:80
+msgid "field-received-at"
+msgstr "Čas přijetí"
+
+#: eshop/models/order_payment.py:81
+msgid "field-received-at-help-text"
+msgstr "Čas, kdy banka přijala platbu"
+
+#: eshop/models/order_payment.py:87
+msgid "field-message"
+msgstr "Zpráva"
+
+#: eshop/models/order_payment.py:97
+msgid "field-user-identification"
+msgstr "Identifikátor uživatele"
+
+#: eshop/models/order_payment.py:98
+msgid "field-user-identification-help-text"
+msgstr "Bankou vygenerovaný jedinečný identifikátor uživatele"
+
+#: eshop/models/order_payment.py:103
+msgid "Order Payment"
+msgstr "Platba"
+
+#: eshop/models/order_payment.py:104
+msgid "Order Payments"
+msgstr "Platby"
+
+#: eshop/models/payment_method.py:21
+msgid "field-payment-method-need-account-info-help-text"
+msgstr "Zobrazí uživateli informace o platbě na účet při objednávce"
+
+#: eshop/models/payment_method.py:36
+msgid "Payment Method"
+msgstr "Metoda platby"
+
+#: eshop/models/payment_method.py:37
+msgid "Payment Methods"
+msgstr "Metody platby"
+
+#: eshop/models/price_level.py:20
+msgid "field-valid-from"
+msgstr "Platné od"
+
+#: eshop/models/price_level.py:25
+msgid "field-valid-until"
+msgstr "Platné do"
+
+#: eshop/models/price_level.py:29
+msgid "field-price-levels"
+msgstr "Cenové hladiny"
+
+#: eshop/models/price_level.py:34
+msgid "Price Level"
+msgstr "Cenová hladina"
+
+#: eshop/models/price_level.py:35
+msgid "Price Levels"
+msgstr "Cenové hladiny"

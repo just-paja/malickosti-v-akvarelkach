@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from ..models import TextAbout
+from texts.models import AboutText
 
 
 def view_about(request):
     return render(request, 'about.html', {
-        'texts': TextAbout.objects.get_visible(),
+        'texts': AboutText.objects.get_visible(),
     })

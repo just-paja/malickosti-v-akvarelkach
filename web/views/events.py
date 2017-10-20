@@ -3,7 +3,7 @@ from datetime import datetime
 from django.shortcuts import render
 from django.http import Http404
 
-from ..models import (
+from events.models import (
     Event,
     EVENT_TYPE_EXPOSITION,
 )

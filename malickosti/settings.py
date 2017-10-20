@@ -20,6 +20,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'markdownify',
     'web',
+    'drawings',
+    'eshop',
+    'events',
+    'texts',
+    'visibility',
+    'photos',
     'illustrations',
     'captcha',
     'storages',
@@ -48,7 +54,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'web.context_processors.get_cart',
+                'eshop.context_processors.get_cart',
             ],
         },
     },
@@ -76,7 +82,13 @@ LANGUAGES = [
 
 LANGUAGE_CODE = 'cs-cz'
 LOCALE_PATHS = [
+    BASE_DIR + '/drawings/locale',
+    BASE_DIR + '/eshop/locale',
+    BASE_DIR + '/events/locale',
     BASE_DIR + '/illustrations/locale',
+    BASE_DIR + '/photos/locale',
+    BASE_DIR + '/texts/locale',
+    BASE_DIR + '/visibility/locale',
     BASE_DIR + '/web/locale',
 ]
 

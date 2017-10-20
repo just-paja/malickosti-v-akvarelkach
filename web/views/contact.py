@@ -5,8 +5,10 @@ from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.template.loader import render_to_string
 
+from drawings.models import Drawing, DRAWING_AVAILABLE_STATES
+from texts.models import ContactText
+
 from ..forms import ContactForm
-from ..models import Drawing, TextContact, DRAWING_AVAILABLE_STATES
 
 
 def view_contact(request, id=None):
@@ -47,5 +49,5 @@ def view_contact(request, id=None):
         'form': form,
         'redraw': drawing,
         'sent': 'odeslano' in request.GET,
-        'texts': TextContact.objects.get_visible(),
+        'texts': ContactText.objects.get_visible(),
     })

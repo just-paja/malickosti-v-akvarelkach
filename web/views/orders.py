@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import Http404
 
-from ..forms import OrderConfirm, OrderDelivery
-from ..models import (
-    Drawing,
+from drawings.models import Drawing
+from eshop.forms import OrderConfirm, OrderDelivery
+from eshop.models import (
     DeliveryMethod,
     Order,
     PaymentMethod,

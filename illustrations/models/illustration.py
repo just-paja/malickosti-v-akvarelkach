@@ -24,7 +24,7 @@ class IllustrationManager(Manager):
         drawings.append(self.filter(position=ILLUSTRATION_POSITION_LEFT).first())
         drawings.append(self.filter(position=ILLUSTRATION_POSITION_CENTER).first())
         drawings.append(self.filter(position=ILLUSTRATION_POSITION_RIGHT).first())
-        return drawings
+        return [drawing for drawing in drawings if drawing]
 
 
 class Illustration(TimeStampedModel):

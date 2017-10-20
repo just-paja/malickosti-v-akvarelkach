@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-from ..models import TextConditions
+from texts.models import ConditionsText
 
 
 def view_conditions(request):
     return render(request, 'conditions.html', {
-        'conditions': TextConditions.objects.get_visible(),
+        'conditions': ConditionsText.objects.get_visible(),
     })

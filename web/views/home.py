@@ -2,10 +2,9 @@ from datetime import datetime
 
 from django.shortcuts import render
 
-from ..models import (
-    Drawing,
-    Event,
-)
+from drawings.models import Drawing
+from events.models import Event
+
 
 from illustrations.models import HomepageIllustration
 

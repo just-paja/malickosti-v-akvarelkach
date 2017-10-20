@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-20 12:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: drawings/config.py:7 drawings/models/drawing.py:106
+msgid "Drawings"
+msgstr "Obrázky"
+
+#: drawings/models/drawing.py:26
+msgid "status-for-sale"
+msgstr "Aktuálně k prodeji"
+
+#: drawings/models/drawing.py:27
+msgid "status-reserved"
+msgstr "Zarezervováno"
+
+#: drawings/models/drawing.py:28
+msgid "status-sold"
+msgstr "Prodáno"
+
+#: drawings/models/drawing.py:53 drawings/models/drawing_size.py:10
+#: drawings/models/drawing_tag.py:10
+msgid "field-name"
+msgstr "Název"
+
+#: drawings/models/drawing.py:54 drawings/models/drawing_size.py:11
+#: drawings/models/drawing_tag.py:11
+msgid "field-name-help-text"
+msgstr "Velmi krátký popis, který napomůže k rozpoznání objektu"
+
+#: drawings/models/drawing.py:59
+msgid "field-size"
+msgstr "Velikost"
+
+#: drawings/models/drawing.py:64
+msgid "field-drawing-status"
+msgstr "Stav obrázku"
+
+#: drawings/models/drawing.py:69
+msgid "field-drawing-image"
+msgstr "Obrázek nebo fotka"
+
+#: drawings/models/drawing.py:100
+msgid "field-tags"
+msgstr "Značky"
+
+#: drawings/models/drawing.py:105
+msgid "Drawing"
+msgstr "Obrázek"
+
+#: drawings/models/drawing_relationship.py:10
+msgid "relationship-different-size"
+msgstr "Jiná velikost"
+
+#: drawings/models/drawing_relationship.py:11
+msgid "relationship-duplicate"
+msgstr "Duplikát"
+
+#: drawings/models/drawing_relationship.py:19
+msgid "field-drawing-child"
+msgstr "Potomek"
+
+#: drawings/models/drawing_relationship.py:20
+msgid "field-drawing-child-help-text"
+msgstr ""
+"Potomek tohoto vztahu mezi obrázky. Pokud si nejste jistí, použijte obrázek, "
+"který je mladší."
+
+#: drawings/models/drawing_relationship.py:25
+msgid "field-drawing-parent"
+msgstr "Rodič"
+
+#: drawings/models/drawing_relationship.py:26
+msgid "field-drawing-parent-help-text"
+msgstr ""
+"Rodič tohoto vztahu mezi obrázky. Pokud si nejste jistí, použijte obrázek, "
+"který je starší."
+
+#: drawings/models/drawing_relationship.py:33
+msgid "Drawing Relationship"
+msgstr "Obrázkový vztah"
+
+#: drawings/models/drawing_relationship.py:34
+msgid "Drawing Relationships"
+msgstr "Vztahy mezi obrázky"
+
+#: drawings/models/drawing_size.py:14
+msgid "field-size-horizontal"
+msgstr "Velikost na šířku"
+
+#: drawings/models/drawing_size.py:15
+msgid "field-size-horizontal-help-text"
+msgstr "Velikost na šířku v milimetrech"
+
+#: drawings/models/drawing_size.py:18
+msgid "field-size-vertical"
+msgstr "Velikost na výšku"
+
+#: drawings/models/drawing_size.py:19
+msgid "field-size-vertical-help-text"
+msgstr "Velikost na výšku v milimetrech"
+
+#: drawings/models/drawing_size.py:23
+msgid "Drawing Size"
+msgstr "Velikost obrázku"
+
+#: drawings/models/drawing_size.py:24
+msgid "Drawing Sizes"
+msgstr "Velikosti obrázků"
+
+#: drawings/models/drawing_tag.py:15
+msgid "Drawing Tag"
+msgstr "Značka"
+
+#: drawings/models/drawing_tag.py:16
+msgid "Drawing Tags"
+msgstr "Značky"

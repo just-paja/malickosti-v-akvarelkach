@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-20 12:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: texts/config.py:7
+msgid "Texts"
+msgstr "Texty"
+
+#: texts/models/about.py:11
+msgid "About text"
+msgstr "Text ze stránky O mně"
+
+#: texts/models/about.py:12
+msgid "About texts"
+msgstr "Texty na stránce O mně"
+
+#: texts/models/conditions.py:11 texts/models/conditions.py:12
+msgid "Trade Conditions"
+msgstr "Obchodní podmínky"
+
+#: texts/models/contact.py:11
+msgid "Contact text"
+msgstr "Text ze stránky Kontakt"
+
+#: texts/models/contact.py:12
+msgid "Contact texts"
+msgstr "Texty na stránce Kontakty"
+
+#: texts/models/text.py:18
+msgid "field-name"
+msgstr "Název"
+
+#: texts/models/text.py:19
+msgid "field-name-help-text"
+msgstr "Až tříslovné pojmenování, které bude použito jako nadpis"
+
+#: texts/models/text.py:22
+msgid "field-text-help-text"
+msgstr "Text formátovaný v Markdownu"
+
+#: texts/models/text.py:27
+msgid "field-weight"
+msgstr "Váha"
+
+#: texts/models/text.py:28
+msgid "field-weight-help-text"
+msgstr "Čím těžší objekt, tím více bude vidět"
