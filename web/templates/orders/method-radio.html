@@ -1,19 +1,24 @@
-<li class="list-group-item form-check">
-  <label class="form-check-label custom-control custom-radio">
-    <input
-      class="form-check-input custom-control-input"
-      type="radio"
-      name="{{ input_name }}"
-      value="{{ item.id }}"
-      {% if value == item.id %}checked{% endif %}
-      {% if payment_methods %}data-payment-methods="{{payment_methods}}"{% endif %}
-    />
-    <span class="custom-control-indicator"></span>
-    <span class="custom-control-description">
-      {{ item.name }}
+<li class="list-group-item">
+  <div class="form-check">
+    <label class="form-check-label custom-control custom-radio">
+      <input
+        class="form-check-input custom-control-input"
+        type="radio"
+        name="{{ input_name }}"
+        value="{{ item.id }}"
+        {% if value == item.id %}checked{% endif %}
+        {% if payment_methods %}data-payment-methods="{{payment_methods}}"{% endif %}
+      />
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">
+        {{ item.name }}
+      </span>
+    </label>
+    <span class="form-check-price ml-auto">
+      {% include 'partial/price.html' with price=item.price %}
     </span>
-  </label>
-  <span class="form-check-price ml-auto">
-    {% include 'partial/price.html' with price=item.price %}
-  </span>
+  </div>
+  <div class="text-muted small">
+    {{item.description}}
+  </div>
 </li>
