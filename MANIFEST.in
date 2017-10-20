@@ -1,4 +1,11 @@
+recursive-include drawings *
+recursive-include eshop *
+recursive-include events *
+recursive-include illustrations *
 recursive-include malickosti *
+recursive-include photos *
+recursive-include texts *
+recursive-include visibility *
 recursive-include web *
 include requirements.txt
 include README.md
