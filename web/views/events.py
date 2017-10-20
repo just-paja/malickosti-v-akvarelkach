@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from django.shortcuts import render
 from django.http import Http404
 
@@ -10,13 +8,8 @@ from events.models import (
 
 
 def view_events(request):
-    vernissages = Event.objects.get_visible().filter(
-        start__gte=datetime.now(),
-    ).exclude(event_type=EVENT_TYPE_EXPOSITION)
-    expositions = Event.objects.get_visible().filter(
-        event_type=EVENT_TYPE_EXPOSITION,
-        start__gte=datetime.now(),
-    )
+    vernissages = Event.objects.future().exclude(event_type=EVENT_TYPE_EXPOSITION)
+    expositions = Event.objects.future().filter(event_type=EVENT_TYPE_EXPOSITION)
     return render(request, 'events/index.html', {
         'expositions': expositions,
         'vernissages': vernissages,
@@ -24,9 +17,7 @@ def view_events(request):
 
 
 def view_events_archive(request):
-    events = Event.objects.get_visible().filter(
-        start__lt=datetime.now(),
-    )
+    events = Event.objects.past()
     return render(request, 'events/archive.html', {
         'events': events,
     })

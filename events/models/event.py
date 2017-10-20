@@ -1,4 +1,14 @@
-from django.db import models
+from datetime import datetime
+
+from django.db.models import (
+    BooleanField,
+    DateTimeField,
+    ForeignKey,
+    CharField,
+    TextField,
+    PositiveIntegerField,
+    Q,
+)
 from django.utils.translation import ugettext_lazy as _
 from photos.models import Photo
 
@@ -15,33 +25,47 @@ EVENT_TYPE_CHOICES = (
 )
 
 
+class EventManager(VisibilityManager):
+    def future(self):
+        return self.get_visible().filter(
+            Q(start__gte=datetime.now()) |
+            Q(end__gte=datetime.now()),
+        )
+
+    def past(self):
+        return self.get_visible().filter(
+            Q(start__lt=datetime.now()) &
+            Q(end__lt=datetime.now()),
+        )
+
+
 class Event(TimeStampedModel):
-    objects = VisibilityManager()
-    name = models.CharField(
+    objects = EventManager()
+    name = CharField(
         max_length=255,
         verbose_name=_('field-name'),
         help_text=_('field-name-help-text'),
     )
-    event_type = models.PositiveIntegerField(
+    event_type = PositiveIntegerField(
         choices=EVENT_TYPE_CHOICES,
         default=EVENT_TYPE_EXPOSITION,
         verbose_name=_('Type'),
     )
-    start = models.DateTimeField(
+    start = DateTimeField(
         verbose_name=_('field-start'),
     )
-    end = models.DateTimeField(
+    end = DateTimeField(
         null=True,
         blank=True,
         verbose_name=_('field-end'),
     )
-    all_day = models.BooleanField(
+    all_day = BooleanField(
         default=False,
         verbose_name=_('field-all-day'),
         help_text=_('field-all-day-help-text'),
     )
-    location = models.ForeignKey('Location')
-    description = models.TextField(
+    location = ForeignKey('Location')
+    description = TextField(
         help_text=_('field-description-help-text'),
     )
     visibility = VisibilityField()
@@ -61,4 +85,4 @@ class Event(TimeStampedModel):
 
 
 class EventPhoto(Photo):
-    event = models.ForeignKey(Event, related_name='photos')
+    event = ForeignKey(Event, related_name='photos')
