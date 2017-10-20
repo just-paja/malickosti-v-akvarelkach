@@ -127,6 +127,7 @@ RECAPTCHA_PUBLIC_KEY = 'MyRecaptchaKey123'
 RECAPTCHA_PRIVATE_KEY = 'MyRecaptchaPrivateKey456'
 NOCAPTCHA = True
 EMAIL_ORDER_SENDER = 'objednavky@terkyakvarelky.cz'
+EMAIL_MANAGER = 'test@example.com'
 
 AWS_ACCESS_KEY_ID = None
 AWS_SECRET_ACCESS_KEY = None
@@ -142,7 +143,6 @@ except ImportError:
 CORS_ORIGIN_WHITELIST = ALLOWED_HOSTS
 EMAIL_ORDER_SENDER = 'objednavky@%s' % ALLOWED_HOSTS[0]
 EMAIL_CONTACT_FALLBACK_SENDER = 'kontakt@%s' % ALLOWED_HOSTS[0]
-EMAIL_MANAGER = 'test@example.com'
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
