@@ -8,6 +8,7 @@ from .models import (
     Order,
     OrderDrawing,
     OrderPayment,
+    PaymentMethod,
     PriceLevel,
 )
 
@@ -108,6 +109,17 @@ class DeliveryMethodAdmin(ModelAdmin):
     list_display = (
         'name',
         'price',
+        'weight',
+        'visibility',
+    )
+
+
+@register(PaymentMethod)
+class PaymentMethodAdmin(ModelAdmin):
+    list_display = (
+        'name',
+        'price',
+        'needs_account_info',
         'weight',
         'visibility',
     )
