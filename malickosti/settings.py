@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'markdownify',
     'web',
+    'illustrations',
     'captcha',
     'storages',
     'imagekit',
@@ -75,6 +76,7 @@ LANGUAGES = [
 
 LANGUAGE_CODE = 'cs-cz'
 LOCALE_PATHS = [
+    BASE_DIR + '/illustrations/locale',
     BASE_DIR + '/web/locale',
 ]
 

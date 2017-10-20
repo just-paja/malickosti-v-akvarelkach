@@ -167,6 +167,20 @@ ul:last-child {
   min-height: 200px;
 }
 
+.home-gallery {
+  max-width: 1500px;
+}
+
+.home-gallery img {
+  display: block;
+  max-height: 300px;
+}
+
+.home-gallery .img-gallery:first-child,
+.home-gallery .img-gallery:last-child {
+  display: none
+}
+
 @media screen and (min-width: 576px) {
   .btn-xs-stretch {
     width: auto;
@@ -174,6 +188,10 @@ ul:last-child {
 
   html {
     padding-bottom: 40px;
+  }
+
+  .home-gallery .img-gallery:first-child {
+    display: block;
   }
 }
 
@@ -184,5 +202,9 @@ ul:last-child {
 
   .nav-cart {
     margin-left: auto;
+  }
+
+  .home-gallery .img-gallery:last-child {
+    display: block;
   }
 }

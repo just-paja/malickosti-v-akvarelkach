@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-17 11:19+0000\n"
+"POT-Creation-Date: 2017-10-20 11:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -499,18 +499,20 @@ msgstr "Skryté"
 msgid "field-visibility"
 msgstr "Viditelnost"
 
-#: web/templates/contact.html:34
+#: web/templates/contact.html:48
 msgid "contact-message-sent"
 msgstr "Díky, zpráva byla odeslána. Odpovím co nejdříve."
 
-#: web/templates/contact.html:37
+#: web/templates/contact.html:51
 msgid "contact-message-send-another"
 msgstr "Poslat další"
 
-#: web/views/contact.py:22
+#: web/views/contact.py:28
 msgid "contact-form-subject"
 msgstr "Zpráva z kontaktního formuláře"
 
-#: web/views/contact.py:33
+#: web/views/contact.py:37
 msgid "contact-prefill-message-redraw"
-msgstr "Ahoj, chtěl bych udělat repliku obrázku %s, původní velikosti %s, který jsem našel na adrese: %s"
+msgstr ""
+"Ahoj, chtěl bych udělat repliku obrázku %s, původní velikosti %s, který jsem "
+"našel na adrese: %s"
