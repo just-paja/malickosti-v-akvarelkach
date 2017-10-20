@@ -104,6 +104,14 @@ class Order(TimeStampedModel):
 
     def notify_accepted(self):
         self.notify(
+            settings.EMAIL_MANAGER,
+            'Vytvořena objednávka %s' % self.symvar,
+            render_to_string('mail/order-manager-notify.txt', {
+                'order': self,
+            }),
+        )
+        self.notify(
+            self.email,
             'Objednávka %s: Přijato' % self.symvar,
             render_to_string('mail/order-accepted.txt', {
                 'order': self,
@@ -112,6 +120,7 @@ class Order(TimeStampedModel):
 
     def notify_on_route(self):
         self.notify(
+            self.email,
             'Objednávka %s odeslána' % self.symvar,
             render_to_string('mail/order-on-route.txt', {
                 'order': self,
@@ -120,6 +129,7 @@ class Order(TimeStampedModel):
 
     def notify_underpaid(self):
         self.notify(
+            self.email,
             'Objednávka %s: Nedoplatek' % self.symvar,
             render_to_string('mail/order-underpaid.txt', {
                 'order': self,
@@ -130,6 +140,7 @@ class Order(TimeStampedModel):
 
     def notify_paid(self):
         self.notify(
+            self.email,
             'Objednávka %s zaplacena' % self.symvar,
             render_to_string('mail/order-paid.txt', {
                 'order': self,
@@ -143,6 +154,7 @@ class Order(TimeStampedModel):
 
     def notify_canceled(self):
         self.notify(
+            self.email,
             'Objednávka %s zrušena' % self.symvar,
             render_to_string('mail/order-canceled.txt', {
                 'order': self,
@@ -157,12 +169,12 @@ class Order(TimeStampedModel):
         elif self.status == ORDER_STATUS_CANCELED:
             self.notify_canceled()
 
-    def notify(self, subject, body):
+    def notify(self, rcpt, subject, body):
         mail.send_mail(
             subject,
             body,
             settings.EMAIL_ORDER_SENDER,
-            [self.email],
+            [rcpt],
         )
 
     def save(self, *args, **kwargs):

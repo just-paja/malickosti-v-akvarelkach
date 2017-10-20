@@ -388,8 +388,8 @@ class OrderTest(TestCase):
         mock_send_mail,
     ):
         """Order notify sends e-mail"""
-        order = Order(email='foo@example.com')
-        order.notify('test-subject', 'test-body')
+        order = Order()
+        order.notify('foo@example.com', 'test-subject', 'test-body')
         mock_send_mail.assert_called_with(
             'test-subject',
             'test-body',

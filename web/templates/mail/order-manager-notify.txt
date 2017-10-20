@@ -1,0 +1,5 @@
+Ahoj,
+
+na webu přibyla objednávka {{order.symvar}}.
+
+{% include 'mail/footer.txt' %}
