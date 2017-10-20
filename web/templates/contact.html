@@ -57,6 +57,9 @@
                 {% include 'partial/form-field.html' with field=form.contact_name %}
                 {% include 'partial/form-field.html' with field=form.contact_email field_type='email' %}
                 {% include 'partial/form-textarea.html' with field=form.contact_message %}
+                {% if form.captcha.field.required %}
+                  {% include 'partial/form-captcha.html' with field=form.captcha %}
+                {% endif %}
                 <button type="submit" class="btn btn-primary">
                   <span class="fa fa-paper-plane"></span> Odeslat
                 </button>
