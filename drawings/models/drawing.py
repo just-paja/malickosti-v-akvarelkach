@@ -116,7 +116,8 @@ class Drawing(TimeStampedModel):
         ).order_by('-created').first()
 
     def get_price(self):
-        return self.get_active_price_level().price
+        price_level = self.get_active_price_level()
+        return price_level.price if price_level else None
 
     def is_price_visible(self):
         return self.status in DRAWING_AVAILABLE_STATES

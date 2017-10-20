@@ -62,7 +62,7 @@
                 <span class="fa fa-fw fa-shopping-cart"></span>
                 Přejít do košíku
               </a>
-            {% else %}
+            {% elif drawing.get_price %}
               <a
                 href="{% url 'drawings-cart-add' id=drawing.id %}"
                 class="btn btn-primary mb-1"

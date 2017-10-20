@@ -1,5 +1,7 @@
-{% if price == 0 %}
-Zdarma
-{% else %}
-{{price}} Kč
+{% if price != None %}
+  {% if price == 0 %}
+    Zdarma
+  {% else %}
+    {{price}} Kč
+  {% endif %}
 {% endif %}

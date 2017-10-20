@@ -3,6 +3,8 @@ from django.contrib.admin import (
     register,
     TabularInline,
 )
+
+from eshop.models import PriceLevel
 from .models import (
     Drawing,
     DrawingRelationship,
@@ -10,20 +12,28 @@ from .models import (
 )
 
 
-class DrawingRelationshipAdmin(TabularInline):
+class DrawingRelationshipInline(TabularInline):
     model = DrawingRelationship
     fk_name = 'parent'
+    extra = 0
+
+
+class PriceLevelInline(TabularInline):
+    model = PriceLevel.drawings.through
+    extra = 1
 
 
 @register(Drawing)
 class DrawingAdmin(ModelAdmin):
-    inlines = [DrawingRelationshipAdmin]
+    inlines = [
+        PriceLevelInline,
+        DrawingRelationshipInline
+    ]
     fields = (
         'name',
         'size',
         'status',
         'image',
-        'price_levels',
     )
     list_display = (
         'name',

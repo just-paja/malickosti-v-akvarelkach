@@ -25,9 +25,10 @@ class PriceLevel(TimeStampedModel):
         verbose_name=_('field-valid-until'),
     )
     drawings = models.ManyToManyField(
-        'eshop.PriceLevel',
-        verbose_name=_('field-price-levels'),
+        'drawings.Drawing',
+        verbose_name=_('field-drawings'),
         related_name='price_levels',
+        blank=True,
     )
 
     class Meta:

@@ -93,13 +93,14 @@ class OrderAdmin(ModelAdmin):
 
 
 @register(PriceLevel)
-class DrawingPriceLevelAdmin(ModelAdmin):
+class PriceLevelAdmin(ModelAdmin):
     list_display = (
         'name',
         'price',
         'valid_from',
         'valid_until',
     )
+    exclude = ('drawings',)
 
 
 @register(DeliveryMethod)

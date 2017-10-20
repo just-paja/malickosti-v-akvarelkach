@@ -78,22 +78,26 @@ class OrderDelivery(Form):
         return ''
 
     def get_values(self, order):
+        delivery_method = None
+        payment_method = None
+
         if order:
             if 'delivery_method' in order and order['delivery_method']:
-                delivery_method = order['delivery_method']
+                delivery_method = int(order['delivery_method'])
             else:
                 delivery_method = DeliveryMethod.objects.get_default().id
 
             if 'payment_method' in order and order['payment_method']:
-                payment_method = order['payment_method']
+                payment_method = int(order['payment_method'])
             else:
                 payment_method = DeliveryMethod.objects.get(
                     id=delivery_method,
                 ).get_default_payment().id
         else:
             delivery_method_default = DeliveryMethod.objects.get_default()
-            delivery_method = delivery_method_default.id
-            payment_method = delivery_method_default.get_default_payment().id
+            if delivery_method_default:
+                delivery_method = delivery_method_default.id
+                payment_method = delivery_method_default.get_default_payment().id
 
         return {
             'customer_name': self.get_value(
@@ -116,6 +120,6 @@ class OrderDelivery(Form):
                 self.data,
                 order,
             ),
-            'delivery_method': int(delivery_method),
-            'payment_method': int(payment_method),
+            'delivery_method': delivery_method,
+            'payment_method': payment_method,
         }
