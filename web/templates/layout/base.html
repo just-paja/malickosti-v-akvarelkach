@@ -8,7 +8,7 @@
   <meta name="author" content="Pavel Žák <pavel@zak.global>">
 
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{request.host}}{{request.url}}" />
+  <meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.path}}" />
   {% block head %}
   {% endblock %}
 
