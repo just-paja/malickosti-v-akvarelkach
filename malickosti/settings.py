@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'captcha',
     'storages',
     'imagekit',
+    'raven.contrib.django.raven_compat',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,7 @@ MARKDOWNIFY_WHITELIST_TAGS = [
     'h5',
 ]
 
+RAVEN_DSN = None
 RECAPTCHA_PUBLIC_KEY = 'MyRecaptchaKey123'
 RECAPTCHA_PRIVATE_KEY = 'MyRecaptchaPrivateKey456'
 NOCAPTCHA = True
@@ -155,4 +157,57 @@ if AWS_ACCESS_KEY_ID and AWS_STORAGE_BUCKET_NAME:
         'access_key': AWS_ACCESS_KEY_ID,
         'secret_key': AWS_SECRET_ACCESS_KEY,
         'bucket_name': AWS_STORAGE_BUCKET_NAME,
+    }
+
+if RAVEN_DSN:
+    MIDDLEWARE = [
+        'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',
+    ] + MIDDLEWARE
+    RAVEN_CONFIG = {
+        'dsn': RAVEN_DSN,
+        'release': os.path.basename(BASE_DIR),
+    }
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'root': {
+            'level': 'WARNING',
+            'handlers': ['sentry'],
+        },
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s '
+                          '%(process)d %(thread)d %(message)s'
+            },
+        },
+        'handlers': {
+            'sentry': {
+                'level': 'ERROR',
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+                'tags': {'custom-tag': 'x'},
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+            }
+        },
+        'loggers': {
+            'django.db.backends': {
+                'level': 'ERROR',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'raven': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+            'sentry.errors': {
+                'level': 'DEBUG',
+                'handlers': ['console'],
+                'propagate': False,
+            },
+        },
     }

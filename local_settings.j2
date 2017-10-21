@@ -25,6 +25,9 @@ RECAPTCHA_PRIVATE_KEY = '{{lookup('env', 'RECAPTCHA_PRIVATE_KEY')}}'
 {% if lookup('env', 'EMAIL_MANAGER') %}
 EMAIL_MANAGER = '{{lookup('env', 'EMAIL_MANAGER')}}'
 {% endif %}
+{% if lookup('env', 'RAVEN_DSN') %}
+RAVEN_DSN = '{{lookup('env', 'RAVEN_DSN')}}'
+{% endif %}
 {% if lookup('env', 'DB_NAME') %}
 DATABASES = {
     'default': {

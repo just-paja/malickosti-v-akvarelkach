@@ -43,4 +43,5 @@ deployment:
         RECAPTCHA_PUBLIC_KEY="$STAGING_RECAPTCHA_PUBLIC_KEY"
         EMAIL_MANAGER="$STAGING_EMAIL_MANAGER"
         SECRET_KEY="$STAGING_SECRET_KEY"
+        RAVEN_DSN="$STAGING_RAVEN_DSN"
         ansible-playbook deploy.yml -i inventory.yml
