@@ -1,2 +1,4 @@
-- src: just-paja.practical-ansible-web-django
+- src: practical-ansible.nginx-django
+  version: 1.0.0
+- src: practical-ansible.nginx-redirect
   version: master

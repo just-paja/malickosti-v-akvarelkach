@@ -2,9 +2,14 @@
 - name: Setup all my servers on AWS
   hosts: web
   roles:
-    - role: just-paja.practical-ansible-web-django
+    - role: practical-ansible.nginx-django
       django_archive: dist/malickosti-v-akvarelkach-0.0.1.tar.gz
       django_config_file: local_settings.j2
       django_config: malickosti.settings
       django_project_name: 'cz-terkyakvarelky'
       django_wsgi_file: malickosti/wsgi.py
+    - role: practical-ansible.nginx-redirect
+      nginx_redirect_project_name: cz-terkyakvarelky
+      nginx_redirect_server_name: terkyakvarelky.cz www.terkyakvarelky.cz
+      nginx_redirect_destination_url: https://www.facebook.com/T%C3%A9ra-v-akvarelk%C3%A1ch-760098320836028/
+      nginx_redirect_status: 302
