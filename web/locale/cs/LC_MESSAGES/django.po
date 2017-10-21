@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-21 13:51+0000\n"
+"POT-Creation-Date: 2017-10-21 17:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,25 @@ msgstr "E-mail"
 #: web/forms/contact.py:15
 msgid "field-contact-message"
 msgstr "Zpráva"
+
+#: web/templates/404.html:3 web/templates/404.html:7
+msgid "page-not-found"
+msgstr "Stránka nenalezena"
+
+#: web/templates/404.html:12
+msgid "page-not-found-description"
+msgstr ""
+"Tato stránka neexistuje. Buď byla odstraněna, přemístěna nebo přejmenována."
+
+#: web/templates/500.html:3 web/templates/500.html:7
+msgid "server-error"
+msgstr "Nějaká maličkost se pokazila"
+
+#: web/templates/500.html:11
+msgid "server-error-description"
+msgstr ""
+"Život je složený z maličkostí. Zrovna se jedna maličkost porouchala a není "
+"to úplně ono. Zkuste zopakovat svůj požadavek později."
 
 #: web/templates/contact.html:49
 msgid "contact-message-sent"
@@ -55,53 +74,3 @@ msgid "contact-prefill-message-redraw"
 msgstr ""
 "Ahoj, chtěl bych udělat repliku obrázku %s, původní velikosti %s, který jsem "
 "našel na adrese: %s"
-
-#~ msgid "type-exposition"
-#~ msgstr "Výstava"
-
-#~ msgid "type-vernissage"
-#~ msgstr "Vernisáž"
-
-#~ msgid "field-name"
-#~ msgstr "Název"
-
-#~ msgid "field-name-help-text"
-#~ msgstr "Velmi krátký popis, který napomůže k rozpoznání objektu"
-
-#~ msgid "Type"
-#~ msgstr "Typ"
-
-#~ msgid "field-start"
-#~ msgstr "Začátek"
-
-#~ msgid "field-end"
-#~ msgstr "Konec"
-
-#~ msgid "field-all-day"
-#~ msgstr "Celodenní"
-
-#~ msgid "field-all-day-help-text"
-#~ msgstr "U celodenních událostí se nezobrazuje čas, pouze datum"
-
-#~ msgid "field-description-help-text"
-#~ msgstr ""
-#~ "Popište co nejlépe všechny informace a okolnosti, které se týkají tohoto "
-#~ "objektu. Text je monžé naformátovat v Markdownu."
-
-#~ msgid "Event"
-#~ msgstr "Událost"
-
-#~ msgid "Events"
-#~ msgstr "Události"
-
-#~ msgid "field-address-help-text"
-#~ msgstr "Adresa v lidsky čitelném formátu"
-
-#~ msgid "field-website-help-text"
-#~ msgstr "Adresa webu včetně protokolu (https://)"
-
-#~ msgid "Location"
-#~ msgstr "Místo"
-
-#~ msgid "Locations"
-#~ msgstr "Místa"
