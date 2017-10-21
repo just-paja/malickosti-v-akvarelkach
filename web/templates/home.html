@@ -7,6 +7,10 @@
 
 {% block head %}
 <meta property="og:title" content="Terky Akvarelky" />
+<meta property="og:description" content="Každá maličkost dokáže udělat den krásnějším." />
+{% for illustration in illustrations %}
+  <meta property="og:image" content="{{illustration.image.url}}" />
+{% endfor %}
 {% endblock %}
 
 {% block body %}
