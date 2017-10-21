@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-20 12:59+0000\n"
+"POT-Creation-Date: 2017-10-21 13:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: illustrations/config.py:7 illustrations/models/illustration.py:62
+#: illustrations/config.py:7 illustrations/models/illustration.py:65
 msgid "Illustrations"
 msgstr "Ilustrace"
 
@@ -42,10 +42,10 @@ msgstr "Uprostřed"
 msgid "position_right"
 msgstr "Vpravo"
 
-#: illustrations/models/illustration.py:35
+#: illustrations/models/illustration.py:38
 msgid "field-drawing-image"
 msgstr "Obrázek"
 
-#: illustrations/models/illustration.py:61
+#: illustrations/models/illustration.py:64
 msgid "Illustration"
 msgstr "Ilustrace"

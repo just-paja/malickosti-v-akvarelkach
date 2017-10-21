@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-20 12:59+0000\n"
+"POT-Creation-Date: 2017-10-21 13:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,53 +18,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: events/config.py:7 events/models/event.py:51
+#: events/config.py:7 events/models/event.py:75
 msgid "Events"
 msgstr "Události"
 
-#: events/models/event.py:13
+#: events/models/event.py:23
 msgid "type-exposition"
 msgstr "Výstava"
 
-#: events/models/event.py:14
+#: events/models/event.py:24
 msgid "type-vernissage"
 msgstr "Vernisáž"
 
-#: events/models/event.py:22 events/models/location.py:10
+#: events/models/event.py:46 events/models/location.py:10
 msgid "field-name"
 msgstr "Název"
 
-#: events/models/event.py:23 events/models/location.py:11
+#: events/models/event.py:47 events/models/location.py:11
 msgid "field-name-help-text"
 msgstr "Velmi krátký popis, který napomůže k rozpoznání objektu"
 
-#: events/models/event.py:28
+#: events/models/event.py:52
 msgid "Type"
 msgstr "Typ"
 
-#: events/models/event.py:31
+#: events/models/event.py:55
 msgid "field-start"
 msgstr "Začátek"
 
-#: events/models/event.py:36
+#: events/models/event.py:60
 msgid "field-end"
 msgstr "Konec"
 
-#: events/models/event.py:40
+#: events/models/event.py:64
 msgid "field-all-day"
 msgstr "Celodenní"
 
-#: events/models/event.py:41
+#: events/models/event.py:65
 msgid "field-all-day-help-text"
 msgstr "U celodenních událostí se nezobrazuje čas, pouze datum"
 
-#: events/models/event.py:45
+#: events/models/event.py:69
 msgid "field-description-help-text"
 msgstr ""
 "Popište co nejlépe všechny informace a okolnosti, které se týkají tohoto "
 "objektu. Text je monžé naformátovat v Markdownu."
 
-#: events/models/event.py:50
+#: events/models/event.py:74
 msgid "Event"
 msgstr "Událost"
 

@@ -52,6 +52,11 @@
                 <span class="fa fa-refresh"></span> {{_('contact-message-send-another')}}
               </a>
             {% else %}
+              {% if failed %}
+                <div class="alert alert-error">
+                  {{_('contact-message-failed')}}
+                </div>
+              {% endif %}
               <form method="post" action="{{request.url}}">
                 {% csrf_token %}
                 {% include 'partial/form-field.html' with field=form.contact_name %}

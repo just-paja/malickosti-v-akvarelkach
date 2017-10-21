@@ -26,13 +26,14 @@ def view_contact(request, id=None):
                 data['contact_name'],
                 data['contact_email'] or settings.EMAIL_CONTACT_FALLBACK_SENDER
             )
-            mail.send_mail(
+            mail_result = mail.send_mail(
                 _('contact-form-subject'),
                 render_to_string('mail/contact-form.txt', data),
                 sender,
                 [settings.EMAIL_MANAGER],
             )
-            return redirect('%s?odeslano' % request.path)
+            redirect_path = '%s?odeslano' if mail_result else '%s?selhalo'
+            return redirect(redirect_path % request.path)
     else:
         initial_data = {}
         if drawing:
@@ -49,5 +50,6 @@ def view_contact(request, id=None):
         'form': form,
         'redraw': drawing,
         'sent': 'odeslano' in request.GET,
+        'failed': 'selhalo' in request.GET,
         'texts': ContactText.objects.get_visible(),
     })
