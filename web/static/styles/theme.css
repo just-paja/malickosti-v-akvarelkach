@@ -2,9 +2,12 @@ html {
   min-height: 100%;
   position: relative;
   padding-bottom: 30px;
+  background-color: #fff;
+  background-image: url(/static/images/bg-cartoon.png);
 }
 
 body {
+  background: transparent;
   min-width: 360px;
 }
 
