@@ -75,6 +75,7 @@ class Order(TimeStampedModel):
     )
 
     initial_paid = False
+    initial_over_paid = False
     initial_status = None
 
     class Meta:
@@ -83,9 +84,10 @@ class Order(TimeStampedModel):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.initial_paid = self.paid
-        self.initial_over_paid = self.over_paid
-        self.initial_status = self.status
+        if self.id:
+            self.initial_paid = self.paid
+            self.initial_over_paid = self.over_paid
+            self.initial_status = self.status
 
     def __str__(self):
         return '%s %s' % (_('Order'), self.symvar)
