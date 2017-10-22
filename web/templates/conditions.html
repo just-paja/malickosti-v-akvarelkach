@@ -7,11 +7,11 @@
   {% include 'og/description.html' with text='Na této stránce vždy naleznete aktuální obchodní podmínky. Obchodní podmínky se mohou v průběhu času bez varování změnit.' %}
 {% endblock %}
 
+{% block heading %}
+<h1 class="text-center bg-white">Obchodní podmínky</h1>
+{% endblock %}
+
 {% block content %}
-
-  <h1 class="text-center">Obchodní podmínky</h1>
-  <hr />
-
   <div class="container py-3">
     {% if conditions %}
       <p class="lead">
@@ -22,9 +22,7 @@
         Poslední změna obchodních podmínek: {{last_changed.modified | date:'SHORT_DATE_FORMAT'}}
       </div>
 
-      {% for text in conditions %}
-        {% include 'text/block.html' with text=text %}
-      {% endfor %}
+      {% include 'text/cards.html' with texts=conditions   %}
     {% else %}
       <div class="alert alert-danger">
         Obchodní podmínky nebyly nalezeny. Kontaktujte prosím co nejdříve správce.

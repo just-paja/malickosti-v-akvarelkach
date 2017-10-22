@@ -2,11 +2,11 @@
 
 {% block title %}{{_('server-error')}}{% endblock %}
 
+{% block heading %}
+<h1 class="text-center bg-white">{{_('server-error')}}</h1>
+{% endblock %}
 
 {% block content %}
-  <h1 class="text-center">{{_('server-error')}}</h1>
-  <hr />
-
   <div class="container py-3">
     <p>{{_('server-error-description')}}</p>
   </div>

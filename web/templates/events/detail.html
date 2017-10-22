@@ -9,10 +9,11 @@
 <meta property="og:title" content="{{event.name}}" />
 {% endblock %}
 
-{% block content %}
-  <h1 class="text-center">{{event.name}}</h1>
-  <hr />
+{% block heading %}
+<h1 class="text-center bg-white">{{event.name}}</h1>
+{% endblock %}
 
+{% block content %}
   <div class="container py-3">
     <div class="row">
       <div class="col-md-6">

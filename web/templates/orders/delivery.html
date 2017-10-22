@@ -2,11 +2,11 @@
 
 {% block title %}Košík{% endblock %}
 
+{% block heading %}
+<h1 class="text-center bg-white">Objednávka</h1>
+{% endblock %}
+
 {% block content %}
-
-  <h1 class="text-center">Objednávka</h1>
-  <hr />
-
   <div class="container py-3">
     {% include 'partial/form-errors.html' with form=form %}
 

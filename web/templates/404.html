@@ -2,11 +2,11 @@
 
 {% block title %}{{_('page-not-found')}}{% endblock %}
 
+{% block heading %}
+<h1 class="text-center bg-white">{{_('page-not-found')}}</h1>
+{% endblock %}
 
 {% block content %}
-  <h1 class="text-center">{{_('page-not-found')}}</h1>
-  <hr />
-
   <div class="container py-3">
     <p>{{request.scheme}}://{{request.get_host}}{{request.path}}</p>
     <p>{{_('page-not-found-description')}}</p>

@@ -19,6 +19,15 @@ ul:last-child {
   margin-bottom: 0;
 }
 
+h1.bg-white {
+  padding: 0.5em;
+  margin: 0;
+}
+
+h1.bg-white ~ hr {
+  margin-top: 0;
+}
+
 .navbar {
   background-color: #008b9b;
 }

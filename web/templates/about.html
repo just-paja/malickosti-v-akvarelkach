@@ -7,15 +7,12 @@
   {% include 'og/description.html' with description=texts|first %}
 {% endblock %}
 
+{% block heading %}
+<h1 class="text-center bg-white">O mně</h1>
+{% endblock %}
+
 {% block content %}
-
-  <h1 class="text-center">O mně</h1>
-  <hr />
-
   <div class="container py-3">
-    {% for text in texts %}
-      {% include 'text/block.html' with text=text %}
-    {% endfor %}
+    {% include 'text/cards.html' with texts=texts %}
   </div>
-
 {% endblock %}

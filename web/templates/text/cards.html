@@ -1,0 +1,7 @@
+<div class="row">
+  {% for text in texts %}
+    <div class="col-lg-6">
+      {% include 'text/block.html' with text=text %}
+    </div>
+  {% endfor %}
+</div>

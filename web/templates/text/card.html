@@ -1,0 +1,11 @@
+{% load markdownify %}
+
+<div class="mb-3">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">{{text.name}}</h2>
+      {{text.text | markdownify}}
+    </div>
+  </div>
+  {% include 'text/photos.html' with photos=text.get_photos %}
+</div>
