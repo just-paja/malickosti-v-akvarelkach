@@ -30,13 +30,13 @@ class EventManager(VisibilityManager):
         return self.get_visible().filter(
             Q(start__gte=datetime.now()) |
             Q(end__gte=datetime.now()),
-        )
+        ).order_by('-start')
 
     def past(self):
         return self.get_visible().filter(
             Q(start__lt=datetime.now()) &
             Q(end__lt=datetime.now()),
-        )
+        ).order_by('-start')
 
 
 class Event(TimeStampedModel):
