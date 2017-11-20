@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.http import Http404
 
@@ -24,9 +25,9 @@ def view_events_archive(request):
 
 
 def view_events_detail(request, id):
-    event = Event.objects.get_visible().filter(id=id).first()
-
-    if not event:
+    try:
+        event = Event.objects.get_visible().filter(id=id).first()
+    except ObjectDoesNotExist:
         raise Http404
 
     return render(request, 'events/detail.html', {

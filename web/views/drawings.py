@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.http import Http404
 
@@ -29,9 +30,9 @@ def view_drawings_sold(request):
 
 
 def view_drawings_detail(request, id):
-    drawing = Drawing.objects.get(id=id)
-
-    if not drawing:
+    try:
+        drawing = Drawing.objects.get(id=id)
+    except ObjectDoesNotExist:
         raise Http404
 
     return render(request, 'drawings/detail.html', {
