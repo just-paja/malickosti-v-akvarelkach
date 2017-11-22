@@ -1,4 +1,4 @@
 - src: practical-ansible.nginx-django
-  version: 1.0.0
+  version: 1.0.1
 - src: practical-ansible.nginx-redirect
   version: master
