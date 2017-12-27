@@ -13,8 +13,8 @@
     - role: practical-ansible.nginx-django
     - role: practical-ansible.nginx-redirect
       nginx_redirect_project_name: cz-terkyakvarelky
-      nginx_redirect_server_name: terkyakvarelky.cz www.terkyakvarelky.cz
-      nginx_redirect_destination_url: https://www.facebook.com/T%C3%A9ra-v-akvarelk%C3%A1ch-760098320836028/
+      nginx_redirect_server_name: www.terkyakvarelky.cz
+      nginx_redirect_destination_url: terkyakvarelky.cz
       nginx_redirect_status: 302
 
   post_tasks:
