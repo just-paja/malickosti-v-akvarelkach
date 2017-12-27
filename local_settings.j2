@@ -54,3 +54,6 @@ DATABASES = {
     },
 }
 {% endif %}
+{% if lookup('env', 'FIO_TOKEN') %}
+FIO_TOKEN = '{{lookup('env', 'FIO_TOKEN')}}'
+{% endif %}
