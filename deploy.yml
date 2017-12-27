@@ -15,7 +15,7 @@
       nginx_redirect_project_name: cz-terkyakvarelky
       nginx_redirect_server_name: www.terkyakvarelky.cz
       nginx_redirect_destination_url: https://terkyakvarelky.cz
-      nginx_redirect_status: 302
+      nginx_redirect_status: 301
 
   post_tasks:
     - name: Configure Transaction cron job
