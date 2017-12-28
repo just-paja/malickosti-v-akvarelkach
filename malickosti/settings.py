@@ -136,6 +136,7 @@ AWS_SECRET_ACCESS_KEY = None
 AWS_STORAGE_BUCKET_NAME = None
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_HOST = 's3-eu-west-1.amazonaws.com'
+AWS_S3_FILE_OVERWRITE = False
 
 try:
     from local_settings import *  # noqa
