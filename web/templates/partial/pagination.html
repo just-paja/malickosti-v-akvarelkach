@@ -1,0 +1,42 @@
+{% load spurl %}
+{% url pagination_url as url_base %}
+
+{% if pages_total > 1 %}
+  <nav class="mb-3" aria-label="Stránkování">
+    <ul class="pagination justify-content-center">
+      <li class="page-item{% if page_current <= 1 %} disabled{% endif %}">
+          <a
+            class="page-link"
+            href="{% spurl path=pagination_url query=query_params set_query="stranka={{page_prev}}" %}"
+            tabindex="-1"
+            aria-label="Předchozí"
+          >
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Předchozí</span>
+          </a>
+      </li>
+
+      {% for page in pages %}
+        <li class="page-item{% if page == page_current %} active{% endif %}">
+          <a
+            class="page-link"
+            href="{% spurl path=pagination_url query=query_params set_query="stranka={{page}}" %}"
+          >{{page}}</a>
+        </li>
+      {% endfor %}
+
+      <li class="page-item{% if page_current >= pages_total %} disabled{% endif %}">
+        <a
+          class="page-link"
+          href="{% spurl path=pagination_url query=query_params set_query="stranka={{page_next}}" %}"
+          aria-label="Následující"
+        >
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Následující</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endif %}
+
+<p class="text-center">Celkem nalezeno {{items_total}} položek.</p>
