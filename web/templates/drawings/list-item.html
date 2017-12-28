@@ -9,7 +9,7 @@
   <div class="drawing-info">
     <ul class="list-unstyled">
       <li>
-        <a href="{% url 'drawings-detail' drawing.id %}">{{drawing.name}}</a>
+        <a href="{% url 'drawings-detail' drawing.id %}">{{drawing.name}}{% if show_size %} ({{drawing.size.name}}){% endif %}</a>
       </li>
       {% if display_price or drawing.is_price_visible %}
         <li>

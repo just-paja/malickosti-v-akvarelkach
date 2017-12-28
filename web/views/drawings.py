@@ -19,6 +19,7 @@ def view_drawings(request):
     drawings = Drawing.objects.filter(
         status__in=[DRAWING_STATUS_STORED, DRAWING_STATUS_RESERVED],
     )
+    show_size = True
     query_params = {}
 
     if for_sale and for_sale == 'ne':
@@ -33,6 +34,7 @@ def view_drawings(request):
         except ObjectDoesNotExist:
             raise Http404
 
+        show_size = False
         query_params['velikost'] = size.id
         drawings = drawings.filter(size=size_id)
 
@@ -41,6 +43,7 @@ def view_drawings(request):
     return render(request, 'drawings/index.html', {
         'drawings': drawings,
         'query_params': query_params,
+        'show_size': show_size,
         'sizes': sizes,
     })
 
