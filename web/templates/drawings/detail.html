@@ -1,5 +1,7 @@
 {% extends 'layout/structured.html' %}
 
+{% load spurl %}
+
 {% block title %}{{ drawing.name }}{% endblock %}
 
 {% block head %}
@@ -12,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+  {% url 'drawings' as url_drawings %}
   <div class="container py-3">
     <div class="row">
       <div class="col-md-6 col-lg-8 mb-3 text-center drawing-detail-image">
@@ -27,7 +30,8 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <span class="value-label">Velikost:&nbsp;</span>
-              {{ drawing.size.name }}
+              <a href="{% spurl path=url_drawings set_query="velikost={{drawing.size.id}}" %}">{{ drawing.size.name }}</a>
+              ({{drawing.size.size_horizontal}}x{{drawing.size.size_vertical}} mm)
             </li>
             {% if drawing.is_price_visible %}
               <li class="list-group-item">

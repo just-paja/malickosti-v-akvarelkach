@@ -42,11 +42,6 @@ urlpatterns = [
     url(r'^kontakt$', view_contact, name='contact'),
     url(r'^obrazky$', view_drawings, name='drawings'),
     url(
-        r'^obrazky/\?velikost\=(?P<size_id>[0-9]+)$',
-        view_drawings,
-        name='drawings-by-size',
-    ),
-    url(
         r'^obrazky/(?P<id>[0-9]+)$',
         view_drawings_detail,
         name='drawings-detail',
