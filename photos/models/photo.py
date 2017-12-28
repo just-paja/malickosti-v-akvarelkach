@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils.models import TimeStampedModel
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToCover
 
 
 class Photo(TimeStampedModel):
@@ -18,7 +18,7 @@ class Photo(TimeStampedModel):
         format='JPEG',
         options={'quality': 95},
         processors=[
-            ResizeToFill(600, 600),
+            ResizeToCover(600, 600),
         ],
     )
     height = models.PositiveIntegerField(null=True)

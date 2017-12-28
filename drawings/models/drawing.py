@@ -13,7 +13,7 @@ from django.db.models import (
 from django.utils.translation import ugettext_lazy as _
 
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToCover
 from model_utils.models import TimeStampedModel
 
 from .watermark import Watermark
@@ -74,7 +74,7 @@ class Drawing(TimeStampedModel):
         format='JPEG',
         options={'quality': 95},
         processors=[
-            ResizeToFill(600, 600),
+            ResizeToCover(600, 600),
             Watermark(
                 '%s/web/static/images/watermark-black.png' % settings.BASE_DIR,
                 0.09,
@@ -86,7 +86,7 @@ class Drawing(TimeStampedModel):
         format='JPEG',
         options={'quality': 95},
         processors=[
-            ResizeToFill(300, 300),
+            ResizeToCover(300, 300),
             Watermark(
                 '%s/web/static/images/watermark-white.png' % settings.BASE_DIR,
                 0.1,

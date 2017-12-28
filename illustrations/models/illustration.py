@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models import ImageField, Manager, PositiveIntegerField
 
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToCover
 from model_utils.models import TimeStampedModel
 
 
@@ -45,7 +45,7 @@ class Illustration(TimeStampedModel):
         format='JPEG',
         options={'quality': 95},
         processors=[
-            ResizeToFill(300, 300),
+            ResizeToCover(300, 300),
         ],
     )
     image_thumb_admin = ImageSpecField(
@@ -53,7 +53,7 @@ class Illustration(TimeStampedModel):
         format='JPEG',
         options={'quality': 95},
         processors=[
-            ResizeToFill(100, 100),
+            ResizeToCover(100, 100),
         ],
     )
     image_height = PositiveIntegerField(null=True)
