@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'captcha',
     'storages',
     'imagekit',
+    'spurl',
     'raven.contrib.django.raven_compat',
 ]
 

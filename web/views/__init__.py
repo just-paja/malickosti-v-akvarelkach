@@ -10,7 +10,6 @@ from .contact import view_contact
 from .drawings import (
     view_drawings,
     view_drawings_detail,
-    view_drawings_sold,
 )
 from .events import (
     view_events,
@@ -34,7 +33,6 @@ __all__ = (
     view_contact,
     view_drawings,
     view_drawings_detail,
-    view_drawings_sold,
     view_events,
     view_events_archive,
     view_events_detail,

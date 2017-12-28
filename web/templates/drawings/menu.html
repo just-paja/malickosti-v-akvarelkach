@@ -1,17 +1,37 @@
+{% load spurl %}
 {% url 'drawings' as url_drawings %}
-{% url 'drawings-sold' as url_drawings_sold %}
 
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a
-      class="nav-link{% if request.get_full_path == url_drawings %} active{% endif %}"
-      href="{{ url_drawings }}"
-    >K zakoupení</a>
-  </li>
-  <li class="nav-item">
-    <a
-      class="nav-link{% if request.get_full_path == url_drawings_sold %} active{% endif %}"
-      href="{{ url_drawings_sold }}"
-    >Prodané</a>
-  </li>
-</ul>
+<div class="link-filter">
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a
+        class="nav-link{% if not query_params.velikost %} active{% endif %}"
+        href="{% spurl path=url_drawings query=query_params remove_query_param="velikost" %}"
+      >Všechny velikosti</a>
+    </li>
+
+    {% for size in sizes %}
+      <li class="nav-item">
+        <a
+          class="nav-link{% if query_params.velikost == size.id %} active{% endif %}"
+          href="{% spurl path=url_drawings query=query_params set_query="velikost={{size.id}}" %}"
+        >{{size.name}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a
+        class="nav-link{% if not query_params.prodejne %} active{% endif %}"
+        href="{% spurl path=url_drawings query=query_params remove_query_param="prodejne" %}"
+      >K zakoupení</a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link{% if query_params.prodejne == 'ne' %} active{% endif %}"
+        href="{% spurl path=url_drawings query=query_params set_query="prodejne=ne" %}"
+      >Prodané</a>
+    </li>
+  </ul>
+</div>

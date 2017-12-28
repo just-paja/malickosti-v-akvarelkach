@@ -193,6 +193,15 @@ h1.bg-white ~ hr {
   display: none
 }
 
+.link-filter .nav {
+  margin-bottom: 1px;
+}
+
+.link-filter .nav-link.active {
+  background: rgba(175,175,175,0.25);
+  border-radius: 0.25rem;
+}
+
 @media screen and (min-width: 576px) {
   .btn-xs-stretch {
     width: auto;

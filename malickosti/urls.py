@@ -30,7 +30,6 @@ from web.views import (
     view_contact,
     view_drawings,
     view_drawings_detail,
-    view_drawings_sold,
     view_events,
     view_events_archive,
     view_events_detail,
@@ -42,7 +41,11 @@ urlpatterns = [
     url(r'^o-mne$', view_about, name='about'),
     url(r'^kontakt$', view_contact, name='contact'),
     url(r'^obrazky$', view_drawings, name='drawings'),
-    url(r'^obrazky/prodane$', view_drawings_sold, name='drawings-sold'),
+    url(
+        r'^obrazky/\?velikost\=(?P<size_id>[0-9]+)$',
+        view_drawings,
+        name='drawings-by-size',
+    ),
     url(
         r'^obrazky/(?P<id>[0-9]+)$',
         view_drawings_detail,
