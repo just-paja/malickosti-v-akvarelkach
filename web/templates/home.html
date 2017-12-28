@@ -55,7 +55,7 @@
       <h2 class="mb-3">Nejnovější obrázky</h2>
       {% if latest_drawings %}
         {% for drawing in latest_drawings %}
-          {% include 'drawings/list-item.html' with drawing=drawing %}
+          {% include 'drawings/list-item.html' with drawing=drawing show_size=True %}
         {% endfor %}
       {% else %}
         <div class="alert alert-info">
