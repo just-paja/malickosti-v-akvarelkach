@@ -9,10 +9,10 @@
 <meta property="og:title" content="Terky Akvarelky" />
 <meta property="og:description" content="Každá maličkost dokáže udělat den krásnějším." />
 {% for illustration in illustrations %}
-  <meta property="og:image" content="{{illustration.image.url}}" />
+  <meta property="og:image" content="{{illustration.image_thumb_detail.url}}" />
   <meta property="og:image:alt" content="Ilustrace" />
-  <meta property="og:image:width" content="{{illustration.image.width}}" />
-  <meta property="og:image:height" content="{{illustration.image.height}}" />
+  <meta property="og:image:width" content="{{illustration.image_thumb_detail.width}}" />
+  <meta property="og:image:height" content="{{illustration.image_thumb_detail.height}}" />
 {% endfor %}
 {% endblock %}
 
@@ -23,7 +23,7 @@
   <div class="row pt-3 mb-3">
     {% for illustration in illustrations %}
       <div class="img-gallery mt-auto col-sm-6 col-md-4">
-        <img class="img-fluid img-responsive m-auto" src="{{illustration.image.url}}" alt="{{_('Ilustrace')}}" />
+        <img class="img-fluid img-responsive m-auto" src="{{illustration.image_thumb_detail.url}}" alt="{{_('Ilustrace')}}" />
       </div>
     {% endfor %}
   </div>

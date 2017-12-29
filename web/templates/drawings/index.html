@@ -6,10 +6,10 @@
   <meta property="og:title" content="Obrázky - Terky Akvarelky" />
   <meta property="og:description" content="Přehled v všech obrázků" />
   {% for drawing in drawings %}
-    <meta property="og:image" content="{{drawing.image_thumb_detail.url}}" />
+    <meta property="og:image" content="{{drawing.image_thumb_list.url}}" />
     <meta property="og:image:alt" content="Náhled {{drawing.get_title}}" />
-    <meta property="og:image:width" content="{{drawing.image_thumb_detail.width}}" />
-    <meta property="og:image:height" content="{{drawing.image_thumb_detail.height}}" />
+    <meta property="og:image:width" content="{{drawing.image_thumb_list.width}}" />
+    <meta property="og:image:height" content="{{drawing.image_thumb_list.height}}" />
   {% endfor %}
 {% endblock %}
 
