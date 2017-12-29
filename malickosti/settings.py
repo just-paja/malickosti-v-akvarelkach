@@ -46,6 +46,19 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'malickosti.urls'
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'django_cache_default',
+    },
+    'cache_images': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'django_cache_images',
+        'TIMEOUT': None,
+    },
+}
+IMAGEKIT_CACHE_BACKEND = 'cache_images'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
