@@ -1,6 +1,5 @@
 from datetime import datetime
 
-from django.conf import settings
 from django.db.models import (
     ForeignKey,
     CharField,
@@ -76,7 +75,7 @@ class Drawing(TimeStampedModel):
         processors=[
             ResizeToCover(600, 600),
             Watermark(
-                '%s/web/static/images/watermark-black.png' % settings.BASE_DIR,
+                'web/static/images/watermark-black.png',
                 0.09,
             )
         ],
@@ -88,7 +87,7 @@ class Drawing(TimeStampedModel):
         processors=[
             ResizeToCover(300, 300),
             Watermark(
-                '%s/web/static/images/watermark-white.png' % settings.BASE_DIR,
+                'web/static/images/watermark-white.png',
                 0.1,
             ),
         ],

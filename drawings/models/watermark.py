@@ -1,10 +1,14 @@
 from PIL import Image, ImageEnhance
+from django.conf import settings
 
 
 class Watermark:
     def __init__(self, source, opacity=0.5):
         self.source = source
         self.opacity = opacity
+
+    def get_source_path(self):
+        return '%s/%s' % (settings.BASE_DIR, self.source)
 
     def reduce_opacity(self, im, opacity):
         """Returns an image with reduced opacity."""
@@ -19,7 +23,7 @@ class Watermark:
         return im
 
     def process(self, image):
-        overlay = self.reduce_opacity(Image.open(self.source), self.opacity)
+        overlay = self.reduce_opacity(Image.open(self.get_source_path()), self.opacity)
         ratio = min(
             float(image.size[0]) / overlay.size[0] / 1.5,
             float(image.size[1]) / overlay.size[1] / 1.5,
