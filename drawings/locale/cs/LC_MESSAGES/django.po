@@ -117,16 +117,12 @@ msgid "field-size-vertical-help-text"
 msgstr "Velikost na výšku v milimetrech"
 
 #: drawings/models/drawing_size.py:22
-#, fuzzy
-#| msgid "field-name"
 msgid "field-standalone-name"
 msgstr "Samostatný název"
 
 #: drawings/models/drawing_size.py:23
-#, fuzzy
-#| msgid "field-name-help-text"
 msgid "field-standalone-name-help-text"
-msgstr "Jméno velikosti zobrazí v titulcích"
+msgstr "Jméno velikosti se zobrazí v titulcích"
 
 #: drawings/models/drawing_size.py:28
 msgid "Drawing Size"
