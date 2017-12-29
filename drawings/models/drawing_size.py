@@ -18,6 +18,11 @@ class DrawingSize(TimeStampedModel):
         verbose_name=_('field-size-vertical'),
         help_text=_('field-size-vertical-help-text'),
     )
+    standalone_name = models.BooleanField(
+        verbose_name=_('field-standalone-name'),
+        help_text=_('field-standalone-name-help-text'),
+        default=False,
+    )
 
     class Meta:
         verbose_name = _('Drawing Size')

@@ -130,3 +130,6 @@ class Drawing(TimeStampedModel):
 
     def mark_as_sold(self):
         self.status = DRAWING_STATUS_SOLD
+
+    def get_title(self):
+        return '%s %s' % (self.size.name, self.name) if self.size.standalone_name else self.name

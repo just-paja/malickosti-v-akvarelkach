@@ -2,15 +2,16 @@
 
 {% load spurl %}
 
-{% block title %}{{ drawing.name }}{% endblock %}
+{% block title %}{{ drawing.get_title }} - Terky Akvarelky{% endblock %}
 
 {% block head %}
-<meta property="og:title" content="{{drawing.name}}" />
-<meta property="og:image" content="{{drawing.image_thumb_detail.url}}" />
+  <meta property="og:title" content="{{ drawing.get_title }} - Terky Akvarelky" />
+  <meta property="og:description" content="{% if drawing.size.standalone_name %}{{drawing.size.name}} {% endif %}{{drawing.name}} z kolekce Maličkosti v akvarelkách" />
+  <meta property="og:image" content="{{drawing.image_thumb_detail.url}}" />
 {% endblock %}
 
 {% block heading %}
-<h1 class="text-center bg-white">{{ drawing.name }}</h1>
+  <h1 class="text-center bg-white">{{ drawing.name }}</h1>
 {% endblock %}
 
 {% block content %}

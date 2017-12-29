@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.core import mail
 from django.urls import reverse
@@ -14,9 +16,12 @@ from ..forms import ContactForm
 def view_contact(request, id=None):
     drawing = None
     if id:
-        drawing = Drawing.objects.exclude(
-            status__in=DRAWING_AVAILABLE_STATES,
-        ).get(id=id)
+        try:
+            drawing = Drawing.objects.exclude(
+                status__in=DRAWING_AVAILABLE_STATES,
+            ).get(id=id)
+        except ObjectDoesNotExist:
+            raise Http404
 
     if request.method == 'POST':
         form = ContactForm(request.POST)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-21 17:05+0000\n"
+"POT-Creation-Date: 2017-12-29 00:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,11 +116,23 @@ msgstr "Velikost na výšku"
 msgid "field-size-vertical-help-text"
 msgstr "Velikost na výšku v milimetrech"
 
+#: drawings/models/drawing_size.py:22
+#, fuzzy
+#| msgid "field-name"
+msgid "field-standalone-name"
+msgstr "Samostatný název"
+
 #: drawings/models/drawing_size.py:23
+#, fuzzy
+#| msgid "field-name-help-text"
+msgid "field-standalone-name-help-text"
+msgstr "Jméno velikosti zobrazí v titulcích"
+
+#: drawings/models/drawing_size.py:28
 msgid "Drawing Size"
 msgstr "Velikost obrázku"
 
-#: drawings/models/drawing_size.py:24
+#: drawings/models/drawing_size.py:29
 msgid "Drawing Sizes"
 msgstr "Velikosti obrázků"
 

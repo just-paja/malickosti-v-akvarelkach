@@ -7,10 +7,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="author" content="Pavel Žák <pavel@zak.global>">
 
+  {% block head %}{% endblock %}
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{request.scheme}}://{{request.get_host}}{{request.path}}" />
-  {% block head %}
-  {% endblock %}
 
   <title>
     {% block title %}{% endblock %}
